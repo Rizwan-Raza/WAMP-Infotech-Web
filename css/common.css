@@ -1,0 +1,168 @@
+body {
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+}
+
+.scrollable {
+    flex: 2;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+div,
+article,
+header,
+section,
+figure,
+footer {
+    box-sizing: border-box;
+}
+
+nav {
+    /* background-color: #083b66; */
+    color: #444444;
+    background-color: #ffffff;
+}
+
+.brand-logo,
+nav ul li a {
+    color: #444444 !important;
+}
+
+.brand-img {
+    padding-left: 16px;
+    padding-right: 16px;
+    height: 40px;
+    margin-top: -8px;
+    margin-bottom: -8px;
+}
+
+.sidenav {
+    height: 100%;
+    padding-bottom: 0px;
+}
+
+#nav-mobile li {
+    outline: none;
+}
+
+hr.short-border {
+    border: 2px solid #3d85c6;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.home-banner {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+section.card-panel {
+    margin: 2rem;
+}
+
+
+@media (max-width: 600px) {
+    section.card-panel {
+        margin: 1rem;
+    }
+}
+
+
+.btn-primary {
+    background-color: #3d85c6;
+}
+
+/* label focus color */
+#qq .input-field input:focus+label,
+#qq .input-field textarea:focus+label {
+    color: #3d85c6 !important;
+}
+
+/* label underline focus color */
+#qq .input-field input:focus,
+#qq .input-field textarea:focus {
+    border-bottom: 1px solid #3d85c6 !important;
+    box-shadow: 0 1px 0 0 #3d85c6 !important;
+}
+
+/* icon prefix focus color */
+#qq .input-field .prefix.active {
+    color: #3d85c6 !important;
+}
+
+.serviceDropDownContainer .dropdown-content {
+    /* min-width: 50px; */
+    transform: scaleY(1) !important;
+    width: 100% !important;
+    /* position: static; */
+}
+
+/* div.aboutDropDownContainer .dropdown-content li a, */
+div.serviceDropDownContainer .dropdown-content li a {
+    text-align: center;
+}
+
+.flow-text p {
+    font-size: 1rem;
+}
+
+@media (min-width: 600px) {
+    .flow-text p {
+        font-size: 75%;
+    }
+}
+
+/*********************** Media Query Tweaks  ********************************/
+
+@media (max-width: 600px) {
+    nav .brand-logo {
+        left: 40px;
+        transform: none;
+        padding-left: 1rem;
+    }
+
+    nav .brand-img {
+        display: none
+    }
+}
+
+@media (max-width: 400px) {
+    .sidenav {
+        width: 240px;
+    }
+}
+
+@media (max-width: 992px) {
+    .dropdown-content {
+        position: static;
+    }
+}
+
+/***************** Scrollbar *************************/
+@media (orientation: landscape) {
+    ::-webkit-scrollbar {
+        width: 5px;
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #3d85c6;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #3775ac;
+    }
+
+    ::-webkit-scrollbar-thumb:active,
+    ::-webkit-scrollbar-thumb:focus {
+        /* background-color: #2a577e; */
+        background-color: red;
+    }
+
+}

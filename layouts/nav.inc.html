@@ -1,0 +1,115 @@
+<ul class="sidenav" id="mobile-sidenav">
+    <li class="waves-effect w-full show-on-medium"><img src="images/banner_back.jpg" class="home-banner" /></li>
+    <li class="waves-effect w-full"><a href="index.html"><i class="material-icons">home</i> Home</a></li>
+    <li class="waves-effect w-full"><a class="dropdown-trigger" href="javascript:;" data-target="about_dropdown"><i
+                class="material-icons">group</i>
+            About <i class="material-icons right">expand_more</i></a></li>
+    <li class="about-mobile-drop"></li>
+    <li class="waves-effect w-full"><a class="dropdown-trigger" href="javascript:;" data-target="service_dropdown"><i
+                class="material-icons">devices</i> Services <i class="material-icons right">expand_more</i></a></li>
+    <li class="service-mobile-drop"></li>
+    <li class="waves-effect w-full"><a href="work.html"><i class="material-icons">whatshot</i> Our Work</a></li>
+    <li class="waves-effect w-full"><a href="#"><i class="material-icons">forum</i> Blog</a></li>
+    <li class="waves-effect w-full"><a href="contact.html"><i class="material-icons">contact_mail</i> Contact Us</a></li>
+</ul>
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo"><img src="images/wamp-round-logo.png" class="brand-img" />WAMP&nbsp;Infotech</a>
+            <a href="#" data-target="mobile-sidenav" class="sidenav-trigger text-primary"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="waves-effect"><a href="index.html">Home</a></li>
+                <li class="waves-effect"><a class="about dropdown-trigger" href="javascript:;" data-target="about_dropdown">About
+                        <i class="material-icons right">expand_more</i></a></li>
+                <li class="waves-effect"><a class="service dropdown-trigger" href="javascript:;" data-target="service_dropdown"
+                        href="#">Services <i class="material-icons right">expand_more</i></a></li>
+                <li class="waves-effect"><a href="work.html">Our Work</a></li>
+                <li class="waves-effect"><a href="#">Blog</a></li>
+                <li class="waves-effect"><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="aboutDropDownContainer"></div>
+    <div class="serviceDropDownContainer"></div>
+</div>
+<!-- About Dropdown Structure -->
+<ul id="about_dropdown" class="dropdown-content">
+    <li><a href="overview.html" class="text-primary">Overview</a></li>
+    <li><a href="team.html" class="text-primary">Our Team</a></li>
+    <li><a href="about.html" class="text-primary">Mssion and Vision</a></li>
+</ul>
+
+<!-- Services Dropdown Structure -->
+<div id="service_dropdown" class="dropdown-content row">
+    <!-- <div class="col s12 center align-center">Hello World<hr class="short-border" /></div> -->
+    <ul class="col s12 m4">
+        <li><a href="#!" class="text-primary">Web Design</a></li>
+        <li><a href="#!" class="text-primary">Web Developement</a></li>
+        <li><a href="#!" class="text-primary">E-Commerce</a></li>
+        <li><a href="#!" class="text-primary">Hosting</a></li>
+    </ul>
+    <ul class="col s12 m4">
+        <li><a href="#!" class="text-primary">Web Design</a></li>
+        <li><a href="#!" class="text-primary">Web Developement</a></li>
+        <li><a href="#!" class="text-primary">E-Commerce</a></li>
+        <li><a href="#!" class="text-primary">Hosting</a></li>
+    </ul>
+    <ul class="col s12 m4">
+        <li><a href="#!" class="text-primary">Web Design</a></li>
+        <li><a href="#!" class="text-primary">Web Developement</a></li>
+        <li><a href="#!" class="text-primary">E-Commerce</a></li>
+        <li><a href="#!" class="text-primary">Hosting</a></li>
+    </ul>
+</div>
+
+<div class="fixed-action-btn">
+    <a class="waves-effect waves-light btn btn-floating btn-large bg-primary modal-trigger" data-target="quick_query_modal"
+        id="quick_query">
+        <i class="large material-icons">mode_edit</i>
+    </a>
+</div>
+
+<!-- Modal Structure -->
+<div id="quick_query_modal" class="modal">
+    <div class="modal-content pb-0">
+        <h4 class="text-primary"><b>Quick Query</b></h4>
+        <p>Please fill this short form below so that we can reach out to you as soon as possible!</p>
+        <form id="qq">
+            <div class="row mb-0">
+                <div class="input-field col m6 w-full">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="name" type="text" class="validate" name="qq_name">
+                    <label for="name">Name</label>
+                </div>
+                <div class="input-field col m6 w-full">
+                    <i class="material-icons prefix">email</i>
+                    <input id="email" type="email" class="validate" name="qq_email">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row mb-0">
+                <div class="input-field col m6 w-full">
+                    <i class="material-icons prefix">phone</i>
+                    <input id="number" type="tel" class="validate" name="qq_number">
+                    <label for="number">Number</label>
+                </div>
+                <div class="input-field col m6 w-full">
+                    <i class="material-icons prefix">group</i>
+                    <input id="company" type="text" class="validate" name="qq_company">
+                    <label for="company">Company</label>
+                </div>
+            </div>
+            <div class="row mb-0">
+                <div class="input-field col s12 w-full">
+                    <i class="material-icons prefix">message</i>
+                    <textarea id="message" class="materialize-textarea" name="qq-message" data-length="20"></textarea>
+                    <label for="message">Message</label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect btn-flat text-primary fw-500">Close</a>
+        <a href="#!" class="modal-close waves-effect waves-light btn bg-primary fw-500">Send</a>
+    </div>
+</div>

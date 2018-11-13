@@ -1,0 +1,33 @@
+{
+  "our_works": [{
+      "src": "images/works/banner_back.jpg",
+      "url": "https://a2zinterior.in",
+      "title": "A2Z Interior"
+    },
+    {
+      "src": "images/works/archue.PNG",
+      "url": "http://archue.com",
+      "title": "Archue"
+    },
+    {
+      "src": "images/works/banner_back.jpg",
+      "url": "http://gloriastylx.com",
+      "title": "Gloria Stylx"
+    },
+    {
+      "src": "images/works/banner_back.jpg",
+      "url": "http://redolenceindia.in",
+      "title": "Redolence India"
+    },
+    {
+      "src": "images/works/banner_back.jpg",
+      "url": null,
+      "title": "Microrent India"
+    },
+    {
+      "src": "images/works/wampinstitute.PNG",
+      "url": "https://wampinstitute.in",
+      "title": "WAMP Institute"
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+.home-video {
+    border-radius: 1rem;
+    border: 2px solid #ec008c;
+    padding: 1rem;
+    max-width: 53rem;
+    /* height: 30rem; */
+    width: 80%;
+    height: 100%;
+    position: relative;
+    margin: 0 auto 4rem;
+}
+
+.home-video .start-button {
+    top: calc(50% - .5rem);
+    left: 1rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 2px solid #ec008c;
+    position: absolute;
+}
+
+.yt-video {
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: calc(100% - 4.5rem);
+    height: calc(100% - 3rem);
+    margin: 0 1.5rem 0 auto;
+    border: .1rem solid #e3e3e3;
+    position: absolute;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+#services>div.col {
+    height: 160px;
+    cursor: pointer;
+    color: black !important;
+    transition: all .5s ease;
+}
+
+
+#services>div.col h5 {
+    transition: all .5s ease;
+    color: #3d85c6;
+    font-weight: bold;
+}
+
+/* #services>div.col img {
+    transition: all 200ms ease-in;
+    border-color: #888888;
+} */
+
+#services>div.col:hover h5 {
+    color: #ec008c;
+}
+
+#services>div.col:hover .image-block {
+    border-color: #ec008c;
+}
+
+#services>div.col:hover .image-block svg {
+    color: #ec008c;
+    transition: fill .5s ease;
+}
+
+
+.svg-container:not(.no-color) svg [fill*="#"]:not(.noColor),
+.svg-container:not(.no-color) svg [style*="fill:#"]:not(.noColor),
+.svg-container:not(.no-color) svg [style*="fill: #"]:not(.noColor) {
+    fill: currentColor !important;
+    -webkit-transition: fill .5s ease;
+    transition: fill .5s ease;
+}
+
+#our-works>div.col {
+    min-height: 300px;
+    height: auto;
+}
+
+#our-works>div.col.m6 {
+    height: 300px;
+    padding: 0;
+    cursor: pointer;
+}
+
+#our-works .overlay {
+    background-color: #ec008c;
+    display: none;
+    width: 100%;
+    height: 100%;
+    transition: all 200ms ease;
+}
+
+#our-works div.col.m4:hover .overlay {
+    display: block;
+}
+
+#our-works h5 a {
+    text-decoration: underline;
+}
+
+#our-works h5 a:hover {
+    text-decoration: none;
+}
+
+.carousel .carousel-item {
+    min-height: 300px !important;
+    height: auto;
+    padding: 2rem;
+}
+
+/***********************************************************/
+.image-block {
+    /* width: 10.8rem; */
+    /* height: 10.8rem; */
+    width: 100%;
+    height: 0;
+    border-radius: 50%;
+    border: .2rem solid #b9b9b9;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    /* padding: 1.2rem; */
+    padding-bottom: calc(100% - 0.4rem);
+    display: block;
+    position: relative;
+}
+
+.image-block:before {
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    border: .1rem solid #b9b9b9;
+    margin: .3rem;
+    position: absolute;
+}
+
+.image-block .icon {
+    color: #959595;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    /* width: 5.5rem; */
+    /* height: 5.5rem; */
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.image-block svg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.image-block a {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*********************** Media Query Tweaks  ********************************/
+@media only screen and (max-width: 1100px) {
+    .home-video {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .home-video {
+        max-width: 40rem;
+        height: 25rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-video {
+        width: 100%;
+        height: auto;
+        padding-bottom: 56.25%;
+    }
+
+    .carousel {
+        height: 500px;
+    }
+}
+
+@media (max-width: 400px) {
+    .carousel {
+        height: 600px;
+    }
+
+    #about .col {
+        padding: 0;
+    }
+
+    .yt-video {
+        width: calc(100% - 3rem);
+        height: calc(100% - 2rem);
+        margin: 0 1rem 0 auto;
+    }
+
+    .home-video .start-button {
+        left: 0.6rem;
+    }
+
+    .carousel .carousel-item {
+        padding: 0 !important;
+    }
+
+    .image-block .icon {
+        width: 60%;
+        height: 60%;
+    }
+}
+
+@media (max-width: 768) {
+    .home-video {
+        margin: 0 auto 2rem;
+    }
+}

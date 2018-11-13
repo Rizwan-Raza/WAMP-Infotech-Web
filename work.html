@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<?php require "services/fetcher.php"; ?>
+<html lang="en">
+
+<head>
+    <title>Digital Marketing Company | Web Design Company</title>
+    <?php include "includes/head.inc.php"; ?>
+    <link rel="stylesheet" href="css/ihover.css" />
+    <link rel="stylesheet" href="css/work.css" />
+</head>
+
+<body>
+    <?php include "layouts/nav.inc.html"; ?>
+    <div class="scrollable grey lighten-3">
+        <header>
+            <img src="images/our-work.jpg" class="home-banner"/>
+        </header>
+        <section id="work" class="card-panel flow-text">
+            <h4 class="center-align">Our Work</h4>
+            <hr class="short-border" />
+            <br />
+            <?php 
+            $works = getJson("./data/our-works.json", "our_works");
+            foreach ($works as $work) { ?>
+            <div class="divider"></div>
+            <div class="section row valign-wrapper">
+                <br />
+                <div class="col s12 m3">
+                    <div class="grey avatar lh-0">
+                        <img src="<?=$work['src']?>" alt="" class="w-full responsive-img">
+                    </div>
+                    <div class="center my-1">
+                        <a href="mailto:<?=$work['title']?>" class="waves-effect waves-light btn-flat bg-primary my-1">
+                            <i class="material-icons">email</i>
+                        </a>
+                        <a href="#!" class="waves-effect waves-light btn-flat bg-primary my-1">
+                            <svg style="width:24px;height:24px;margin: 4px -3px 4px -3px;" viewBox="0 0 24 24">
+                                <path fill="#ffffff" d="M21,21H17V14.25C17,13.19 15.81,12.31 14.75,12.31C13.69,12.31 13,13.19 13,14.25V21H9V9H13V11C13.66,9.93 15.36,9.24 16.5,9.24C19,9.24 21,11.28 21,13.75V21M7,21H3V9H7V21M5,3A2,2 0 0,1 7,5A2,2 0 0,1 5,7A2,2 0 0,1 3,5A2,2 0 0,1 5,3Z" />
+                            </svg>
+                        </a>
+                        <!-- <button class="btn btn-flat waves-light waves-effect bg-primary my-1"><i class="material-icons">email</i></button>
+                        <button class="btn btn-flat waves-light waves-effect bg-primary my-1"><i class="material-icons">call</i></button> -->
+                    </div>
+                </div>
+                <div class="col s12 m9">
+                    <h4 class="black-text mt-0"><b>
+                            <?=$work['title']?></b></h4>
+                    <h5>
+                        <?=$work['url']?>
+                    </h5>
+                    <p class="grey-text text-darken-1">
+                        <!-- <?=$work['title']?> -->
+                    </p>
+                </div>
+            </div>
+            <?php } ?>
+        </section>
+
+        <?php include "layouts/footer.inc.html"; ?>
+    </div>
+
+    <?php include "includes/scripts.inc.php"; ?>
+    <script src="ui-scripts/about.js"></script>
+</body>
+
+</html>

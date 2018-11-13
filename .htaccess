@@ -1,0 +1,2 @@
+#AddHandler application/x-httpd-lsphp .htm .html#AddHandler application/x-httpd-lsphp .htm .html
+AddType application/x-httpd-php .html

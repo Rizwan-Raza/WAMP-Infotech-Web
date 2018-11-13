@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<?php require "services/fetcher.php"; ?>
+<html lang="en">
+
+<head>
+    <title>Digital Marketing Company | Web Design Company</title>
+    <?php include "includes/head.inc.php"; ?>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/ihover.css" />
+    <link rel="stylesheet" href="css/team.css" />
+</head>
+
+<body>
+    <?php include "layouts/nav.inc.html"; ?>
+    <div class="scrollable grey lighten-3">
+        <header>
+            <img src="images/banner3.jpg" class="home-banner" />
+        </header>
+        <section id="our-team" class="card-panel flow-text">
+            <h4 class="center-align">Our Team</h4>
+            <hr class="short-border" />
+            <br />
+            <p class="center-align">
+                <span>WAMP InfoTech Pvt. Ltd. is a powerful bunch of IT consultants with their extraordinary
+                    involvement in
+                    the field of Digital Marketing Technology and a significant energy to boost. We bring together a
+                    group
+                    of highly dedicated individuals, who work with their exceptionally creative mind to always come up
+                    with
+                    some interesting.</span>
+            </p>
+            <!-- <p class="center-align">
+                Our group of working professionals are highly qualified in their respective fields to give you the best
+                experience in the form of a creative digital world. The group is trained to deliver you a qualified and
+                fully fledged website with, Website Developers, Project Coordinators, Client Relationship Management
+                (CRM), Project Managers, Technical Analysts, Content Writers, Artistic Heads, Web Marketing
+                Strategists, and SEO executives, Pay per Click (PPC) Services, Mobile App Developers, Social Media
+                Executives, Google AdWords and Quality Analysts. Each individual from the team of WAMP InfoTech Pvt.
+                Ltd. is a bunch of promising individuals.
+            </p> -->
+            <br />
+            <!-- <div class="row"> -->
+            <?php 
+            $team = getJson("./data/our-team.json", "our_team");
+            foreach ($team as $member) { ?>
+            <div class="divider"></div>
+            <div class="section row valign-wrapper">
+                <br />
+                <div class="col s3">
+                    <div class="grey avatar">
+                        <img src="<?=$member['src']?>" alt="" class="w-full responsive-img">
+                    </div>
+                    <div class="center my-1">
+                        <a href="mailto:<?=$member['email']?>" class="waves-effect waves-light btn-flat bg-primary my-1">
+                            <i class="material-icons">email</i>
+                        </a>
+                        <a href="#!" class="waves-effect waves-light btn-flat bg-primary my-1">
+                            <img src="images/linkedin.svg" style="margin-top:4px"/>
+                        </a>
+                        <!-- <button class="btn btn-flat waves-light waves-effect bg-primary my-1"><i class="material-icons">email</i></button>
+                        <button class="btn btn-flat waves-light waves-effect bg-primary my-1"><i class="material-icons">call</i></button> -->
+                    </div>
+                </div>
+                <div class="col s9">
+                    <h4 class="black-text mt-0"><b>
+                            <?=$member['title']?></b></h4>
+                    <h5>
+                        <?=$member['role']?>
+                    </h5>
+                    <p class="grey-text text-darken-1">
+                        <?=$member['desc']?>
+                    </p>
+                </div>
+            </div>
+            <?php } ?>
+            <!-- </div> -->
+        </section>
+        <?php include "layouts/footer.inc.html"; ?>
+    </div>
+
+    <?php include "includes/scripts.inc.php"; ?>
+    <script src="ui-scripts/about.js"></script>
+</body>
+
+</html>

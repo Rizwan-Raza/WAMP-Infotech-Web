@@ -1,0 +1,11 @@
+#address .map {
+    width: 100%;
+    height: 450px;
+    border: 0;
+}
+
+@media (max-width: 600px) {
+    #address .map {
+        height: 250px;
+    }
+}

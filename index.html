@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<?php require "services/fetcher.php"; ?>
+<html lang="en">
+
+<head>
+    <title>Digital Marketing Company | Web Design Company</title>
+    <?php include "includes/head.inc.php"; ?>
+    <link rel="stylesheet" href="css/ihover.css" />
+    <link rel="stylesheet" href="css/home.css" />
+</head>
+
+<body>
+    <?php include "layouts/nav.inc.html"; ?>
+    <!-- Tap Target Structure -->
+    <div class="tap-target bg-primary" data-target="quick_query">
+        <div class="tap-target-content">
+            <h5>Quick Query</h5>
+            <p>Your search for digital partner ends here!</p>
+        </div>
+    </div>
+
+    <div class="scrollable grey lighten-3">
+        <header>
+            <img src="images/banner1.jpg" class="home-banner" />
+        </header>
+        <br />
+        <br class="hide-on-small-only" />
+        <section class="px-4" id="about">
+            <div class="flex row">
+                <div class="col s12 m12 l6">
+                    <div class="full">
+                        <div class="home-video white z-depth-2">
+                            <div class="start-button"></div>
+                            <iframe src="https://www.youtube.com/embed/WL44vPIqkds" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen class="yt-video"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m12 l6">
+                    <h2 class="mt-0 text-primary">We are <b>WAMP</b>.</h2>
+                    <br>
+                    <b>Most people like things clear and simple and we're no different.</b>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia numquam ad, modi vitae iure
+                        cumque
+                        eum, optio reiciendis molestias nesciunt beatae corrupti voluptates! Praesentium similique,
+                        sint
+                        doloremque repellendus nostrum voluptate!</p>
+
+                    <button onclick="window.location.href='overview.html'" class="waves-effect waves-light btn bg-primary">Learn more</button>
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </section>
+
+        <section class="section px-4">
+            <h3 class="text-primary mb-2">What we <b>do</b>.</h3>
+            <div class="row" id="services">
+                <?php 
+                $services = getJson("./data/services.json", "services");
+                foreach ($services as $service) { ?>
+                <div class="col s12 m6 l4 my-2 py-2">
+                    <div class="row mb-0 valign-wrapper">
+                        <div class="col s4">
+                            <div class="image-block">
+                                <span class="svg-container icon">
+                                    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78.143 62.993">
+                                        <path fill="#A0A0A0" d="M78.143 62.993H0V0h78.143v62.993zM2.632 60.36H75.51V2.633H2.632V60.36z"></path>
+                                        <path fill="#A0A0A0" d="M0 8.34h70.142v2.633H0zM6.054 4.292h2.723v2.633H6.054zM11.499 4.292h2.722v2.633h-2.722zM16.942 4.292h2.723v2.633h-2.723zM70.142 32.888h-2.633V18.224H10.632v12.031h54.153v2.633H8V15.591h62.142zM25.497 46.03H8v-9.42h17.497v9.42zm-14.865-2.633h12.231v-4.154H10.632v4.154zM47.82 46.03H30.323v-9.42H47.82v9.42zm-14.864-2.633h12.231v-4.154H32.956v4.154zM70.142 46.03H52.645v-9.42h17.497v9.42zm-14.864-2.633h12.231v-4.154H55.278v4.154zM8 48.298h17.497v2.633H8zM8 53.2h10.259v2.633H8zM30.323 48.298H47.82v2.633H30.323zM30.323 53.2h10.259v2.633H30.323zM52.645 48.298h17.497v2.633H52.645zM52.645 53.2h10.26v2.633h-10.26z"></path>
+                                    </svg>
+                                 -->
+
+                                    <?=$service['src']?>
+                                </span>
+                            </div>
+                            <!-- <img src="<?=$service['src']?>" alt="" class="circle responsive-img"> -->
+                        </div>
+                        <div class="col s8">
+                            <h5 class="mt-0">
+                                <?=$service['title']?>
+                            </h5>
+                            <span class="grey-text text-darken-1">
+                                <?=$service['desc']?>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+        </section>
+        <section>
+            <div class="row mb-0" id="our-works">
+                <div class="col s12 m12 l12 xl6 bg-primary p-4">
+                    <h4 class="white-text"><b>Our featured</b> projects <button onclick="window.location.href='work.html'"
+                            class="btn waves-effect right white text-primary fw-500">View
+                            more</button></h4>
+                    <br />
+                    <h5 class="white-text">Need a top-notch website to achieve your business goals?</h5>
+                    <h5><a href="#!" class="white-text">Contact us to recieve a free estimation</a></h5>
+                </div>
+
+                <?php 
+                $works = getJson("./data/our-works.json", "our_works");
+                foreach ($works as $work) { ?>
+
+                <div class="col s12 m6 l4 xl3 black">
+                    <div class="ih-item square effect13 top_to_bottom"><a href="#">
+                            <div class="img"><img src="<?=$work['src']?>" alt="img"></div>
+                            <div class="info valign-wrapper">
+                                <div class="w-full">
+                                    <h2 class="white-text text-z-depth-2">
+                                        <?=$work['title']?>
+                                    </h2>
+                                    <br />
+                                    <button class="btn bg-primary waves-effect">Details </button>
+                                </div>
+                            </div>
+                        </a></div>
+                </div>
+                <?php } ?>
+            </div>
+        </section>
+        <section class="p-4 black">
+            <div class="border-2 grey-border">
+                <h3 class="text-uppercase white-text center-align px-2"><b>What People say</b></h3>
+                <hr class="short-border" />
+
+                <div class="carousel carousel-slider center">
+                    <?php 
+                    $testimonials = getJson("./data/testimonials.json", "testimonials");
+                    foreach ($testimonials as $testimonial) { 
+                        ?>
+                    <div class="carousel-item black white-text" href="#one!">
+                        <p class="white-text px-4">
+                            <?=$testimonial['quote']?>
+                        </p>
+                        <h2>
+                            <?=$testimonial['author']?>
+                        </h2>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </section>
+
+        <section class="px-4 mb-4">
+            <h3 class="text-uppercase center-align"><b>We hope to hear from you soon</b></h3>
+            <br />
+            <button class="btn btn-large waves-effect waves-light bg-primary text-uppercase flex mx-auto fw-500">Get in
+                touch</button>
+            <br clear="both" />
+        </section>
+        <?php include "layouts/footer.inc.html"; ?>
+    </div>
+    <?php include "includes/scripts.inc.php"; ?>
+    <script src="ui-scripts/home.js"></script>
+</body>
+
+</html>

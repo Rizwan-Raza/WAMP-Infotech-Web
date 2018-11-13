@@ -1,0 +1,23 @@
+.avatar{
+    position:relative;
+    overflow:hidden;
+    padding-bottom:100%;
+}
+.avatar img{
+    position:absolute;
+}
+
+
+@media (max-width: 600px) {
+    #our-team.card-panel {
+        padding: 1rem;
+    }
+
+    #our-team.card-panel .row .col.s3 {
+        padding: 0;
+    }
+
+    #our-team .valign-wrapper {
+        display: block;
+    }
+}

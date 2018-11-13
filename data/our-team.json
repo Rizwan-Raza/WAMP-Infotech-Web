@@ -1,0 +1,24 @@
+{
+  "our_team": [{
+      "src": "images/placeholder.jpg",
+      "title": "S.M. Faris",
+      "role": "CEO",
+      "email": "webmaster@example.com",
+      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cupiditate quisquam beatae, corrupti dolore fugiat exercitationem sequi vel nihil iure aut possimus laudantium magni vero minus sapiente atque laboriosam quo."
+    },
+    {
+      "src": "images/placeholder.jpg",
+      "title": "S.M. Faris",
+      "role": "CEO",
+      "email": "webmaster@example.com",
+      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cupiditate quisquam beatae, corrupti dolore fugiat exercitationem sequi vel nihil iure aut possimus laudantium magni vero minus sapiente atque laboriosam quo."
+    },
+    {
+      "src": "images/placeholder.jpg",
+      "title": "S.M. Faris",
+      "role": "CEO",
+      "email": "webmaster@example.com",
+      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cupiditate quisquam beatae, corrupti dolore fugiat exercitationem sequi vel nihil iure aut possimus laudantium magni vero minus sapiente atque laboriosam quo."
+    }
+  ]
+}

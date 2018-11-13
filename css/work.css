@@ -1,0 +1,16 @@
+.home-banner {
+    height: 500px;
+}
+@media (max-width: 992px) {
+    .home-banner {
+        height: 300px;
+    }
+}
+@media (max-width: 600px) {
+    .valign-wrapper {
+        display: block;
+    }
+    .home-banner {
+        height: 200px;
+    }
+}
