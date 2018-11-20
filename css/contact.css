@@ -4,6 +4,12 @@
     border: 0;
 }
 
+#message {
+    height: 80px !important;
+}
+.dropdown-content li>a, .dropdown-content li>span {
+    color: #3d85c6;
+}
 @media (max-width: 600px) {
     #address .map {
         height: 250px;

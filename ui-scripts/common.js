@@ -1,47 +1,101 @@
-$(document).ready(function () {
-    if (window.innerWidth <= 992) {
-        $("div.aboutDropDownContainer").remove();
-        $("div.serviceDropDownContainer").remove();
-        $(".about-mobile-drop").addClass("aboutDropDownContainer");
-        $(".service-mobile-drop").addClass("serviceDropDownContainer");
-        $(".modal").addClass("modal-fixed-footer");
+$(document).ready(() => {
+  if (window.innerWidth <= 992) {
+    $("div.aboutDropDownContainer").remove();
+    $("div.serviceDropDownContainer").remove();
+    $(".about-mobile-drop").addClass("aboutDropDownContainer");
+    $(".service-mobile-drop").addClass("serviceDropDownContainer");
+    $(".modal").addClass("modal-fixed-footer");
+    if (window.innerWidth <= 600) {
+      $(".fixed-action-btn").css("bottom", "79px");
     }
+  }
 
-    // Initialition of all Materilize Services;
-    M.AutoInit();
+  // Initialition of all Materilize Services;
+  M.AutoInit();
 
-    $('.tap-target').tapTarget('open');
+  var toastHTML =
+    '<span><i class="material-icons left">phone</i>Call Us: <a href="tel:+918376075908" class="fw-500">+91-8376075908</a></span><button class="btn-flat toast-action" onclick="M.Toast.dismissAll();"><i class="material-icons">close</i></button>';
+  M.toast({
+    html: toastHTML,
+    displayLength: 5000,
+    completeCallback: () => {
+      $(".fixed-action-btn").css("bottom", "23px");
+    }
+  });
 
+  $("textarea#message").characterCounter();
 
-    $('textarea#message').characterCounter();
+  var aboutDrop = $(".about.dropdown-trigger").dropdown({
+    hover: true,
+    constrainWidth: false,
+    coverTrigger: false,
+    closeOnClick: false,
+    container: $(".aboutDropDownContainer")
+  });
 
+  var serviceDrop = $(".service.dropdown-trigger").dropdown({
+    hover: true,
+    constrainWidth: false,
+    coverTrigger: false,
+    closeOnClick: false,
+    container: $(".serviceDropDownContainer")
+  });
 
-    $(".about.dropdown-trigger").dropdown({
-        hover: false,
-        constrainWidth: false,
-        coverTrigger: false,
-        container: $(".aboutDropDownContainer")
-    });
+  $(".about.dropdown-trigger").click(() => {
+    M.Dropdown.getInstance(aboutDrop).open();
+  });
+  $(".service.dropdown-trigger").click(() => {
+    M.Dropdown.getInstance(serviceDrop).open();
+  });
 
-    $(".service.dropdown-trigger").dropdown({
-        hover: false,
-        constrainWidth: false,
-        coverTrigger: false,
-        container: $(".serviceDropDownContainer")
-    });
+  $(".scrollable").scroll(() => {
+    var qq = $("#quick_query");
+    var container = $(".scrollable");
+    if (
+      container.scrollTop() + container.height() >
+      container.get(0).scrollHeight - 100
+    ) {
+      if (qq.find("i.material-icons").text() != "arrow_upward") {
+        qq.addClass("scale-out");
+        setTimeout(() => {
+          qq.find("i.material-icons").text("arrow_upward");
+          qq.removeClass("scale-out modal-trigger");
+          qq.removeAttr("data-target");
+          qq.click(() => {
+            container.click();
+            container.animate(
+              {
+                scrollTop: 0
+              },
+              container.get(0).scrollHeight / 10
+            );
+          });
+        }, 200);
+      }
+    } else {
+      if (qq.find("i.material-icons").text() == "arrow_upward") {
+        qq.addClass("scale-out modal-trigger");
+        qq.attr("data-target", "quick_query_modal");
+        qq.unbind("click");
+        setTimeout(() => {
+          qq.find("i.material-icons").text("edit");
+          qq.removeClass("scale-out");
+        }, 200);
+      }
+      // qq.find("i.material-icons").text("edit");
+    }
+  });
 
-    $(document).click((event) => {
-        $(".dropdown-trigger i.material-icons.right").text("expand_more");
-        if ($(event.target).hasClass("dropdown-trigger")) {
-            if ($(event.target).hasClass("about")) {
-                if ($("#about_dropdown").css("opacity") == 0) {
-                    $(".about.dropdown-trigger i.material-icons.right").text("expand_less");
-                }
-            } else if ($(event.target).hasClass("service")) {
-                if ($("#service_dropdown").css("opacity") == 0) {
-                    $(".service.dropdown-trigger i.material-icons.right").text("expand_less");
-                }
-            }
-        } 
-    });
+  $("#qq").submit(e => {
+    e.preventDefault();
+    $("#loader").removeClass("hide");
+    $(e.target).addClass("hide");
+
+    console.log($(e.target).serialize());
+    // $.ajax({
+    //     url: "abhi-pta-nahi",
+    //     method: "POST",
+    //     data: $(e.target).serialize()
+    // });
+  });
 });

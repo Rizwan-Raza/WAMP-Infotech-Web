@@ -1,0 +1,39 @@
+<?php function getService($title, $image, $content) { ?>
+<?php chdir("../")?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="../">
+    <title>
+        <?=$title?>
+    </title>
+    <?php include "includes/head.inc.php"; ?>
+    <link rel="stylesheet" href="css/ihover.css" />
+    <link rel="stylesheet" href="css/services.css" />
+</head>
+
+<body>
+    <?php include "layouts/nav.inc.html"; ?>
+    <div class="scrollable grey lighten-3">
+        <header>
+            <img src="<?=$image?>" class="home-banner" />
+        </header>
+        <section id="overview" class="card-panel flow-text">
+            <h4 class="center-align">
+                <?=$title?>
+            </h4>
+            <hr class="short-border" />
+            <br />
+            <?=$content?>
+        </section>
+
+        <?php include "layouts/footer.inc.html"; ?>
+    </div>
+
+    <?php include "includes/scripts.inc.php"; ?>
+    <script src="ui-scripts/services.js"></script>
+</body>
+
+</html>
+<?php } ?>

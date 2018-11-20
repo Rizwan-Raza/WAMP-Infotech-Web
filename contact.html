@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php require "services/fetcher.php"; ?>
 <html lang="en">
 
 <head>
@@ -15,6 +14,83 @@
         <header>
             <img src="images/contactbanner.jpg" class="home-banner" />
         </header>
+        <section class="card-panel" id="contact">
+            <h4 class="center-align">Contact Us</h4>
+            <hr class="short-border" />
+            <br />
+            <div class="container">
+                <form>
+                    <div class="row">
+                        <div class="col s12 m6 input-field"><input type="text" class="validate" name="first_name" id="c_first_name"
+                                required>
+                            <label for="c_first_name">
+                                First Name
+                            </label>
+                        </div>
+                        <div class="col s12 m6 input-field"><input type="text" name="last_name" class="validate" id="c_last_name">
+                            <label for="c_last_name">
+                                Last Name
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6 input-field"><input type="email" name="email" class="validate" id="c_email"
+                                required>
+                            <label for="c_email">
+                                Email
+                            </label>
+                        </div>
+                        <div class="col s12 m6 input-field"><input type="tel" name="number" class="validate" id="c_number"
+                                required minlength="10" maxlength="12">
+                            <label for="c_number">
+                                Number
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6 input-field">
+                            <select name="country">
+                                <option value="" disabled selected>Choose your Country</option>
+                                <option value="1">United States</option>
+                                <option value="2">India</option>
+                                <option value="3">Others</option>
+                            </select>
+                        </div>
+                        <div class="col s12 m6 input-field"><select name="service">
+                                <option value="" disabled selected>Choose your Service</option>
+                                <option value="Web Design">Web Design</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Web App Development">Web App Development</option>
+                                <option value="Software Development">Software Development</option>
+                                <option value="Android Development">Android Development</option>
+                                <option value="E-Commerce Solution">E-Commerce Solution</option>
+                                <option value="Web Maintenance">Web Maintenance</option>
+                                <option value="Tech Support">Tech Support</option>
+                                <option value="Others">Others</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 input-field">
+                            <input type="text" class="validate" name="company" id="company">
+                            <label for="company">
+                                Company
+                            </label>
+                        </div>
+                        <div class="col s12 input-field">
+                            <textarea id="c_message" class="materialize-textarea" data-length="100" required name="message"></textarea>
+                            <label for="c_message">Message</label>
+                        </div>
+                    </div>
+                    <div class="center hide m-4" id="c_loader">
+                        <?php include "layouts/loader.inc.html"; ?>
+                    </div>
+                    <button class="btn bg-primary white-text right">Submit <i class="material-icons right">send</i></button>
+                    <br clear="both" />
+                </form>
+            </div>
+        </section>
         <section class="card-panel" id="address">
             <h4 class="center-align">Address</h4>
             <hr class="short-border" />
@@ -22,14 +98,12 @@
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14015.453625052016!2d77.27247867726743!3d28.573864155478354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xdf07264ac61cd280!2sWAMP+InfoTech+Pvt+Ltd!5e0!3m2!1sen!2sin!4v1541507859537"
                 allowfullscreen class="map"></iframe>
             <br />
-            <p><b>WAMP InfoTech Pvt Ltd</b><br />
-                Top 6 26 E White House, Khizarabad Bhagol, Khizrabad, New Delhi, Delhi 110025</p>
         </section>
         <?php include "layouts/footer.inc.html"; ?>
     </div>
 
     <?php include "includes/scripts.inc.php"; ?>
-    <script src="ui-scripts/about.js"></script>
+    <script src="ui-scripts/contact.js"></script>
 </body>
 
 </html>

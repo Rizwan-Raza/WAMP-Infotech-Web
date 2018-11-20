@@ -1,6 +1,6 @@
 .home-video {
     border-radius: 1rem;
-    border: 2px solid #ec008c;
+    /* border: 2px solid #ec008c; */
     padding: 1rem;
     max-width: 53rem;
     /* height: 30rem; */
@@ -16,7 +16,7 @@
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    border: 2px solid #ec008c;
+    /* border: 2px solid #ec008c; */
     position: absolute;
 }
 
@@ -54,15 +54,15 @@
 } */
 
 #services>div.col:hover h5 {
-    color: #ec008c;
+    color: #666666;
 }
 
 #services>div.col:hover .image-block {
-    border-color: #ec008c;
+    border-color: #666666;
 }
 
 #services>div.col:hover .image-block svg {
-    color: #ec008c;
+    color: #666666;
     transition: fill .5s ease;
 }
 
@@ -106,9 +106,13 @@
     text-decoration: none;
 }
 
+.carousel,
 .carousel .carousel-item {
-    min-height: 300px !important;
-    height: auto;
+    height: 280px;
+}
+
+.carousel .carousel-item {
+    min-height: 280px !important;
     padding: 2rem;
 }
 
@@ -183,6 +187,10 @@
         max-width: 40rem;
         height: 25rem;
     }
+
+    .carousel {
+        height: 360px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -193,7 +201,7 @@
     }
 
     .carousel {
-        height: 500px;
+        height: 480px;
     }
 }
 
