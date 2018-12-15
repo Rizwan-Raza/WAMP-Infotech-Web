@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 // print_r($_REQUEST);
 // print_r($_REQUEST);
 $data = array("message"=> "Unknown method", "status"=>"server_error");
