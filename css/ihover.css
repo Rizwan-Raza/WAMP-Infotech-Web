@@ -39,11 +39,20 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+<<<<<<< HEAD
 /*******************************************************************/
 .ih-item.square.effect6 {
   overflow: hidden;
 }
 .ih-item.square.effect6 .img {
+=======
+
+.ih-item.square.effect13 {
+  overflow: hidden;
+}
+
+.ih-item.square.effect13 .img {
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
   -webkit-transition: all 0.35s ease-in-out;
   -moz-transition: all 0.35s ease-in-out;
   transition: all 0.35s ease-in-out;
@@ -52,16 +61,31 @@
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
+<<<<<<< HEAD
 }
 .ih-item.square.effect6 .info {
   background: #333333;
   background: rgba(0, 0, 0, 0.6);
   visibility: hidden;
   opacity: 0;
+=======
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ih-item.square.effect13 .info {
+  background: #ec008c;
+  background: rgba(236, 0, 140, 0.6);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
   -webkit-transition: all 0.35s ease-in-out;
   -moz-transition: all 0.35s ease-in-out;
   transition: all 0.35s ease-in-out;
 }
+<<<<<<< HEAD
 .ih-item.square.effect6 .info h4 {
   /* text-transform: uppercase; */
   color: #fff;
@@ -87,23 +111,40 @@
   transition: all 0.35s 0.1s linear;
 }
 .ih-item.square.effect6 a:hover .img {
+=======
+
+
+.ih-item.square.effect13 a:hover .img {
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
   -webkit-transform: scale(1.2);
   -moz-transform: scale(1.2);
   -ms-transform: scale(1.2);
   -o-transform: scale(1.2);
   transform: scale(1.2);
 }
+<<<<<<< HEAD
 .ih-item.square.effect6 a:hover .info {
   visibility: visible;
   opacity: 1;
 }
 .ih-item.square.effect6.from_top_and_bottom .info h4 {
+=======
+
+.ih-item.square.effect13 a:hover .info {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.ih-item.square.effect13.top_to_bottom .info {
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
   -o-transform: translateY(-100%);
   transform: translateY(-100%);
 }
+<<<<<<< HEAD
 .ih-item.square.effect6.from_top_and_bottom .info button {
   -webkit-transform: translateY(100%);
   -moz-transform: translateY(100%);
@@ -113,9 +154,17 @@
 }
 .ih-item.square.effect6.from_top_and_bottom a:hover .info h4,
 .ih-item.square.effect6.from_top_and_bottom a:hover .info button {
+=======
+
+.ih-item.square.effect13.top_to_bottom a:hover .info {
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
   -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
   -ms-transform: translateY(0);
   -o-transform: translateY(0);
   transform: translateY(0);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076

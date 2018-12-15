@@ -1,4 +1,5 @@
 .home-banner {
+<<<<<<< HEAD
   max-height: 240px;
 }
 
@@ -10,4 +11,44 @@ li.collection-item {
 li.collection-item i {
   position: absolute !important;
   left: 10px !important;
+=======
+  max-height: 300px;
+}
+
+.tabs-content {
+  overflow-y: scroll;
+}
+.tabs .tab a:focus,
+.tabs .tab a:focus.active {
+  background-color: rgba(61, 133, 198, 0.2);
+}
+.tabs .tab a {
+  color: rgba(61, 133, 198, 0.7);
+}
+.tabs .tab a:hover,
+.tabs .tab a.active {
+  color: #3d85c6;
+}
+
+.tabs .indicator {
+  background-color: #3d85c6;
+}
+.preserveRatio {
+    height: 200px;
+    width: 200px;
+    position: relative;
+}
+.preserveRatio > *{
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+#e-commerce-website .col img, #web-maintenance .col img {
+  width: 100%;
+  max-width: 400px;
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
 }

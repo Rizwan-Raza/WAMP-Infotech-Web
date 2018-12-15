@@ -2,12 +2,19 @@
     position:relative;
     overflow:hidden;
     padding-bottom:100%;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
 }
 .avatar img{
     position:absolute;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
 @media (max-width: 600px) {
     #our-team.card-panel {
         padding: 1rem;

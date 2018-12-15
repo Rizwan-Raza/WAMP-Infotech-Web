@@ -12,7 +12,11 @@
 <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
+<<<<<<< HEAD
 <link rel="icon" type="image/png" sizes="192x192" href="images/favicon/android-icon-192x192.png">
+=======
+<link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
@@ -21,6 +25,7 @@
 <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
 
+<<<<<<< HEAD
 <meta name="thumbnail" content="https://www.wampinfotech.com/images/wamp-logo.png" />
 
 
@@ -45,10 +50,13 @@
 
 <link rel="image_src" href="https://www.wampinfotech.com/images/wamp-logo.png" />
 
+=======
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="css/helper-classes.css" />
+<<<<<<< HEAD
 <link rel="stylesheet" href="css/common.css" />
 
 <?php
@@ -76,3 +84,6 @@ if (!isset($_SESSION['visited']) or !$_SESSION['visited']) {
 }
 
 ?>
+=======
+<link rel="stylesheet" href="css/common.css" />
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076

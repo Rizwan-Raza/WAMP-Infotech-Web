@@ -1,11 +1,15 @@
+<<<<<<< HEAD
 <?php 
 session_start();
 if (!isset($_SESSION['login']) or $_SESSION['login'] != true) {
 ?>
+=======
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+<<<<<<< HEAD
     <title>Sign up | Web Design Company</title>
     <meta name="description" content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level." />
 
@@ -24,11 +28,18 @@ if (!isset($_SESSION['login']) or $_SESSION['login'] != true) {
 
     <?php include "includes/head.inc.php"; ?>
     <link rel="stylesheet" href="css/signin.css" />
+=======
+    <title>Digital Marketing Company | Web Design Company</title>
+    <?php include "includes/head.inc.php"; ?>
+    <link rel="stylesheet" href="css/ihover.css" />
+    <link rel="stylesheet" href="css/login.css" />
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
 </head>
 
 <body>
     <?php include "layouts/nav.inc.html"; ?>
     <div class="scrollable grey lighten-3">
+<<<<<<< HEAD
         <section class="back">
             <section class="panel" id="signup">
                 <div class="progress-holder hide" id="progress">
@@ -83,6 +94,59 @@ if (!isset($_SESSION['login']) or $_SESSION['login'] != true) {
                     <br clear="both" />
                 </div>
             </section>
+=======
+        <header>
+            <img src="images/contactbanner.jpg" class="home-banner" style="max-height: 200px; object-position: center" />
+        </header>
+        <section class="container mx-auto card-panel" id="signup">
+            <h4 class="center-align">Signup</h4>
+            <hr class="short-border" />
+            <br />
+            <form action="">
+                <div class="row">
+                    <div class="col s12 m6 input-field"><input type="text" class="validate" name="first_name" id="s_first_name" required>
+                        <label for="c_first_name">
+                            First Name
+                        </label>
+                    </div>
+                    <div class="col s12 m6 input-field"><input type="text" class="validate" name="last_name" id="s_last_name">
+                        <label for="c_last_name">
+                            Last Name
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m6 input-field"><input type="email" class="validate" name="email" id="s_email" required>
+                        <label for="c_email">
+                            Email
+                        </label>
+                    </div>
+                    <div class="col s12 m6 input-field"><input type="tel" class="validate" name="number" id="s_number" required minlength="10" maxlength="12">
+                        <label for="c_number">
+                            Number
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m6 input-field"><input type="password" class="validate" name="password" id="s_password" required>
+                        <label for="s_password">
+                            Password
+                        </label>
+                    </div>
+                    <div class="col s12 m6 input-field"><input type="password" class="validate" name="r_password" id="s_rpassword" required>
+                        <label for="s_rpassword">
+                            Re-Type Password
+                        </label>
+                    </div>
+                </div>
+                <div class="center hide m-4" id="s_loader">
+                    <?php include "layouts/loader.inc.html"; ?>
+                </div>
+                <button type="submit" class="btn bg-primary white-text right fw-500">Signup</button>
+                <button onclick="window.location.href='login'" class="btn text-primary waves-effect waves-dark btn-flat fw-500 right mr-1">Login</button>
+                <br clear="both" />
+            </form>
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
         </section>
         <?php include "layouts/footer.inc.html"; ?>
     </div>
@@ -91,9 +155,13 @@ if (!isset($_SESSION['login']) or $_SESSION['login'] != true) {
     <script src="ui-scripts/signup.js"></script>
 </body>
 
+<<<<<<< HEAD
 </html>
 
 
 <?php } else {
     header("Location: dashboard");
 } ?>
+=======
+</html>
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076

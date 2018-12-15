@@ -1,5 +1,6 @@
 $(document).ready(function () {
   $('.carousel.carousel-slider').carousel({
+<<<<<<< HEAD
     indicators: true,
     fullWidth: true
   });
@@ -38,5 +39,17 @@ $(document).ready(function () {
   $(".carousel.carousel-slider").mouseleave(() => {
     setInterval(slide, 5000);
   });
+=======
+    indicators: true
+  });
+
+  $('.tap-target').tapTarget('open');
+
+  // var elems = document.querySelectorAll('.tap-target');
+  // var instances = M.TapTarget.init(elems, {});
+  setTimeout(() => {
+    $('.tap-target').tapTarget('close');
+  }, 5000); 
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
 
 });

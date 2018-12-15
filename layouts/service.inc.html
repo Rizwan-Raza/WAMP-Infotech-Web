@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 $tmp = explode("/", $_SERVER['REQUEST_URI']);
 $GLOBALS['service_url'] = end($tmp);
@@ -17,6 +18,9 @@ foreach ($services as $service) {
 }
 
 ?>
+=======
+<?php function getService($title, $image, $content) { ?>
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
 <?php chdir("../")?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +28,7 @@ foreach ($services as $service) {
 <head>
     <base href="../">
     <title>
+<<<<<<< HEAD
         <?=$meta['title']?> | WAMP InfoTech
     </title>
     <meta name="description" content="<?=$meta['desc']?>" />
@@ -44,6 +49,10 @@ foreach ($services as $service) {
     <meta name="twitter:title" content="<?=$meta['title']?> | WAMP InfoTech">
     <meta name="twitter:description" content="<?=$meta['desc']?>">
 
+=======
+        <?=$title?>
+    </title>
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
     <?php include "includes/head.inc.php"; ?>
     <link rel="stylesheet" href="css/ihover.css" />
     <link rel="stylesheet" href="css/services.css" />
@@ -53,12 +62,21 @@ foreach ($services as $service) {
     <?php include "layouts/nav.inc.html"; ?>
     <div class="scrollable grey lighten-3">
         <header>
+<<<<<<< HEAD
             <img src="<?=$image?>" class="home-banner" alt="<?=$title?>" />
         </header>
         <section id="overview" class="card-panel flow-text">
             <h1 class="center-align fw-600 h4">
                 <?=$title?>
             </h1>
+=======
+            <img src="<?=$image?>" class="home-banner" />
+        </header>
+        <section id="overview" class="card-panel flow-text">
+            <h4 class="center-align">
+                <?=$title?>
+            </h4>
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
             <hr class="short-border" />
             <br />
             <?=$content?>
@@ -71,4 +89,9 @@ foreach ($services as $service) {
     <script src="ui-scripts/services.js"></script>
 </body>
 
+<<<<<<< HEAD
 </html>
+=======
+</html>
+<?php } ?>
+>>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
