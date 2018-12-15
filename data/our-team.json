@@ -1,6 +1,5 @@
 {
   "our_team": [{
-<<<<<<< HEAD
       "src": "images/team/placeholder_m.jpg",
       "title": "Momin Fazal",
       "role": "President & Legal Advisor",
@@ -163,27 +162,6 @@
       "id": "amarjeet_singh",
       "linkedin": "https://www.linkedin.com/in/iamamarjeetkumar/",
       "desc": "Amarjeet is a great multi-tasker as his job involves administration work. He manages the office and all the employees, working for their basic requirements and fixing the issues. He also coordinates with the management and engages in the planning according to the needs of the company"
-=======
-      "src": "images/placeholder.jpg",
-      "title": "S.M. Faris",
-      "role": "CEO",
-      "email": "webmaster@example.com",
-      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cupiditate quisquam beatae, corrupti dolore fugiat exercitationem sequi vel nihil iure aut possimus laudantium magni vero minus sapiente atque laboriosam quo."
-    },
-    {
-      "src": "images/placeholder.jpg",
-      "title": "S.M. Faris",
-      "role": "CEO",
-      "email": "webmaster@example.com",
-      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cupiditate quisquam beatae, corrupti dolore fugiat exercitationem sequi vel nihil iure aut possimus laudantium magni vero minus sapiente atque laboriosam quo."
-    },
-    {
-      "src": "images/placeholder.jpg",
-      "title": "S.M. Faris",
-      "role": "CEO",
-      "email": "webmaster@example.com",
-      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cupiditate quisquam beatae, corrupti dolore fugiat exercitationem sequi vel nihil iure aut possimus laudantium magni vero minus sapiente atque laboriosam quo."
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
     }
   ]
 }

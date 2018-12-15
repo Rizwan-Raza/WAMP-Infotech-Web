@@ -12,6 +12,8 @@ Disallow: /profile
 Disallow: /settings
 Disallow: /dashboard
 Disallow: /feedback
+Disallow: /4O4
+Disallow: /5OO
 #Directories
 Disallow: /admin/
 Disallow: /includes/

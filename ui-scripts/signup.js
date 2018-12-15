@@ -1,5 +1,4 @@
 $(document).ready(function () {
-<<<<<<< HEAD
    $("#signup form").submit(e => {
       e.preventDefault();
       //  console.log($(e.target).serialize());
@@ -47,18 +46,3 @@ $(document).ready(function () {
    });
 
 });
-=======
- $("#signup form").submit(e => {
-    e.preventDefault();
-    $("#s_loader").removeClass("hide");
-
-    console.log($(e.target).serialize());
-    // $.ajax({
-    //     url: "abhi-pta-nahi",
-    //     method: "POST",
-    //     data: $(e.target).serialize()
-    // });
- });
- 
-});
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076

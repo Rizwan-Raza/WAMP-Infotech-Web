@@ -2,24 +2,16 @@ $(document).ready(() => {
   if (window.innerWidth <= 992) {
     $("div.aboutDropDownContainer").remove();
     $("div.serviceDropDownContainer").remove();
-<<<<<<< HEAD
     $("div.userDropDownContainer").remove();
     $(".about-mobile-drop").addClass("aboutDropDownContainer");
     $(".service-mobile-drop").addClass("serviceDropDownContainer");
     $(".user-mobile-drop").addClass("userDropDownContainer");
     $("#quick_query_modal").addClass("modal-fixed-footer");
     if (window.location.href.search("index") != -1 && window.innerWidth <= 600) {
-=======
-    $(".about-mobile-drop").addClass("aboutDropDownContainer");
-    $(".service-mobile-drop").addClass("serviceDropDownContainer");
-    $(".modal").addClass("modal-fixed-footer");
-    if (window.innerWidth <= 600) {
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
       $(".fixed-action-btn").css("bottom", "79px");
     }
   }
 
-<<<<<<< HEAD
   window.onload = () => {
     // setTimeout(() => {
     //   $("#page_loader").addClass("hide");
@@ -31,20 +23,6 @@ $(document).ready(() => {
   // Initialition of all Materilize Services;
   M.AutoInit();
 
-=======
-  // Initialition of all Materilize Services;
-  M.AutoInit();
-
-  var toastHTML =
-    '<span><i class="material-icons left">phone</i>Call Us: <a href="tel:+918376075908" class="fw-500">+91-8376075908</a></span><button class="btn-flat toast-action" onclick="M.Toast.dismissAll();"><i class="material-icons">close</i></button>';
-  M.toast({
-    html: toastHTML,
-    displayLength: 5000,
-    completeCallback: () => {
-      $(".fixed-action-btn").css("bottom", "23px");
-    }
-  });
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
 
   $("textarea#message").characterCounter();
 
@@ -64,7 +42,6 @@ $(document).ready(() => {
     container: $(".serviceDropDownContainer")
   });
 
-<<<<<<< HEAD
   $(".user.dropdown-trigger").dropdown({
     hover: false,
     constrainWidth: false,
@@ -77,11 +54,6 @@ $(document).ready(() => {
     M.Dropdown.getInstance(aboutDrop).open();
   });
 
-=======
-  $(".about.dropdown-trigger").click(() => {
-    M.Dropdown.getInstance(aboutDrop).open();
-  });
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
   $(".service.dropdown-trigger").click(() => {
     M.Dropdown.getInstance(serviceDrop).open();
   });
@@ -101,12 +73,7 @@ $(document).ready(() => {
           qq.removeAttr("data-target");
           qq.click(() => {
             container.click();
-<<<<<<< HEAD
             container.animate({
-=======
-            container.animate(
-              {
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
                 scrollTop: 0
               },
               container.get(0).scrollHeight / 10
@@ -120,25 +87,16 @@ $(document).ready(() => {
         qq.attr("data-target", "quick_query_modal");
         qq.unbind("click");
         setTimeout(() => {
-<<<<<<< HEAD
           qq.find("i.material-icons").text("email");
           qq.removeClass("scale-out");
         }, 200);
       }
       // qq.find("i.material-icons").text("email");
-=======
-          qq.find("i.material-icons").text("edit");
-          qq.removeClass("scale-out");
-        }, 200);
-      }
-      // qq.find("i.material-icons").text("edit");
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
     }
   });
 
   $("#qq").submit(e => {
     e.preventDefault();
-<<<<<<< HEAD
     $("#quick_query_modal #progress, #quick_query_modal .prevent-overlay").removeClass("hide");
 
     // console.log($(e.target).serialize());
@@ -218,16 +176,3 @@ function passVisibility(elem, id) {
     pass.attr("type", "password");
   }
 }
-=======
-    $("#loader").removeClass("hide");
-    $(e.target).addClass("hide");
-
-    console.log($(e.target).serialize());
-    // $.ajax({
-    //     url: "abhi-pta-nahi",
-    //     method: "POST",
-    //     data: $(e.target).serialize()
-    // });
-  });
-});
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076

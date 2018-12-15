@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php require_once "includes/fetcher.php"; ?>
 
 <ul class="sidenav" id="mobile-sidenav">
@@ -58,33 +57,10 @@
     <li class="waves-effect w-full">
         <a href="contact"><i class="material-icons">contact_mail</i> Contact Us</a>
     </li>
-=======
-<?php require "includes/fetcher.php"; ?>
-
-<ul class="sidenav" id="mobile-sidenav">
-    <li class="waves-effect w-full show-on-medium"><img src="images/banner_back.jpg" class="home-banner" /></li>
-    <li class="waves-effect w-full"><a href="index"><i class="material-icons">home</i> Home</a></li>
-    <li class="waves-effect w-full"><a class="dropdown-trigger" href="javascript:;" data-target="about_dropdown"><i
-                class="material-icons">group</i>
-            About
-            <!-- <i class="material-icons right">expand_more</i> --></a></li>
-    <li class="about-mobile-drop"></li>
-    <li class="waves-effect w-full"><a class="dropdown-trigger" href="javascript:;" data-target="service_dropdown"><i
-                class="material-icons">devices</i> Services
-            <!-- <i class="material-icons right">expand_more</i> --></a></li>
-    <li class="service-mobile-drop"></li>
-    <li class="waves-effect w-full"><a href="work"><i class="material-icons">whatshot</i> Our Work</a></li>
-    <li class="divider"></li>
-    <li><a class="subheader">Communicate</a></li>
-    <li class="waves-effect w-full"><a href="javascript:;"><i class="material-icons">forum</i> Blog</a></li>
-    <li class="waves-effect w-full"><a href="login"><i class="material-icons">lock</i> Login</a></li>
-    <li class="waves-effect w-full"><a href="contact"><i class="material-icons">contact_mail</i> Contact Us</a></li>
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
 </ul>
 <div class="navbar-fixed">
     <nav>
         <div class="nav-wrapper">
-<<<<<<< HEAD
             <a href="/" class="brand-logo fw-700 text-primary"><img src="images/wamp-round-logo.png" class="brand-img" />WAMP&nbsp;InfoTech</a>
             <a href="javascript:;" data-target="mobile-sidenav" class="sidenav-trigger text-primary"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -124,26 +100,11 @@
                     <a href="signin" class="hover-text-primary fw-500">Sign in</a>
                 </li>
                 <?php } ?>
-=======
-            <a href="index" class="brand-logo"><img src="images/wamp-round-logo.png" class="brand-img" />WAMP&nbsp;Infotech</a>
-            <a href="javascript:;" data-target="mobile-sidenav" class="sidenav-trigger text-primary"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li class="waves-effect"><a href="index">Home</a></li>
-                <li class="disabled"><a class="about dropdown-trigger" data-target="about_dropdown">About
-                        <!-- <i class="material-icons right">expand_more</i> --></a></li>
-                <li class="waves-effect"><a class="service dropdown-trigger" href="javascript:;" data-target="service_dropdown">Services
-                        <!-- <i class="material-icons right">expand_more</i> --></a></li>
-                <li class="waves-effect"><a href="work">Our Work</a></li>
-                <li class="waves-effect"><a href="javascript:;">Blog</a></li>
-                <li class="waves-effect"><a href="login">Login</a></li>
-                <li class="waves-effect"><a href="contact">Contact Us</a></li>
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
             </ul>
         </div>
     </nav>
     <div class="aboutDropDownContainer"></div>
     <div class="serviceDropDownContainer"></div>
-<<<<<<< HEAD
     <div class="serviceDropDownContainer"></div>
 </div>
 <!-- About Dropdown Structure -->
@@ -173,41 +134,17 @@
         <a href="services/<?=$service['url']?>" class="hover-text-primary">
             <?=$service['title']?></a>
     </li>
-=======
-</div>
-<!-- About Dropdown Structure -->
-<ul id="about_dropdown" class="dropdown-content">
-    <li><a href="overview" class="text-primary">Overview</a></li>
-    <li><a href="team" class="text-primary">Our Team</a></li>
-    <li><a href="about" class="text-primary">Mssion and Vision</a></li>
-</ul>
-
-<!-- Services Dropdown Structure -->
-<ul id="service_dropdown" class="dropdown-content row">
-    <?php
-        $services = getJson("./data/services.json", "services");
-        foreach ($services as $service) { ?>
-    <li class="col s12 l4 <?=(($service['disabled'])?'disabled':'')?>"><a href="<?=$service['url']?>" class="text-primary">
-            <?=$service['title']?></a></li>
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
     <?php } ?>
 </ul>
 
 <div class="fixed-action-btn">
-<<<<<<< HEAD
     <a class="waves-effect waves-light btn-floating btn-large bg-primary modal-trigger scale-transition" data-target="quick_query_modal"
         id="quick_query">
         <i class="large material-icons">email</i>
-=======
-    <a class="waves-effect waves-light btn btn-floating btn-large bg-primary modal-trigger scale-transition"
-        data-target="quick_query_modal" id="quick_query">
-        <i class="large material-icons">mode_edit</i>
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
     </a>
 </div>
 
 <!-- Modal Structure -->
-<<<<<<< HEAD
 <div id="quick_query_modal" class="modal border-radius-8">
     <div class="progress-holder hide" id="progress">
         <div class="progress">
@@ -233,33 +170,11 @@
                     <i class="material-icons prefix">email</i>
                     <input id="qq_email" type="email" name="email" required />
                     <label for="qq_email">Email</label>
-=======
-<div id="quick_query_modal" class="modal">
-    <div class="modal-content pb-0">
-        <h4 class="text-primary"><b>Quick Query</b></h4>
-        <p>Please fill this short form below so that we can reach out to you as soon as possible!</p>
-        <div class="center hide m-4" id="loader">
-            <?php include "layouts/loader.inc.html"; ?>
-        </div>
-        <form id="qq" name="qq">
-            <div class="row mb-0">
-                <div class="input-field col m6 w-full">
-                    <i class="material-icons prefix">account_circle</i>
-                    <input id="name" type="text" class="validate" name="qq_name" required>
-                    <label for="name">Name</label>
-                    <!-- <span class="helper-text" data-error="wrong" data-success="right"></span> -->
-                </div>
-                <div class="input-field col m6 w-full">
-                    <i class="material-icons prefix">email</i>
-                    <input id="email" type="email" class="validate" name="qq_email" required>
-                    <label for="email">Email</label>
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
                 </div>
             </div>
             <div class="row mb-0">
                 <div class="input-field col m6 w-full">
                     <i class="material-icons prefix">phone</i>
-<<<<<<< HEAD
                     <input id="qq_number" type="tel" name="number" required minlength="10" maxlength="12" />
                     <label for="qq_number">Number</label>
                 </div>
@@ -267,32 +182,17 @@
                     <i class="material-icons prefix">group</i>
                     <input id="qq_company" type="text" name="company" />
                     <label for="qq_company">Company (Optional)</label>
-=======
-                    <input id="number" type="tel" class="validate" name="qq_number" required minlength="10" maxlength="12">
-                    <label for="number">Number</label>
-                </div>
-                <div class="input-field col m6 w-full">
-                    <i class="material-icons prefix">group</i>
-                    <input id="company" type="text" class="validate" name="qq_company" required>
-                    <label for="company">Company</label>
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
                 </div>
             </div>
             <div class="row mb-0">
                 <div class="input-field col s12 w-full">
                     <i class="material-icons prefix">message</i>
-<<<<<<< HEAD
                     <textarea id="qq_message" class="materialize-textarea" name="message" data-length="30" required></textarea>
                     <label for="qq_message">Message</label>
-=======
-                    <textarea id="message" class="materialize-textarea" name="qq-message" data-length="30" required></textarea>
-                    <label for="message">Message</label>
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
                 </div>
             </div>
         </form>
     </div>
-<<<<<<< HEAD
     <div class="modal-footer px-4">
         <button class="modal-close waves-effect waves-dark btn btn-flat ">
             Cancel
@@ -314,10 +214,3 @@
         document.getElementById("page_loader").style.display = "none";
     }, 10000);
 </script>
-=======
-    <div class="modal-footer">
-        <button class="modal-close waves-effect waves-dark btn-flat white text-primary fw-500">Close</button>
-        <button type="submit" class="waves-effect waves-light btn bg-primary fw-500" form="qq" name="submit_btn">Send</button>
-    </div>
-</div>
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076

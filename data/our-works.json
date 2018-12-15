@@ -1,6 +1,5 @@
 {
   "our_works": [{
-<<<<<<< HEAD
       "in_home": true,
       "order": 1,
       "src": "images/works/redolance-india.jpg",
@@ -46,35 +45,6 @@
       "src": "images/works/wamp-institute.jpg",
       "url": "https://wampinstitute.in",
       "desc": "WAMP Institute is a venture of WAMP InfoTech; it is a digital marketing institute. With the establishment of WAMP InfoTech, our co-founders knew that digital marketing is like a never-ending marketing strategy. Therefore, the youth needs to be more aware of the digital services.",
-=======
-      "src": "images/works/banner_back.jpg",
-      "url": "https://a2zinterior.in",
-      "title": "A2Z Interior"
-    },
-    {
-      "src": "images/works/archue.PNG",
-      "url": "http://archue.com",
-      "title": "Archue"
-    },
-    {
-      "src": "images/works/banner_back.jpg",
-      "url": "http://gloriastylx.com",
-      "title": "Gloria Stylx"
-    },
-    {
-      "src": "images/works/banner_back.jpg",
-      "url": "http://redolenceindia.in",
-      "title": "Redolence India"
-    },
-    {
-      "src": "images/works/banner_back.jpg",
-      "url": null,
-      "title": "Microrent India"
-    },
-    {
-      "src": "images/works/wampinstitute.PNG",
-      "url": "https://wampinstitute.in",
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
       "title": "WAMP Institute"
     }
   ]

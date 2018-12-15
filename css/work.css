@@ -1,5 +1,4 @@
 .home-banner {
-<<<<<<< HEAD
     height: 240px;
 }
 .image-wrapper {
@@ -23,26 +22,12 @@
     }
 }
 
-=======
-    height: 500px;
-}
-@media (max-width: 992px) {
-    .home-banner {
-        height: 300px;
-    }
-}
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
 @media (max-width: 600px) {
     .valign-wrapper {
         display: block;
     }
-<<<<<<< HEAD
 
     .home-banner {
         height: 160px;
-=======
-    .home-banner {
-        height: 200px;
->>>>>>> 8e23e2ed528adde9ef439fc3c4741a993be59076
     }
 }
