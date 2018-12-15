@@ -1,0 +1,15 @@
+tr:hover #actions>.pos-abs:first-child {
+    display: none;
+}
+
+tr:hover #actions>.pos-abs:last-child {
+    display: block;
+}
+
+#actions > .pos-abs:last-child {
+    display: none;
+}
+
+#actions > .pos-abs {
+    width: 30px;
+}

@@ -1,0 +1,47 @@
+<?php 
+session_start();
+if (isset($_SESSION['login']) and $_SESSION['login'] == true) {
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Digital Marketing Company | Web Design Company</title>
+    <?php include "includes/head.inc.php"; ?>
+    <!-- <link rel="stylesheet" href="css/signin.css" /> -->
+</head>
+
+<body>
+    <?php include "layouts/nav.inc.html"; ?>
+    <div class="scrollable">
+        <section class="my-4">
+            <div class="container valign-wrapper pt-2">
+                <div class="left mr-4"><img class="avatar-l" src="<?=$_SESSION['image']?>" /></div>
+                <div class="left">
+                    <h4 class="m-0">
+                        <?=$_SESSION['name']?>
+                    </h4>
+                    <p class="mt-1">
+                        <?=$_SESSION['email']?>
+                    </p>
+                    <a href="settings"><i class="material-icons left">edit</i> Complete your profile</a>
+                </div>
+                <br clear="all">
+            </div>
+            <div class="border-top-1 grey-border border-lighten-2 my-4"></div>
+            <div class="container">
+                <p>There&apos;s nothing to do right now. Come back later.</p>
+            </div>
+        </section>
+        <?php include "layouts/footer.inc.html"; ?>
+    </div>
+
+    <?php include "includes/scripts.inc.php"; ?>
+    <script src="ui-scripts/profile.js"></script>
+</body>
+
+</html>
+
+<?php } else {
+    header("Location: signin?redirect_to=".$_SERVER['REDIRECT_URL']);
+} ?>

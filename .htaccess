@@ -1,0 +1,20 @@
+RewriteEngine On
+
+RewriteRule ^/?profile/(.*?)/?$ /profile.html?username=$1 [L]
+RewriteRule ^/?service/(.*?)/?$ /service.html?url=$1 [L]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /service\.html\?username=([^\&\ ]+)
+RewriteRule ^/?service\.html$ /service/%1? [L,R=301]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /profile\.html\?username=([^\&\ ]+)
+RewriteRule ^/?profile\.html$ /profile/%1? [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [NC,L]
+
+#AddHandler application/x-httpd-lsphp .htm .html#AddHandler application/x-httpd-lsphp .htm .html
+AddType application/x-httpd-php .html
+
+ErrorDocument 404 /4O4.html
+ErrorDocument 500 /5OO.html

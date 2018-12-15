@@ -1,0 +1,33 @@
+.home-banner {
+    height: 240px;
+}
+.image-wrapper {
+    max-height: 200px;
+    overflow: hidden;
+}
+.modal-back-image {
+    width: calc(100% + 20px) !important; 
+    object-fit: cover;
+    height: 220px;
+    object-position: center;
+    -ms-filter: brightness(50%) blur(2px);
+    -webkit-filter: brightness(50%) blur(2px);
+    filter: brightness(50%) blur(2px);
+    margin: -10px;
+}
+
+@media (max-width: 992px) {
+    .home-banner {
+        height: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .valign-wrapper {
+        display: block;
+    }
+
+    .home-banner {
+        height: 160px;
+    }
+}

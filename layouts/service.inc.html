@@ -1,0 +1,74 @@
+<?php
+$tmp = explode("/", $_SERVER['REQUEST_URI']);
+$GLOBALS['service_url'] = end($tmp);
+require_once "../includes/fetcher.php";
+$services = array_filter(getJson("../data/services.json", "services"), function ($value) {
+    
+    return $value['url'] == $GLOBALS['service_url'];
+});
+
+if (count($services) != 1) {
+    header("Location: ../5OO");
+    return;
+}
+
+foreach ($services as $service) {
+    extract($service, EXTR_SKIP);
+}
+
+?>
+<?php chdir("../")?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="../">
+    <title>
+        <?=$meta['title']?> | WAMP InfoTech
+    </title>
+    <meta name="description" content="<?=$meta['desc']?>" />
+    <meta name="keywords" content="<?=implode(', ', $meta['keywords'])?>" />
+    <meta itemprop="url" content="https://www.wampinfotech.com/<?=$url?>" />
+    <meta property="og:url" content="https://www.wampinfotech.com/<?=$url?>" />
+    <meta itemprop="headline" content="<?=$meta['title']?> | WAMP InfoTech" />
+    <meta property="og:title" content="<?=$meta['title']?> | WAMP InfoTech" />
+    <meta property="og:image" content="https://www.wampinfotech.com/<?=$image?>" />
+    <meta property="og:image:width" content="640" />
+    <meta property="og:image:height" content="320" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="An image, with text '<?=$title?>' written on it." />
+
+    <meta property="og:description" content="<?=$meta['desc']?>" />
+    <meta name="twitter:site" content="https://www.wampinfotech.com/<?=$url?>">
+    <meta name="twitter:card" content="https://www.wampinfotech.com/<?=$image?>">
+    <meta name="twitter:title" content="<?=$meta['title']?> | WAMP InfoTech">
+    <meta name="twitter:description" content="<?=$meta['desc']?>">
+
+    <?php include "includes/head.inc.php"; ?>
+    <link rel="stylesheet" href="css/ihover.css" />
+    <link rel="stylesheet" href="css/services.css" />
+</head>
+
+<body>
+    <?php include "layouts/nav.inc.html"; ?>
+    <div class="scrollable grey lighten-3">
+        <header>
+            <img src="<?=$image?>" class="home-banner" alt="<?=$title?>" />
+        </header>
+        <section id="overview" class="card-panel flow-text">
+            <h1 class="center-align fw-600 h4">
+                <?=$title?>
+            </h1>
+            <hr class="short-border" />
+            <br />
+            <?=$content?>
+        </section>
+
+        <?php include "layouts/footer.inc.html"; ?>
+    </div>
+
+    <?php include "includes/scripts.inc.php"; ?>
+    <script src="ui-scripts/services.js"></script>
+</body>
+
+</html>

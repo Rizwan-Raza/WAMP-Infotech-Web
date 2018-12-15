@@ -1,0 +1,400 @@
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scrollable {
+  height: calc(100vh - 64px);
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: visible;
+  /* overflow: overlay; */
+  margin-right: -8px;
+}
+
+div,
+article,
+header,
+section,
+figure,
+footer {
+  box-sizing: border-box;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+a,
+span,
+i {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+nav {
+  /* background-color: #083b66; */
+  color: #444444;
+  background-color: #ffffff;
+}
+
+nav ul a:hover {
+  background-color: initial !important;
+}
+
+a {
+  /* color: #039be5; */
+  color: #3d85c6;
+}
+
+.hover-text-primary:hover {
+  color: #3d85c6 !important;
+}
+
+#about_dropdown li:hover,
+#about_dropdown li:active,
+#service_dropdown li:hover,
+#service_dropdown li.active {
+  background-color: initial !important;
+}
+
+#about_dropdown li a,
+#service_dropdown li a {
+  color: #444444;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 
+.dropdown-content li a:hover {
+  color: #3d85c6 !important;
+} */
+
+.waves-effect.waves-primary .waves-ripple {
+  /* The alpha value allows the text and background color
+  of the button to still show through. */
+  background-color: rgba(61, 133, 198, 0.4);
+}
+
+.brand-logo,
+nav ul li a {
+  color: #444444 !important;
+}
+
+.brand-logo {
+  font-family: 'Bell Mt Bold';
+}
+
+.brand-img {
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 50px;
+  margin-top: 6px;
+  margin-bottom: -12px;
+}
+
+.avatar-s,
+.avatar-m,
+.avatar-l {
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+.image-triggerer {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.avatar-s {
+  height: 50px;
+  width: 50px;
+  margin-top: 6px;
+  margin-bottom: -18px;
+}
+
+.avatar-m {
+  height: 100px;
+  width: 100px;
+}
+
+.avatar-l {
+  height: 150px;
+  width: 150px;
+}
+
+.avatar-xl {
+  height: 200px;
+  width: 200px;
+}
+
+.sidenav .top-banner {
+  background-color: #444444;
+  background-image: url('../images/back_banner.jpg');
+  background-blend-mode: soft-light;
+  background-position: center;
+  background-size: cover;
+  height: 150px;
+}
+
+.sidenav {
+  height: 100%;
+  padding-bottom: 0px;
+}
+
+.nav-wrapper li,
+.nav-wrapper li a {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+hr.short-border {
+  border: 2px solid #3d85c6;
+  width: 100px;
+  margin: 0 auto;
+}
+
+.home-banner {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  max-height: 240px;
+}
+
+section.card-panel {
+  margin: 2rem;
+}
+
+@media (max-width: 600px) {
+  section.card-panel {
+    margin: 1rem;
+  }
+}
+
+.btn {
+  text-transform: initial;
+  letter-spacing: 0.25px;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.btn:hover,
+.btn-large:hover,
+.btn-small:hover {
+  background-color: #dddddd;
+}
+
+.btn.bg-primary:hover {
+  background-color: #3d85c6;
+}
+
+.btn-primary {
+  background-color: #3d85c6;
+}
+
+.card-panel {
+  border-radius: 8px;
+}
+
+.progress {
+  background-color: #bbdeff;
+  height: 6px;
+}
+
+.progress-holder {
+  border-radius: 8px 8px 0px 0px;
+  margin: 0px;
+  overflow: hidden;
+  margin-bottom: -16px;
+  height: 16px;
+}
+
+.progress-holder .progress {
+  margin: 0;
+  z-index: 4;
+}
+
+.prevent-overlay {
+  background-color: #ffffff40;
+  position: absolute;
+  z-index: 2;
+  cursor: wait;
+}
+
+/* label focus color */
+.input-field input:focus+label,
+.input-field textarea:focus+label {
+  color: #3d85c6 !important;
+}
+
+/* label underline focus color */
+.input-field input:focus,
+.input-field textarea:focus {
+  border-bottom: 1px solid #3d85c6 !important;
+  box-shadow: 0 1px 0 0 #3d85c6 !important;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #3d85c6 !important;
+}
+
+#footer .input-field label {
+  color: #3d85c6;
+}
+
+
+.serviceDropDownContainer .dropdown-content {
+  transform: scaleY(1) !important;
+  width: 100% !important;
+}
+
+.userDropDownContainer .dropdown-content {
+  width: 100% !important;
+}
+
+
+#mobile-sidenav .dropdown-content li.disabled a,
+.nav-wrapper .dropdown-content li.disabled a {
+  cursor: default !important;
+  color: #888888 !important
+}
+
+#mobile-sidenav .dropdown-content li.disabled:hover,
+.nav-wrapper .dropdown-content li.disabled:hover {
+  background-color: transparent !important;
+}
+
+/* div.aboutDropDownContainer .dropdown-content li a, */
+div.serviceDropDownContainer .dropdown-content li a {
+  text-align: center;
+}
+
+
+.input-field button {
+  /* transform: translateY(-42px); */
+  margin-top: -45px;
+}
+
+.flow-text p,
+.flow-text li {
+  font-size: 1rem;
+}
+
+#footer {
+  background-image: url("../images/footer.webp");
+  background-size: cover;
+  background-position: top;
+  background-color: #181820;
+  background-blend-mode: soft-light;
+}
+
+#footer .input-field label {
+  color: #aaaaaa;
+}
+
+#footer .input-field input {
+  color: #ffffff;
+}
+
+#footer a svg {
+  margin: -6px -12px;
+}
+
+/* #footer button.btn-small:hover {
+    background-color: #3d85c6;
+} */
+
+.facebook:hover {
+  background-color: #3b5998;
+}
+
+.linkedin:hover {
+  background-color: #0077b5;
+}
+
+.twitter:hover {
+  background-color: #1da1f2;
+}
+
+.instagram:hover {
+  background-color: #e1306c;
+}
+
+@media (min-width: 600px) {
+
+  .flow-text p,
+  .flow-text li {
+    font-size: 75%;
+  }
+}
+
+/*********************** Media Query Tweaks  ********************************/
+
+@media (max-width: 600px) {
+  .scrollable {
+    height: calc(100vh - 56px);
+  }
+
+  nav .brand-logo {
+    left: 40px;
+    transform: none;
+    padding-left: 1rem;
+  }
+
+  nav .brand-img {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .sidenav {
+    width: 240px;
+  }
+}
+
+@media (max-width: 992px) {
+  .dropdown-content {
+    position: static;
+  }
+}
+
+@media (min-width: 992px) {
+  .serviceDropDownContainer .dropdown-content li {
+    clear: none;
+  }
+}
+
+/***************** Scrollbar *************************/
+@media (orientation: landscape) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #3d85c6;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #3775ac;
+  }
+
+  ::-webkit-scrollbar-thumb:active,
+  ::-webkit-scrollbar-thumb:focus {
+    background-color: #2a577e;
+    /* background-color: red; */
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}

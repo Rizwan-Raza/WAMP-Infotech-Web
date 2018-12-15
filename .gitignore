@@ -1,0 +1,5 @@
+#ignore
+__bin/
+_bin/
+blog/*
+!blog/index.html

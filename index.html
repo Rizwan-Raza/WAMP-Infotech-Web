@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Digital Marketing Agency , Web Development Company | WAMP InfoTech</title>
+
+    <meta name="description" content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level." />
+
+    <meta name="keywords" content="digital marketing agency, web development company, digital marketing company, web design company, digital marketing services, social media agency, digital marketing agency in delhi" />
+    
+    <meta itemprop="url" content="https://www.wampinfotech.com" />
+    <meta property="og:url" content="https://www.wampinfotech.com" />
+    <meta property="og:image" content="https://www.wampinfotech.com/images/banner1.jpg" />
+    <meta property="og:image:width" content="640" />
+    <meta property="og:image:height" content="320" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="Hand joing in radial form" />
+    <meta itemprop="headline" content="Digital Marketing Agency , Web Development Company | WAMP InfoTech" />
+    <meta property="og:title" content="Digital Marketing Agency , Web Development Company | WAMP InfoTech" />
+    <meta property="og:description" content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level." />
+    <meta name="twitter:site" content="https://www.wampinfotech.com">
+    <meta name="twitter:card" content="https://www.wampinfotech.com/images/banner1.jpg">
+    <meta name="twitter:title" content="Digital Marketing Agency , Web Development Company | WAMP InfoTech">
+    <meta name="twitter:description" content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level.">
+    
+    <?php include "includes/head.inc.php"; ?>
+    <link rel="stylesheet" href="css/ihover.css" />
+    <link rel="stylesheet" href="css/home.css" />
+</head>
+
+<body>
+    <?php include "layouts/nav.inc.html"; ?>
+    <!-- Tap Target Structure -->
+    <div class="tap-target bg-primary" data-target="quick_query">
+        <div class="tap-target-content">
+            <h5>Quick Query</h5>
+            <p>Your search for digital partner ends here!<br />
+            </p>
+        </div>
+    </div>
+
+    <div class="scrollable grey lighten-3">
+        <header>
+            <img src="images/banner1.jpg" class="home-banner" />
+        </header>
+        <br />
+        <br class="hide-on-small-only" />
+        <br class="hide-on-small-only" />
+        <section class="px-4" id="about">
+            <div class="flex row">
+                <div class="col s12 m12 l6">
+                    <div class="full">
+                        <div class="home-video white z-depth-2 border-2 grey-border border-radius-8">
+                            <div class="start-button border-2 primary-border border-round" onclick="window.location.href='admin'"></div>
+                            <iframe src="https://www.youtube.com/embed/WL44vPIqkds" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen class="yt-video"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m12 l6">
+                    <h2 class="mt-0">We are <span class="fw-700">WAMP</span>.</h2>
+                    <br>
+                    <strong>We like making your online presence simpler for you.</strong>
+                    <br>
+                    <p>WAMP InfoTech is a digital agency helping businesses, small or big to get better results of
+                        their online presence. We are working on a set of goals or we can actually say ‘your goals’.
+                        Our expertise extends over a wide range of services which includes website development, social
+                        media management, media planning and search engine optimization.</p>
+
+                    <a href="overview" class="waves-effect waves-light btn bg-primary">Learn
+                        more</a>
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </section>
+
+        <section class="section px-4" id="services">
+            <h3 class="mb-2">What we <span class="fw-700">do</span>.</h3>
+            <div class="row">
+                <?php 
+                $services = array_filter(getJson("./data/services.json", "services"), function($value) {
+                    return $value['in_home'];
+                });
+                usort($services, function($a,$b) {
+                    return $a['order'] <=> $b['order'];
+                });
+                foreach ($services as $service) { ?>
+                <div class="col s12 m6 l4 my-2 py-2">
+                    <a href="services/<?=$service['url']?>">
+                        <div class="row mb-0 valign-wrapper">
+                            <div class="col s4">
+                                <div class="image-block">
+                                    <span class="svg-container icon">
+                                        <?=$service['src']?>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col s8">
+                                <h5 class="mt-0 fw-600">
+                                    <?=$service['title']?>
+                                </h5>
+                                <span class="grey-text text-darken-1">
+                                    <?=$service['desc']?>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <?php } ?>
+            </div>
+        </section>
+        <section>
+            <div class="row mb-0" id="our-works">
+                <div class="col s12 m12 l12 xl6 bg-primary p-4">
+                    <h4 class="white-text"><span class="fw-700">Projects</span> close to our heart!<a href="work" class="btn waves-effect right white text-primary mt-2">View
+                            more</a></h4>
+                    <br />
+                    <h5 class="white-text">Are you looking for a class-apart website for your business?</h5>
+                    <h5><a href="contact" class="white-text">Get in touch with us for free estimation.</a></h5>
+                </div>
+
+                <?php 
+
+                $works = array_filter(getJson("./data/our-works.json", "our_works"), function($value) {
+                    return $value['in_home'];
+                });
+                usort($works, function($a,$b) {
+                    return $a['order'] <=> $b['order'];
+                });
+
+                foreach ($works as $work) { ?>
+
+                <div class="col s12 m6 l4 xl3 black">
+                    <div class="ih-item square effect6 from_top_and_bottom"><a href="work">
+                            <div class="img full"><img src="<?=$work['src']?>" alt="<?=$work['title']?>" /></div>
+                            <div class="info valign-wrapper">
+                                <div class="w-full">
+                                    <h4 class="white-text text-z-depth-2">
+                                        <?=$work['title']?>
+                                    </h4>
+                                    <button class="btn bg-primary waves-effect" onclick=window.location.href="<?=$work['url']?>">Details
+                                    </button>
+                                </div>
+                            </div>
+                        </a></div>
+                </div>
+                <?php } ?>
+            </div>
+        </section>
+        <section class="p-4 my-m-2">
+            <h4 class="fw-600">Let us give you reasons, why you need to hire us?</h4>
+            <p>WAMP InfoTech is a 360 degree digital marketing agency based in New Delhi. We have a team of experienced
+                professionals in designing, creating, and maintaining. Due to this reason we’ve got a great number of
+                happy clients.</p>
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="left my-2 mr-1"><i class="medium material-icons">stars</i></div>
+                    <div class="left col s9">
+                        <h5 class="fw-600">Our services are performance-based</h5>
+                        <p>We make sure that our work is result-driven. We try climbing the ladder from the basics of
+                            particular digital strategies.</p>
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="left my-2 mr-1"><i class="medium material-icons">alarm_on</i></div>
+                    <div class="left col s9">
+                        <h5 class="fw-600">We deliver our projects on time</h5>
+                        <p>When it comes to delivering the projects we make sure that we set realistic customer
+                            expectation.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="left my-2 mr-1"><i class="medium material-icons">thumb_up</i></div>
+                    <div class="left col s9">
+                        <h5 class="fw-600">Strong commitment</h5>
+                        <p>We believe in having a strong relationship with our clients that lasts for years. As we
+                            ensure
+                            our work commitments are fulfilled as per their expectations.</p>
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="left my-2 mr-1"><i class="medium material-icons">mood</i></div>
+                    <div class="left col s9">
+                        <h5 class="fw-600">We keep our approach customer focused</h5>
+                        <p>It is said that the real assets of a company are its customers therefore we make sure to
+                            grab as much information from our customers as possible. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="p-4 grey darken-2" style="background-image: url('images/banner_back.jpg'); background-size: cover; background-position: center;background-color: #616161; background-blend-mode: hard-light">
+            <div class="border-2 grey-border border-radius-8">
+                <h3 class="text-capitalize white-text center-align px-2 fw-600">What People say</h3>
+                <hr class="short-border" />
+
+                <div class="carousel carousel-slider center">
+                    <?php 
+                    $testimonials = getJson("./data/testimonials.json", "testimonials");
+                    foreach ($testimonials as $testimonial) { 
+                        ?>
+                    <div class="carousel-item white-text" href="#one!">
+                        <p class="white-text px-4">
+                            <?=$testimonial['quote']?>
+                        </p>
+                        <h2 class="text-capitalize">
+                            <?=$testimonial['author']?>
+                        </h2>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </section>
+
+        <section class="px-4 py-2 my-m-4 center-align">
+            <h3 class="text-uppercase fw-600">We hope to hear from you soon</h3>
+            <br />
+            <a href="contact" class="btn btn-large waves-effect waves-light bg-primary text-capitalize">Get
+                in touch</a>
+            <br clear="both" />
+        </section>
+        <?php include "layouts/footer.inc.html"; ?>
+    </div>
+    <?php include "includes/scripts.inc.php"; ?>
+    <script src="ui-scripts/home.js"></script>
+</body>
+
+</html>

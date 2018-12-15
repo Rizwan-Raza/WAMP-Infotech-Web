@@ -1,0 +1,30 @@
+table td {
+    padding: 0px;
+}
+
+table tr {
+    border-bottom: 0;
+}
+
+.pos-abs.avatar-l.full {
+    left: 0;
+}
+
+.pos-abs.w-full {
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.pos-abs.full.circle:hover .pos-abs.w-full {
+    display: block
+}
+
+.circle.green {
+    right: 0;
+    cursor: pointer;
+}
+
+div.circle.green:hover {
+    background-color: red;
+}

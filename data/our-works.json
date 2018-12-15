@@ -1,0 +1,51 @@
+{
+  "our_works": [{
+      "in_home": true,
+      "order": 1,
+      "src": "images/works/redolance-india.jpg",
+      "url": "http://redolenceindia.in",
+      "desc": "- Wedding planning now goes digital, as we come up with a mesmerizing website for Redolence India. A website designed to make your wedding hassle-free, with a lot of images to make it a captivating journey as you go through the website. A modern alternative for wedding designs, a website with a beautiful logo and a charming customer journey.",
+      "title": "Redolence India"
+    },
+    {
+      "in_home": true,
+      "order": 2,
+      "src": "images/works/gloria-stylx.jpg",
+      "url": "http://gloriastylx.com",
+      "desc": "An e-commerce website, built with a mission to increase the accessibility of brands for all. Gloria Stylx includes everything you need to set up your online store. From a proper inventory to add your products to the payment gateway; everything has been set right for a smooth customer journey.",
+      "title": "Gloria Stylx"
+    },
+    {
+      "in_home": true,
+      "order": 3,
+      "src": "images/works/archue.jpg",
+      "url": "http://archue.com",
+      "desc": "A website designed especially for architectures, with a variety of information. The client believed that knowledge should not be limited to a certain group of people. Therefore, the website provides architecture news, projects, portfolios, reports, case studies, and products.",
+      "title": "Archue"
+    },
+    {
+      "in_home": true,
+      "order": 5,
+      "src": "images/works/microrent.jpg",
+      "url": "http://microrentindia.com",
+      "desc": "Microrent India is computer and software rent company. A well-established firm takes the online platform to seek more potential leads for the services provided. The website gives an idea about the stuff that one can take on rent like computers, laptops, multimedia devices etc. ",
+      "title": "Microrent India"
+    },
+    {
+      "in_home": true,
+      "order": 4,
+      "src": "images/works/kaliram-chaats.jpg",
+      "url": "http://kaliramevents.com",
+      "desc": "With almost 11 years of experience in the field of planning the weddings and social events, the clients wanted to turn digital. Therefore, the website is designed in a simple manner to give an overview to the customers about the services provided. ",
+      "title": "Kaliram Chaats"
+    },
+    {
+      "in_home": true,
+      "order": 6,
+      "src": "images/works/wamp-institute.jpg",
+      "url": "https://wampinstitute.in",
+      "desc": "WAMP Institute is a venture of WAMP InfoTech; it is a digital marketing institute. With the establishment of WAMP InfoTech, our co-founders knew that digital marketing is like a never-ending marketing strategy. Therefore, the youth needs to be more aware of the digital services.",
+      "title": "WAMP Institute"
+    }
+  ]
+}

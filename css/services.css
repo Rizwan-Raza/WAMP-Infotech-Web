@@ -1,0 +1,13 @@
+.home-banner {
+  max-height: 240px;
+}
+
+li.collection-item {
+  position: relative !important;
+  padding-left: 40px !important;
+}
+
+li.collection-item i {
+  position: absolute !important;
+  left: 10px !important;
+}

@@ -1,0 +1,147 @@
+body {
+    overflow: hidden;
+}
+
+.btn {
+    text-transform: initial;
+    letter-spacing: 0.25px;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.progress {
+    background-color: #bbdeff;
+}
+
+.progress-holder {
+    border-radius: 8px 8px 0px 0px;
+    margin: 0px;
+    overflow: hidden;
+    margin-bottom: -16px;
+    height: 16px;
+}
+
+.progress-holder .progress {
+    margin: 0;
+    z-index: 4;
+}
+
+.prevent-overlay {
+    background-color: #ffffff40;
+    position: absolute;
+    z-index: 2;
+    cursor: wait;
+}
+
+/* label focus color */
+.input-field input:focus+label,
+.input-field textarea:focus+label {
+    color: #3d85c6 !important;
+}
+
+/* label underline focus color */
+.input-field input:focus,
+.input-field textarea:focus {
+    border-bottom: 1px solid #3d85c6 !important;
+    box-shadow: 0 1px 0 0 #3d85c6 !important;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: #3d85c6 !important;
+}
+
+
+.card-action {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.card-action a {
+    color: rgba(255, 255, 255, 0.87) !important;
+}
+
+
+.sidenav.bg-primary {
+    transform: none;
+    transition: all .3s ease;
+}
+
+.sidenav.bg-primary li>a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.sidenav.bg-primary li>a>i {
+    color: rgba(255, 255, 255, 0.54)
+}
+
+.sidenav.bg-primary .divider {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.hide-on-small {
+    height: 100vh;
+}
+
+.white .grey.lighten-3 {
+    overflow-x: auto;
+}
+
+.btn:hover {
+    background-color: #dddddd;
+}
+
+.input-field button {
+    /* transform: translateY(-42px); */
+    margin-top: -45px;
+}
+
+@media (max-width: 600px) {
+    .sidenav.bg-primary {
+        /* background-color: red; */
+        top: 56px;
+        position: fixed;
+        width: 300px;
+        transform: translateX(-100%);
+    }
+
+    .hide-on-small {
+        width: 0 !important;
+        height: 0 !important;
+    }
+
+    .hide-on-small+col.s12 {
+        width: 100% !important;
+    }
+}
+
+
+
+/***************** Scrollbar *************************/
+@media (orientation: landscape) {
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #3d85c6;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #3775ac;
+    }
+
+    ::-webkit-scrollbar-thumb:active,
+    ::-webkit-scrollbar-thumb:focus {
+        background-color: #2a577e;
+        /* background-color: red; */
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+}

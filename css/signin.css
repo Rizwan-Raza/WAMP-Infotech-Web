@@ -1,0 +1,44 @@
+.back {
+    background-image: url('../images/log_back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: calc(100vh - 64px);
+    position: relative;
+}
+
+.back .panel {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    max-width: 500px;
+    width: 100%;
+    transform: translate(-50%, calc(-50% - 32px));
+    margin: 0px;
+}
+
+.back .card-panel {
+    margin: 0px;
+}
+
+
+@media (max-width: 600px) {
+    .back {
+        /* border-radius: 0 !important;  */
+        /* margin-top: 64px !important; */
+        position: static;
+        height: auto;
+    }
+
+    .back .panel {
+        position: static;
+        transform: none;
+    }
+
+    .back .card-panel {
+        position: static;
+        transform: initial;
+        margin: 0;
+        border-radius: 0px;
+    }
+}

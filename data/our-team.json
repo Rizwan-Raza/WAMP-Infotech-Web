@@ -1,0 +1,167 @@
+{
+  "our_team": [{
+      "src": "images/team/placeholder_m.jpg",
+      "title": "Momin Fazal",
+      "role": "President & Legal Advisor",
+      "email": "momin@wampinfotech.com",
+      "order": 1,
+      "id": "momin_fazal",
+      "desc": "And they say ‘with great power, comes great responsibility’, Momin is always full of energy and life. He is a lawyer by profession but he knew the digital field is at a boom and therefore wanted to explore in the same field. Even with his hectic schedule in the state court, he pays regular visits to the office and discusses about the work with all the employs. His bright smile and positive energy is infectious. He serves as the President and the legal advisor for the company."
+    },
+    {
+      "src": "images/team/Faris-Shah.jpg",
+      "title": "S.M. Faris",
+      "role": "CEO",
+      "email": "faris@wampinfotech.com",
+      "order": 2,
+      "id": "sm_faris",
+      "linkedin": "https://www.linkedin.com/in/s-m-faris-9406a153/",
+      "desc": "S M Faris is recognized as an expert in Digital Marketing and his specialization includes running Google Ads campaign. He has been in working in the same field for quite some time now. He graduated from Jamia Millia Islamia University, New Delhi and holds a Bachelors degree in Business Management and Marketing. He had big dreams since forever and is currently working hard to achieve all those dreams. He has a vision to take WAMP InfoTech to another level with his affable nature. He has completed various successful projects for the company. Over the years, Faris has worn many hats at the WAMP InfoTech. He has worked in several companies to gain experience. Then, he moved on and started his own firm WAMP InfoTech. Faris is an avid sports fan, particularly he is a Cricket fan."
+    },
+    {
+      "src": "images/team/Zoeb-Hasan.jpg",
+      "title": "Zoeb Hasan",
+      "role": "Director",
+      "email": "zoeb@wampinfotech.com",
+      "order": 3,
+      "id": "zoeb_hasan",
+      "desc": "Every organization needs to add new blood to revitalize its productivity by bringing new ideas and fresh energy to break the existing status quo. He serves as the Director for WAMP InfoTech. Zoeb is a graduate from Jamia Millia Islamia University, New Delhi and holding a Bachelor in Arts & Finance degree to develop and implement unconventional and impactful skills to grow our companies’ revenue."
+    },
+    {
+      "src": "images/team/Parvez-Alam.jpg",
+      "title": "Parvez Alam",
+      "role": "Chief Financial Officer (CFO)",
+      "email": "parvez@wampinfotech.com",
+      "order": 4,
+      "id": "parvez_alam",
+      "linkedin": "https://www.linkedin.com/in/parvez-alamkhan/",
+      "desc": "He is serving the company as the Chief Financial Officer and has a great responsibility for the financial affairs of the company. His responsibilities include all payroll, accounts receivable, accounts payable, insurance documentation, along with coordinating all office administrative activities. His loyalty and dedication is extremely valuable to the satisfaction of our clients and has been instrumental in the growth and development of WAMP InfoTech. He has been learning all aspects of running a successful company. He holds two degree. One is Bachelors in Commerce and the other one is Bachelors in Civil Engineering. He is observant and a keen learner."
+    },
+    {
+      "src": "images/team/Afzaur-Rehman.jpg",
+      "title": "Afzaur Rehman",
+      "role": "Managing Director",
+      "email": "afzaur@wampinfotech.com",
+      "order": 5,
+      "id": "afzaur_rehman",
+      "desc": "Afzaur is the Managing Director for the company. Throughout the years, Afzaur (Faiz) has built deep relationships with several customers. He has been an instrumental part of the executive team for the past 2 years. His passion is helping customers like you to find the right products to serve the need. He is pursuing his final year in Bachelors from Jamia Millia Islamia, New Delhi. He has done his high school education from United States. He is a crazy fan of Soccer and loves watching soccer matches."
+    },
+    {
+      "src": "images/team/Vishal-Singh.jpg",
+      "title": "Vishal Singh",
+      "role": "Assistant Manager",
+      "email": "vishal@wampinfotech.com",
+      "order": 6,
+      "id": "vishal_singh",
+      "desc": "Being an assistant manager Vishal has to look after several responsibilities, and working as an assistant manager requires good leadership skills.  He joined WAMP in 2017 and has handled his work professionally very well. He believes that in whichever field you work, be hardworking and multi-task to come out with flying colours."
+    },
+    {
+      "src": "images/team/placeholder_f.jpg",
+      "title": "Noshin Fazal",
+      "role": "Strategy Manager",
+      "email": "nosheen@wampinfotech.com",
+      "order": 7,
+      "id": "noshin_fazal",
+      "desc": "Web is a necessary communication channel, for us. Therefore, we have Noshin as the Strategy Manager, with a great amount of experience in the Digital Marketing field. She is actually a program manager. Thus, she manages the projects, terms and resources. She works with a team of efficient co-works and plans out the complete strategy for brands; managing the profit and loss."
+    },
+    {
+      "src": "images/team/Ayton-Khan.jpg",
+      "title": "Ayton Khan",
+      "role": "Social Media Marketer",
+      "email": "ayton@wampinfotech.com",
+      "order": 8,
+      "id": "ayton_khan",
+      "linkedin": "https://www.linkedin.com/in/ayton-khan/",
+      "desc": "With a Masters degree in Human Rights, Ayton somehow inclined towards Digital Marketing. Her love for Social Media made her realize that this was her career. Her creative mind knew that this field could let her fly freely, as her imagination has no bounds. She has created several successful social media campaigns and is always on a chase for creative ideas. "
+    },
+    {
+      "src": "images/team/Suhaib-Ali.jpg",
+      "title": "Suhaib Ali",
+      "role": "Graphic Designer",
+      "email": "suhaib@wampinfotech.com",
+      "order": 9,
+      "id": "suhaib_ali",
+      "linkedin": "https://www.linkedin.com/in/suhaib-ali/",
+      "desc": "His profession defines his passion, a creative head who knew he would make a difference with his designs. Suhaib has created various campaigns for Facebook and various other social media channels for several companies and also designs the layouts for the websites. "
+    },
+    {
+      "src": "images/team/Mohd-Faizan.jpg",
+      "title": "Mohd Faizan",
+      "role": "Web Developer",
+      "email": "faizan@wampinfotech.com",
+      "order": 10,
+      "id": "mohd_faizan",
+      "linkedin": "https://linkedin.com/in/mhsfaizan",
+      "desc": "With a Diploma in Computer Science degree from Jamia Millia Islamia, New Delhi; this young boy from a small town is extremely focused about his work at a very young age. Experienced in both front and back-end development and works effortlessly in several technologies like CSS/CSS3, LESS, SASS, XML, JavaScript, jQuery, AJAX etc. to name a few."
+    },
+    {
+      "src": "images/team/Aeshar-Manzar.jpg",
+      "title": "Aeshar Manzar",
+      "role": "Web Developer",
+      "email": "aeshar@wampinfotech.com",
+      "order": 11,
+      "id": "aeshar_manzar",
+      "linkedin": "https://linkedin.com/in/iamaeshar",
+      "desc": "Web developer with a curious nature wants to learn something new every day. With an ability to work on various technologies, Aeshar likes challenges and accepts them when they cross his field. Aeshar has a degree in B. Tech. in Computer Science that has given him great experience in the same field."
+    },
+    {
+      "src": "images/team/Rizwan-Raza.jpg",
+      "title": "Rizwan Raza",
+      "role": "App Developer",
+      "email": "rizwan@wampinfotech.com",
+      "order": 12,
+      "id": "rizwan_raza",
+      "linkedin": "https://linkedin.com/in/Rizwan-Raza",
+      "desc": "A techno-freak, gamer and a die-hard fan of Marvel Franchise, Rizwan is a young boy who has always loved technology. Therefore, he turned his passion and love for technology into his career as an App Developer. He has designed various Apps for Android and made them a hit amongst the masses. "
+    },
+    {
+      "src": "images/team/Vivek-Dubey.jpg",
+      "title": "Vivek Dubey",
+      "role": "SEO | Team Leader",
+      "email": "vivek@wampinfotech.com",
+      "order": 13,
+      "id": "vivek_dubey",
+      "linkedin": "https://www.linkedin.com/in/vivek-dubey/",
+      "desc": "The SEO team leader, Vivek has a great responsibility to work for the company. He plans the strategies for his co-workers. He has helped plenty of small, medium & enterprise level businesses by providing effective and result oriented SEO services. With a fun nature, he works on his ethics and doesn’t shy from learning new things."
+    },
+    {
+      "src": "images/team/Amir-Siddiqui.jpg",
+      "title": "Amir Siddiqui",
+      "role": "SEO Executive",
+      "email": "amir@wampinfotech.com",
+      "order": 14,
+      "id": "amir_siddiqui",
+      "linkedin": "https://www.linkedin.com/in/amir-siddiqui/",
+      "desc": "Learned Digital Marketing from an institute in New Delhi. Amir is currently working as a SEO Executive, with an eye to correct the mistakes. He is an SEO Expert and has delivered great results in the same field. He maps out his strategies to come up with result oriented SEO services."
+    },
+    {
+      "src": "images/team/Shahnawaz-Tomar.jpg",
+      "title": "Shahnawaz Tomar",
+      "role": "SEO Executive",
+      "email": "shanawaz@wampinfotech.com",
+      "order": 15,
+      "id": "shahnawaz_tomar",
+      "linkedin": "https://www.linkedin.com/in/shahnawaz-tomar/",
+      "desc": "With a Masters degree in Human Rights, Shahnawaz saw it coming while his post-graduation days that it was not his cup of tea. Therefore, he changed his field at the right time and worked as a SEO executive. He is focused about his work and is a great learner."
+    },
+    {
+      "src": "images/team/Noman-Khan.jpg",
+      "title": "Noman Khan",
+      "role": "SEO Executive",
+      "email": "noman@wampinfotech.com",
+      "order": 16,
+      "id": "noman_khan",
+      "linkedin": "https://www.linkedin.com/in/iamnomankhan/",
+      "desc": "Noman is a young boy, who was curious to know about Digital Marketing and therefore, gained interest in SEO. He is a quick learner and a lover for music. He has worked on some great projects and has been polishing his skills with every passing day. "
+    },
+    {
+      "src": "images/team/Amarjeet-Singh.jpg",
+      "title": "Amarjeet Singh",
+      "role": "Admin",
+      "order": 17,
+      "id": "amarjeet_singh",
+      "linkedin": "https://www.linkedin.com/in/iamamarjeetkumar/",
+      "desc": "Amarjeet is a great multi-tasker as his job involves administration work. He manages the office and all the employees, working for their basic requirements and fixing the issues. He also coordinates with the management and engages in the planning according to the needs of the company"
+    }
+  ]
+}

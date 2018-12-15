@@ -1,0 +1,23 @@
+User-Agent: *
+#Files
+Disallow: /terms-and-conditions
+Disallow: /privacy-policy
+Disallow: /coming-soon
+Disallow: /browserconfig.xml
+
+#SigninFiles
+Disallow: /signin
+Disallow: /signup
+Disallow: /profile
+Disallow: /settings
+Disallow: /dashboard
+Disallow: /feedback
+#Directories
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /layouts/
+Disallow: /ui-scripts/
+Disallow: /css/
+Disallow: /php/
+Disallow: /blog/
+Allow: /blog/index.html
