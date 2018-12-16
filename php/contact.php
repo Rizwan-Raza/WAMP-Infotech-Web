@@ -1,24 +1,25 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 // print_r($_REQUEST);
-// print_r($_REQUEST);
+// // print_r($_REQUEST);
 $data = array("message"=> "Unknown method", "status"=>"server_error");
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
-    error_reporting(0);
-    extract($_POST, EXTR_SKIP);
+    if (isset($_POST['name']) and isset($_POST['email']) and isset($_POST['number']) and isset($_POST['message'])) {
+        error_reporting(0);
+        extract($_POST, EXTR_SKIP);
 
-    $sql = "INSERT INTO `queries`(`name`, `email`, `number`, `company`, `message`, `country`, `service`, `time`) VALUES ('$name','$email','$number','$company', '$message', '$country', '$service', CONVERT_TZ(CURRENT_TIMESTAMP, '+00:00', '+05:30'))";
+        $sql = "INSERT INTO `queries`(`name`, `email`, `number`, `company`, `message`, `country`, `service`, `time`) VALUES ('$name','$email','$number','$company', '$message', '$country', '$service', CONVERT_TZ(CURRENT_TIMESTAMP, '+00:00', '+05:30'))";
 
-    require 'db.php';
-    $conn = DB::getConnection();
-    if ($conn->query($sql) === true) {
+        require 'db.php';
+        $conn = DB::getConnection();
+        if ($conn->query($sql) === true) {
 
         // For testing purpose only.
-        // $to = "rizwan.raza987@gmail.com";
-        $to = "info@wampinfotech.com";
-        $from = "$name <$email>";
-        $subject = "Enquiry from WAMP Infotech Web Platform.";
-        $body = '<!DOCTYPE html>
+            $to = "rizwan.raza987@gmail.com";
+            // $to = "info@wampinfotech.com";
+            $from = "$name <$email>";
+            $subject = "Enquiry from WAMP Infotech Web Platform.";
+            $body = '<!DOCTYPE html>
         <html>
         
         <head>
@@ -79,22 +80,25 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         
         </html>';
 
-        // Always set content-type when sending HTML email
-        $headers = "MIME-Version: 1.0" . "\r\n";
-        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+            // Always set content-type when sending HTML email
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
-        // More headers
-        $headersO = $headers . 'From: '.$from . "\r\n";
+            // More headers
+            $headersO = $headers . 'From: '.$from . "\r\n";
 
-        if (mail($to, $subject, $body, $headersO)) {
-            $data = array("message"=>"Thank you! We will contact you soon.", "status"=>"success");
+            if (mail($to, $subject, $body, $headersO)) {
+                $data = array("message"=>"Thank you! We will contact you soon.", "status"=>"success");
+            } else {
+                $headersO = $headers . 'From: WAMP Infotech <wampinfotech@gmail.com>'."\r\n";
+                mail($to, $subject, $body, $headers);
+                $data = array("message"=>"Email seems to be wrong, Try again.", "status"=>"success");
+            }
         } else {
-            $headersO = $headers . 'From: WAMP Infotech <wampinfotech@gmail.com>'."\r\n";
-            mail($to, $subject, $body, $headers);
-            $data = array("message"=>"Email seems to be wrong, Try again.", "status"=>"success");
+            $data = array("message"=>"Something went wrong! Try again", "status"=>"server_error");
         }
     } else {
-        $data = array("message"=>"Something went wrong! Try again", "status"=>"server_error");
+        $data = array("message"=>"Parameters missing", "status"=>"server_error");
     }
 }
 echo json_encode($data);
