@@ -15,8 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         if ($conn->query($sql) === true) {
 
         // For testing purpose only.
-            $to = "rizwan.raza987@gmail.com";
-            // $to = "info@wampinfotech.com";
+            // $to = "rizwan.raza987@gmail.com";
+            $to = "info@wampinfotech.com";
             $from = "$name <$email>";
             $subject = "Enquiry from WAMP Infotech Web Platform.";
             $body = '<!DOCTYPE html>
