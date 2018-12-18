@@ -48,7 +48,7 @@ $_SESSION['admin'] == true) {
                         <?php for ($i = 0; $i <
               $num; $i++) {
             $user = $result->fetch_assoc(); ?>
-                        <tr>
+                        <tr <?=($user['disabled'] ? 'style="opacity: 0.5;background-color: antiquewhite"' : '' )?>>
                             <td class="pl-4">
                                 <?=$user['_uid']?>
                             </td>
@@ -66,13 +66,32 @@ $_SESSION['admin'] == true) {
                             </td>
                             <td>
                                 <div class="pos-rel" style="top: -10px;" id="actions">
+                                    <?php if (!$user['disabled']) {
+                                            ?>
                                     <div class="pos-abs" style="height:25px;">
-                                        <i class="material-icons"style="width: 30px;text-align:center;height:25px;"><?=($user['active']) ? 'check' : 'close' ?></i>
+                                        <i class="material-icons" style="width: 30px;text-align:center;height:25px;">
+                                            <?=($user['active']) ? 'check' : 'close' ?></i>
                                     </div>
+                                    <?php
+                                        } ?>
 
                                     <div class="pos-abs">
-                                        <button class="transparent btn-flat circle btn-floating tooltipped waves-effect waves-circle waves-dark" style="margin:-5px -3px;"
-                                        onclick="activate(<?=$user['_uid']?>, this, <?=($user['active'] ? '0' : '1')?>)" data-tooltip="<?=($user['active'] ? 'Deactivate' : 'Activate')?>"><i class="material-icons <?=($user['active'] ? 'red-text' : 'green-text')?> lh-5"> <?=($user['active']) ? 'close' : 'check' ?></i></i></button>
+                                        <?php if (!$user['disabled']) {
+                                            ?>
+                                        <button class="transparent btn-flat circle btn-floating tooltipped waves-effect waves-circle waves-dark"
+                                            style="margin:-5px -3px;" onclick="activate(<?=$user['_uid']?>, this, <?=($user['active'] ? '0' : '1')?>)"
+                                            data-tooltip="<?=($user['active'] ? 'Deactivate' : 'Activate')?>"><i class="material-icons <?=($user['active'] ? 'red-text' : 'green-text')?> lh-5">
+                                                <?=($user['active']) ? 'close' : 'check' ?></i></i></button>
+                                        <?php
+                                        } else {
+                                            ?>
+                                        <button class="transparent btn-flat circle btn-floating tooltipped waves-effect waves-circle waves-dark"
+                                            style="margin:-5px -3px;" onclick="deleteUser(<?=$user['_uid']?>, this)"
+                                            data-tooltip="Delete Forever"><i class="material-icons red-text lh-5">
+                                                delete_forever</i></button>
+
+                                        <?php
+                                        } ?>
                                     </div>
                                 </div>
                             </td>

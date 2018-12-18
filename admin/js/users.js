@@ -48,3 +48,38 @@ function activate(_uid, child, act) {
         }
     });
 }
+
+
+function deleteUser(_uid, elem) {
+    elem = $(elem).closest("tr");
+    $.ajax({
+        url: "admin/php/delete-user.php",
+        method: "POST",
+        data: {
+            _uid: _uid
+        },
+        beforeSend: () => {
+            elem.css("opacity", 0.2);
+            // $("#progress, .prevent-overlay").removeClass("hide");
+        },
+        success: (data, status) => {
+            // console.log(data, status);
+            var object = JSON.parse(data);
+            M.toast({
+                html: object.message
+            });
+            if (object.status == "server_error") {
+                elem.css("opacity", 0.5);
+                return;
+            } else if (object.status == "success") {
+                elem.slideUp();
+            }
+        },
+        error: (data, status) => {
+            console.log(data, status);
+        },
+        complete: () => {
+            // $("#progress, .prevent-overlay").addClass("hide");
+        }
+    });
+}

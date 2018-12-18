@@ -25,7 +25,7 @@ if (isset($_GET['hash']) and $_GET['uid']) {
                 $_SESSION['active'] = $data['active'];
                 $_SESSION['short_name'] = explode(" ", $_SESSION['name'])[0];
                 $activation = "success";
-                header("Location: dashboard");
+                header("Location: /dashboard");
                 exit;
             }
             $activation = "success";

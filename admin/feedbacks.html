@@ -26,7 +26,7 @@ $_SESSION['admin'] == true) {
             </div>
             <div class="border-top-1 grey-border border-lighten-2 mt-2"></div>
             <div class="grey lighten-3">
-                <?php $sql = "SELECT `_fid`, `feed`, `name`, `email`, `feeds`.`time`, `approved`, `disabled` FROM `feeds`, `users` WHERE `users`.`_uid`=`feeds`.`_uid`";
+                <?php $sql = "SELECT `_fid`, `feed`, `name`, `email`, `feeds`.`time`, `approved`, `feeds`.`disabled` FROM `feeds`, `users` WHERE `users`.`_uid`=`feeds`.`_uid`";
     require "../php/db.php";
     $conn = DB::getConnection();
     date_default_timezone_set("Asia/Kolkata");

@@ -14,7 +14,7 @@ function signupMail($email, $url)
     <body style="font-family: -apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,Oxygen-Sans,Ubuntu,Cantarell,\'Helvetica Neue\',sans-serif;margin:0px;background-color: #eeeeee;">
         <table style="background-color: #dddddd;padding: 8px 16px;width: 100%;box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);">
             <tr>
-                <td><img src="http://wampinfotech.com/wamp/images/wamp-round-logo.png" height="50px" alt="WAMP InfoTech" /></td>
+                <td><img src="http://wampinfotech.com/images/wamp-round-logo.png" height="50px" alt="WAMP InfoTech" /></td>
                 <td style="line-height: 50px;vertical-align: top; margin:0px; font-size: 32px; font-weight: 500;">Activate Yourself</td>
             </tr>
         </table>
@@ -33,8 +33,8 @@ function signupMail($email, $url)
             <tr>
                 <td style="line-height: 50px;vertical-align: top; margin:0px; font-size: 24px; font-weight: 500;"><a href="https://wampinfotech.com/"
                         style="color: #ffffff;text-decoration:none">WAMP InfoTech Pvt Ltd.</a></td>
-                <td><a href="https://wampinfotech.com/" style="color: #ffffff;text-decoration:none">About</a></td>
-                <td><a href="https://wampinfotech.com/" style="color: #ffffff;text-decoration:none">Privacy Policy</a></td>
+                <td><a href="https://wampinfotech.com/about" style="color: #ffffff;text-decoration:none">About</a></td>
+                <td><a href="https://wampinfotech.com/privacy-policy" style="color: #ffffff;text-decoration:none">Privacy Policy</a></td>
             </tr>
         </table>
     </body>

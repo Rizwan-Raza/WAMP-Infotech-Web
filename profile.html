@@ -86,6 +86,6 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == true) {
 
 <?php
 } else {
-        header("Location: signin?redirect_to=".$_SERVER['REDIRECT_URL']);
+        header("Location: https://$_SERVER[SERVER_NAME]/signin?redirect_to=".$_SERVER['REDIRECT_URL']);
     }
 ?>
