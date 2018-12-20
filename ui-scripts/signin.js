@@ -32,7 +32,7 @@ $(document).ready(function () {
             method: "POST",
             data: $(e.target).serialize(),
             beforeSend: () => {
-                $("#progress, .prevent-overlay").removeClass("hide");
+                $("#signin #progress, #signin .prevent-overlay").removeClass("hide");
             },
             success: (data, status) => {
                 // console.log(data, status);
@@ -54,10 +54,13 @@ $(document).ready(function () {
                 }
             },
             error: (data, status) => {
+                M.toast({
+                    html: data
+                });
                 console.log(data, status);
             },
             complete: () => {
-                $("#progress, .prevent-overlay").addClass("hide");
+                $("#signin #progress, #signin .prevent-overlay").addClass("hide");
             }
         });
     });

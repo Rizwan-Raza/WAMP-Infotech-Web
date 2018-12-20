@@ -4,11 +4,14 @@ extract($_FILES, EXTR_SKIP);
 $data = array("message"=> "Unknown request action", "status"=>"server_error");
 if (isset($profile_chooser)) {
     session_start();
+    error_reporting(0);
     $target_dir = "images/users/";
     $target_file = $target_dir ."user-". $_SESSION['_uid'];
 
     if ($_SESSION['image'] == $target_file) {
-        unlink($target_file);
+        if(file_exists($target_file)) {
+            unlink($target_file);
+        }
     }
 
     if (move_uploaded_file($profile_chooser["tmp_name"], "../".$target_file)) {

@@ -1,5 +1,6 @@
 #ignore
 __bin/
 _bin/
+backup/
 blog/*
 !blog/index.html

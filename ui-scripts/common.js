@@ -7,8 +7,11 @@ $(document).ready(() => {
     $(".service-mobile-drop").addClass("serviceDropDownContainer");
     $(".user-mobile-drop").addClass("userDropDownContainer");
     $("#quick_query_modal").addClass("modal-fixed-footer");
-    if (window.location.href.search("index") != -1 && window.innerWidth <= 600) {
-      $(".fixed-action-btn").css("bottom", "79px");
+    if (window.innerWidth <= 600) {
+      if (window.location.href.endsWith(".com/")) {
+        $(".fixed-action-btn").css("bottom", "79px");
+      }
+      $("#footer .row .col").removeClass("pr-4 pl-4");
     }
   }
 
@@ -18,11 +21,19 @@ $(document).ready(() => {
     // }, 3000);
 
     $("#page_loader").addClass("hide");
+  };
+
+  let userImg = $(".avatar-l img, .avatar-m img, .avatar-s img, .avatar-xs img");
+  if (userImg.length > 0) {
+    userImg.attr("src", userImg.get(0).attr("src") + "?" + new Date().getTime());
   }
+
+  $(document).mousedown(()=> {
+    
+  });
 
   // Initialition of all Materilize Services;
   M.AutoInit();
-
 
   $("textarea#message").characterCounter();
 
@@ -97,7 +108,9 @@ $(document).ready(() => {
 
   $("#qq").submit(e => {
     e.preventDefault();
-    $("#quick_query_modal #progress, #quick_query_modal .prevent-overlay").removeClass("hide");
+    $(
+      "#quick_query_modal #progress, #quick_query_modal .prevent-overlay"
+    ).removeClass("hide");
 
     // console.log($(e.target).serialize());
     $.ajax({
@@ -116,10 +129,15 @@ $(document).ready(() => {
         $("#quick_query_modal").modal("close");
       },
       error: (data, status) => {
+        M.toast({
+          html: data
+        });
         console.log(data, status);
       },
       complete: () => {
-        $("#quick_query_modal #progress,#quick_query_modal .prevent-overlay").addClass("hide");
+        $(
+          "#quick_query_modal #progress,#quick_query_modal .prevent-overlay"
+        ).addClass("hide");
       }
     });
   });
@@ -141,6 +159,9 @@ $(document).ready(() => {
         });
       },
       error: (data, status) => {
+        M.toast({
+          html: data
+        });
         console.log(data, status);
       },
       complete: () => {
@@ -159,7 +180,6 @@ function signout() {
     }
   });
 }
-
 
 function passVisibility(elem, id) {
   elem = $(elem);

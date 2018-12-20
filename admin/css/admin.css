@@ -38,6 +38,7 @@
         position: static;
         transform: initial;
         margin: 0;
-        border-radius: 0px;
+        border-radius: 0px !important;
+        box-shadow: none !important;
     }
 }

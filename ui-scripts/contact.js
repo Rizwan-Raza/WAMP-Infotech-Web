@@ -18,6 +18,9 @@ $(document).ready(function () {
             }
          },
          error: (data, status) => {
+            M.toast({
+               html: data
+            });
             console.log(data, status);
          },
          complete: () => {

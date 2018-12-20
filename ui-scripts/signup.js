@@ -16,7 +16,7 @@ $(document).ready(function () {
          method: "POST",
          data: $(e.target).serialize(),
          beforeSend: () => {
-            $("#progress, .prevent-overlay").removeClass("hide");
+            $("#signup #progress, #signup .prevent-overlay").removeClass("hide");
          },
          success: (data, status) => {
             // console.log(data, status);
@@ -37,10 +37,13 @@ $(document).ready(function () {
             }
          },
          error: (data, status) => {
+            M.toast({
+               html: data
+           });
             console.log(data, status);
          },
          complete: () => {
-            $("#progress, .prevent-overlay").addClass("hide");
+            $("#signup #progress, #signup .prevent-overlay").addClass("hide");
          }
       });
    });

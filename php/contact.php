@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
         // For testing purpose only.
             // $to = "rizwan.raza987@gmail.com";
-            $to = "info@wampinfotech.com";
+            $to = "wampinfotech@gmail.com";
             $from = "$name <$email>";
             $subject = "Enquiry from WAMP Infotech Web Platform.";
             $body = '<!DOCTYPE html>
@@ -83,6 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             // Always set content-type when sending HTML email
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+            $headers .= "Cc: info@wampinfotech.com" . "\r\n";
 
             // More headers
             $headersO = $headers . 'From: '.$from . "\r\n";
@@ -90,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             if (mail($to, $subject, $body, $headersO)) {
                 $data = array("message"=>"Thank you! We will contact you soon.", "status"=>"success");
             } else {
-                $headersO = $headers . 'From: WAMP Infotech <wampinfotech@gmail.com>'."\r\n";
+                $headersO = $headers . 'From: Support | WAMP Infotech <support@wampinfotech.com>'."\r\n";
                 mail($to, $subject, $body, $headers);
                 $data = array("message"=>"Email seems to be wrong, Try again.", "status"=>"success");
             }

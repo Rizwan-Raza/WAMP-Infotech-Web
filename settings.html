@@ -10,7 +10,7 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == true) {
     <title>Settings| Web Design Company</title>
     <meta name="description" content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level." />
 
-	<meta name="keywords" content="digital marketing agency, web development company, digital marketing company, web design company, digital marketing services, social media agency, digital marketing agency in delhi" />
+    <meta name="keywords" content="digital marketing agency, web development company, digital marketing company, web design company, digital marketing services, social media agency, digital marketing agency in delhi" />
 
     <?php include "includes/head.inc.php"; ?>
     <link rel="stylesheet" href="css/settings.css" />
@@ -22,17 +22,69 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == true) {
         <section class="card-panel container mx-auto">
             <div class="center-align mb-4">
                 <div class="avatar-l mx-auto pos-rel">
+                    <div class="pos-abs full hide border-radius-0" id="progress">
+                        <div class="preloader-wrapper full active">
+                            <div class="spinner-layer spinner-blue">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+
+                            <div class="spinner-layer spinner-red">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+
+                            <div class="spinner-layer spinner-yellow">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+
+                            <div class="spinner-layer spinner-green">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prevent-overlay hide full"></div>
                     <img src="<?=$image?>" class="pos-abs avatar-l full image-triggerer" id="profile-pic" />
                     <div class="pos-abs full circle" style="overflow: hidden">
-                        <form id="file-upload" enctype="multipart/form-data"><input type="file" name="profile_chooser" accept="image/*" id="profile-chooser"
-                                name="file-upload" class="hide" onchange="readURL(this, '#profile-pic', '#apply-upload');" /></form>
+                        <form id="file-upload" enctype="multipart/form-data"><input type="file" name="profile_chooser"
+                                accept="image/*" id="profile-chooser" name="file-upload" class="hide" onchange="readURL(this, '#profile-pic', '#apply-upload');" /></form>
                         <div class="pos-abs w-full waves-effect waves-light" onclick="$('#profile-chooser').trigger('click');">
                             <i class="material-icons small white-text">camera_enhance</i>
                             <p class="white-text mt-0">Change Photo</p>
                         </div>
                     </div>
-                    <button class="btn-floating circle green pos-abs waves-effect waves-light tooltipped hide" type="submit"
-                        form="file-upload" id="apply-upload" data-tooltip="Apply Upload"><i class="material-icons small white-text">check</i></button>
+                    <button class="btn-floating circle green pos-abs waves-effect waves-light tooltipped pulse hide"
+                        type="submit" form="file-upload" id="apply-upload" data-tooltip="Apply Upload"><i class="material-icons small white-text">check</i></button>
                 </div>
             </div>
             <h4 class="fw-500 h5 center-align">

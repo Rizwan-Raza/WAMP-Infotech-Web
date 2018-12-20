@@ -37,6 +37,7 @@ $_SESSION['admin'] == true) {
                     <thead>
                         <tr>
                             <th class="pl-4">#</th>
+                            <th><i class="material-icons">account_circle</i></th>
                             <th>Name</th>
                             <th>Username</th>
                             <th>Email</th>
@@ -51,6 +52,9 @@ $_SESSION['admin'] == true) {
                         <tr <?=($user['disabled'] ? 'style="opacity: 0.5;background-color: antiquewhite"' : '' )?>>
                             <td class="pl-4">
                                 <?=$user['_uid']?>
+                            </td>
+                            <td>
+                                <img src="<?=$user['image']?>" alt="<?=$user['name']?>" class="materialboxed avatar-icon" />
                             </td>
                             <td>
                                 <?=$user['name']?>

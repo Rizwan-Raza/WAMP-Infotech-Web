@@ -28,3 +28,7 @@ table tr {
 div.circle.green:hover {
     background-color: red;
 }
+
+.avatar-l #progress .preloader-wrapper {
+    z-index: 1;
+} 

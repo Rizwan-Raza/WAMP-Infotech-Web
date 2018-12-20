@@ -55,15 +55,6 @@
 </section>
 <?php require "l-footer.inc.html" ?>
 
-<?php 
-if(!isset($_SESSION)) {
-    session_start();
-}
-if(isset($_SESSION['active']) and $_SESSION['active'] == 0) {
-    echo "<script>M.toast({displayLength: Infinity, html: 'Activate yourself for further access.'});</script>";
-}
-?>
-
 <!-- <section class="px-4 py-2 border-top-1 grey-border white">
     <div class="left">&copy; All rights reserved | <b><a href="tel:9876543210" class="black-text">WAMP
                 Infotech</a></b></div>

@@ -7,4 +7,5 @@
     unset($_SESSION["number"]);
     unset($_SESSION["username"]);
     unset($_SESSION["image"]);
+    unset($_SESSION["active"]);
     unset($_SESSION["short_name"]);

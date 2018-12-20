@@ -79,25 +79,23 @@ $(document).ready(function () {
             method: "POST",
             type: "POST",
             data: new FormData(e.target),
+            beforeSend: () => {
+                $("#apply-upload").addClass("hide");
+                $(".avatar-l #progress, .avatar-l .prevent-overlay").removeClass("hide");
+            },
             success: (data, status) => {
                 // console.log(data, status);
                 var object = JSON.parse(data);
                 M.toast({
                     html: object.message
                 });
-
-                // if (object.status == "success") {
-                //     setTimeout(() => {
-                //         M.toast({
-                //             html: object.message
-                //         });
-                //     }, 3000);
-                //     return;
-                // }
             },
             error: (data, status) => {
                 console.log(data, status);
             },
+            complete: () => {
+                $(".avatar-l #progress, .avatar-l .prevent-overlay").addClass("hide");
+            }
         });
     });
 

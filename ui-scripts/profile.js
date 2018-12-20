@@ -1,6 +1,9 @@
 $(document).ready(function () {
     if (window.innerWidth <= 992) {
         $(".avatar-l").removeClass("avatar-l").addClass("avatar-m");
+        if(window.innerWidth <=600) {
+            $(".container.valign-wrapper").removeClass("valign-wrapper");
+        }
     }
 
     $("#add-feed").submit(e => {
@@ -47,6 +50,9 @@ $(document).ready(function () {
                 }
             },
             error: (data, status) => {
+                M.toast({
+                    html: data
+                });
                 console.log(data, status);
             },
             complete: () => {
@@ -81,6 +87,9 @@ function disableFeed(_fid, elem) {
             }
         },
         error: (data, status) => {
+            M.toast({
+                html: data
+            });
             console.log(data, status);
         },
         complete: () => {
@@ -130,6 +139,9 @@ function editFeed(_fid, child) {
             }
         },
         error: (data, status) => {
+            M.toast({
+                html: data
+            });
             console.log(data, status);
         },
         complete: () => {
