@@ -14,7 +14,7 @@
     <meta property="og:image:width" content="640" />
     <meta property="og:image:height" content="320" />
     <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:alt" content="Hand joing in radial form" />
+    <meta property="og:image:alt" content="Hand joining in radial form" />
     <meta itemprop="headline" content="Digital Marketing Agency , Web Development Company | WAMP InfoTech" />
     <meta property="og:title" content="Digital Marketing Agency , Web Development Company | WAMP InfoTech" />
     <meta property="og:description" content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level." />
@@ -42,7 +42,8 @@
 
     <div class="scrollable grey lighten-3">
         <header>
-            <img src="images/banner1.jpg" class="home-banner" />
+            <img src="images/banner1_x600.webp" class="home-banner lazy" data-src="images/banner1.webp" data-srcset="images/banner1.webp 2x, images/banner1.webp 1x"
+                alt="WAMP Home Banner" />
         </header>
         <br />
         <br class="hide-on-small-only" />
@@ -134,7 +135,8 @@
 
                 <div class="col s12 m6 l4 xl3 black">
                     <div class="ih-item square effect6 from_top_and_bottom"><a href="work">
-                            <div class="img full"><img src="<?=$work['src']?>" alt="<?=$work['title']?>" /></div>
+                            <div class="img full"><img class="lazy" src="<?=$work['srclow']?>" data-src="<?=$work['src']?>"
+                                    data-srcset="<?=$work['src']?> 2x,<?=$work['src']?> 1x" alt="<?=$work['title']?>" /></div>
                             <div class="info valign-wrapper">
                                 <div class="w-full">
                                     <h4 class="white-text text-z-depth-2">
@@ -192,7 +194,7 @@
                 </div>
             </div>
         </section>
-        <section class="p-4 grey darken-2" style="background-image: url('images/banner_back.jpg'); background-size: cover; background-position: center;background-color: #616161; background-blend-mode: hard-light">
+        <section class="p-4 grey darken-2 lazy-background" id="testimonial">
             <div class="border-2 grey-border border-radius-8">
                 <h3 class="text-capitalize white-text center-align px-2 fw-600">What People say</h3>
                 <hr class="short-border" />

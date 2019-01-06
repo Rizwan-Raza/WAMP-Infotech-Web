@@ -129,6 +129,17 @@
     text-decoration: none;
 }
 
+#testimonial {
+    background-image: url('../images/banner_back_x600.webp');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: hard-light
+}
+
+#testimonial.visible {
+    background-image: url('../images/banner_back.webp');
+}
+
 .carousel,
 .carousel .carousel-item {
     height: 280px;
@@ -250,6 +261,10 @@
 
     .carousel .carousel-item {
         padding: 0 !important;
+    }
+
+    .col.s12 {
+        padding: 0;
     }
 
     .image-block .icon {

@@ -25,18 +25,20 @@ $(document).ready(function () {
     $('.tap-target').tapTarget('close');
   }, 5000);
 
-  var slide = () => {
-    $('.carousel.carousel-slider').carousel("next");
-  };
+  var isPause = false;
 
-  var carousel = setInterval(slide, 5000);
+  setInterval(() => {
+    if (!isPause) {
+      $('.carousel.carousel-slider').carousel("next");
+    }
+  }, 5000);
 
   $(".carousel.carousel-slider").mouseenter(() => {
-    clearInterval(carousel);
+    isPause = true;
   });
 
   $(".carousel.carousel-slider").mouseleave(() => {
-    setInterval(slide, 5000);
+    isPause = false;
   });
 
 });

@@ -89,7 +89,7 @@ nav ul li a {
 }
 
 .brand-logo {
-  font-family: 'Bell Mt Bold';
+  font-family: "Bell Mt Bold";
 }
 
 .brand-img {
@@ -137,7 +137,7 @@ nav ul li a {
 
 .sidenav .top-banner {
   background-color: #444444;
-  background-image: url('../images/back_banner.jpg');
+  background-image: url("../images/back_banner_x600.webp");
   background-blend-mode: soft-light;
   background-position: center;
   background-size: cover;
@@ -229,8 +229,8 @@ section.card-panel {
 }
 
 /* label focus color */
-.input-field input:focus+label,
-.input-field textarea:focus+label {
+.input-field input:focus + label,
+.input-field textarea:focus + label {
   color: #3d85c6 !important;
 }
 
@@ -250,7 +250,6 @@ section.card-panel {
   color: #3d85c6;
 }
 
-
 .serviceDropDownContainer .dropdown-content {
   transform: scaleY(1) !important;
   width: 100% !important;
@@ -260,11 +259,10 @@ section.card-panel {
   width: 100% !important;
 }
 
-
 #mobile-sidenav .dropdown-content li.disabled a,
 .nav-wrapper .dropdown-content li.disabled a {
   cursor: default !important;
-  color: #888888 !important
+  color: #888888 !important;
 }
 
 #mobile-sidenav .dropdown-content li.disabled:hover,
@@ -277,7 +275,6 @@ div.serviceDropDownContainer .dropdown-content li a {
   text-align: center;
 }
 
-
 .input-field button {
   /* transform: translateY(-42px); */
   margin-top: -45px;
@@ -289,13 +286,15 @@ div.serviceDropDownContainer .dropdown-content li a {
 }
 
 #footer {
-  background-image: url("../images/footer.webp");
+  background-image: url("../images/footer_x600.webp");
   background-size: cover;
   background-position: top;
   background-color: #181820;
   background-blend-mode: soft-light;
 }
-
+#footer.visible {
+  background-image: url("../images/footer.webp");
+}
 #footer .input-field label {
   color: #aaaaaa;
 }
@@ -329,7 +328,6 @@ div.serviceDropDownContainer .dropdown-content li a {
 }
 
 @media (min-width: 600px) {
-
   .flow-text p,
   .flow-text li {
     font-size: 75%;
@@ -357,6 +355,9 @@ div.serviceDropDownContainer .dropdown-content li a {
 @media (max-width: 400px) {
   .sidenav {
     width: 240px;
+  }
+  .col.s12 {
+    padding: 0;
   }
 }
 
