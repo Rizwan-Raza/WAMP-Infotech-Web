@@ -1,0 +1,933 @@
+<!---
+  {
+    "preview": "default"
+  }
+--->
+<!--
+  ## Introduction
+
+  A sidebar provides a way to display meta content intended for temporary access (navigation links, buttons, menus, etc.). The sidebar can be revealed by a button tap while the main content remains visually underneath. However, optional attributes that accept media queries can be used to display meta content in other parts of the site. Child `<nav toolbar="(media query)" toolbar-target="elementID">` will create `toolbar` elements that allow for content within the sidebar to be displayed on other parts of the main content.
+
+  **You must be able to resize your browser window in order to notice the effects of** `toolbar` **elements. In this example,** `toolbar` **elements are best viewed by resiving your window from mobile to desktop.**
+
+-->
+
+<!-- -->
+<!doctype html>
+<html ⚡>
+
+<head>
+    <meta charset="utf-8">
+    <title>amp-sidebar</title>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <!-- ## Setup -->
+    <!--
+    Import the `amp-sidebar` component.
+  -->
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js" async></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+    <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+    <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <link rel="canonical" href="https://ampbyexample.com/components/amp-sidebar/">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
+
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+    </style><noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style>
+    </noscript>
+    <style amp-custom>
+        body {
+            font-weight: normal;
+            color: rgba(0, 0, 0, 0.87);
+            background-color: #eeeeee;
+        }
+        body, a {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        }
+        a {
+            display: inline-block;
+        }
+
+        amp-sidebar {
+            width: 100%;
+            background-color: #ffffff;
+        }
+
+        .amp-sidebar-image {
+            line-height: 100px;
+            vertical-align: middle;
+        }
+
+        amp-sidebar ul {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        amp-sidebar ul li a,
+        amp-sidebar ul li amp-accordion header {
+            color: rgba(0, 0, 0, 0.87);
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            height: 48px;
+            padding: 0 32px;
+            text-decoration: none
+        }
+
+        amp-sidebar ul li a i.material-icons,
+        amp-sidebar ul li amp-accordion .material-icons {
+            float: left;
+            height: 48px;
+            line-height: 48px;
+            margin: 0 32px 0 0;
+            width: 24px;
+            color: rgba(0, 0, 0, 0.54);
+        }
+
+        amp-sidebar ul li amp-accordion header.override {
+            background-color: #ffffff;
+            border: none;
+        }
+
+        amp-sidebar ul li {
+            list-style: none;
+            line-height: 48px;
+            width: 100%;
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+            overflow: hidden;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            vertical-align: middle;
+            z-index: 1;
+            -webkit-transition: .3s ease-out;
+            transition: .3s ease-out;
+        }
+
+        amp-sidebar .side-banner {
+            background-color: #444444;
+            background-image: url(../images/back_banner_x600.webp);
+            background-blend-mode: soft-light;
+            background-position: center;
+            background-size: cover;
+            height: 150px;
+            position: relative;
+        }
+
+        amp-sidebar .side-banner ul {
+            position: absolute;
+            bottom: 0;
+        }
+        .toolbar {
+            position: fixed;top: 0;z-index: 996;right:0;left:0;
+        }
+        div {
+            box-sizing: border-box;
+        }
+        section {
+            background-color: #eeeeee
+        }
+        h1, h2, h3, h4, h5, h6{
+            font-weight: 400;
+        }
+        h2 {
+            font-size: 3rem;
+    line-height: 110%;
+    margin: 2.3733333333rem 0 1.424rem 0;
+        }
+        h3 {
+            font-size: 2.4rem;
+    line-height: 110%;
+    margin: 1.9466666667rem 0 1.168rem 0;
+}
+h4 {
+    font-size: 2rem;
+    line-height: 110%;
+    margin: 1.52rem 0 .912rem 0;
+}
+        h5 {
+    font-size: 1.3rem;
+    line-height: 110%;
+    margin: 0;
+    margin-bottom: 12px;
+}
+h6 {
+    font-size: 1rem;
+    line-height: 110%;
+    margin: .7666666667rem 0 .46rem 0;
+}
+.fw-600 {
+font-weight: 600;
+}
+        a {
+            text-decoration: none;
+        }
+        .row {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+.row.expanded {
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+}
+
+        .row .col {
+    float: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 .75rem;
+    min-height: 1px;
+}
+.row .col.s3 {
+    width: 25%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+}
+.row .col.s4 {
+    width: 33.3333333333%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+}
+.row .col.s8 {
+    width: 66.6666666667%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+}
+.row .col.s9 {
+    width: 75%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+}
+.row>div.col {
+    /* height: 200px; */
+    cursor: pointer;
+    transition: all .5s ease;
+}
+#services .row>.col {
+    color: rgba(0, 0, 0, 0.87);
+}
+.divider {
+    height: 1px;
+    overflow: hidden;
+    background-color: #e0e0e0;
+}
+li .subheader {
+    cursor: initial;
+    pointer-events: none;
+    color: rgba(0,0,0,0.54);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 48px;
+}
+
+       .btn {
+            text-transform: initial;
+    letter-spacing: .25px;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: 0;
+    text-align: center;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 16px;
+    border: none;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+.btn-large {
+    height: 54px;
+    line-height: 54px;
+    font-size: 15px;
+    padding: 0 28px;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+.fixed-action-btn {
+    position: fixed;
+    right: 23px;
+    bottom: 23px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 997;
+}
+.btn-floating.btn-large {
+    width: 56px;
+    height: 56px;
+    padding: 0;
+}
+.btn-floating {
+    display: inline-block;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    background-color: #26a69a;
+    border-radius: 50%;
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.btn-floating.btn-large i {
+    line-height: 56px;
+}
+.btn-large i {
+    font-size: 1.6rem;
+}
+.btn-floating i {
+    width: inherit;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 40px;
+}
+        .bg-primary {
+    background-color: #3d85c6;
+    color: #fff;
+}
+        .home-video {
+    padding: 1rem;
+    max-width: 53rem;
+    width: 80%;
+    height: 100%;
+    position: relative;
+    margin: 0 auto 4rem;
+    border-radius: 8px;
+    border: 2px solid #9e9e9e;
+    -webkit-box-shadow: 0 2px 12px 0 rgba(0,0,0,.35);
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.35);
+}
+        .home-video {
+    width: 100%;
+}
+        .home-video {
+    max-width: 40rem;
+    height: 25rem;
+}
+        .home-video {
+    width: 100%;
+    height: auto;
+    padding-bottom: 56.25%;
+}
+.home-video .start-button {
+    top: calc(50% - .5rem);
+    left: 1rem;
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    border: 2px solid #3d85c6;
+    border-radius: 50%;
+}
+.home-video .start-button {
+    left: .6rem;
+}
+.yt-video {
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: calc(100% - 4.5rem);
+    height: calc(100% - 3rem);
+    margin: 0 1.5rem 0 auto;
+    border: .1rem solid #e3e3e3;
+    position: absolute;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.yt-video {
+    width: calc(100% - 3rem);
+    height: calc(100% - 2rem);
+    margin: 0 1rem 0 auto;
+}
+
+.image-block {
+    width: 100%;
+    height: 0;
+    border-radius: 50%;
+    border: .2rem solid #b9b9b9;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    padding-bottom: calc(100% - .4rem);
+    position: relative;
+}
+.image-block:before {
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    border: 1px solid #b9b9b9;
+    margin: 3px;
+    position: absolute;
+}
+.image-block .icon {
+    color: #959595;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+.ih-item .info {
+    display: none;
+    background-color: rgba(0,0,0,0.6);
+    height: 240px
+}
+i.medium {
+    font-size: 3.75rem;
+}
+hr.short-border {
+    border: 2px solid #3d85c6;
+    width: 100px;
+    margin: 0 auto;
+}
+        .ih-item:hover .info {
+            display: block
+        }
+        #sidebar-right nav.amp-sidebar-toolbar-target-shown {
+            display: none;
+        }
+        br.clear {
+            clear: both;
+        }
+
+        .m-0 {
+            margin: 0;
+        }
+
+        .mt-2 {
+            margin-top: 1rem;
+        }
+        .mb-2 {
+            margin-bottom: 1rem;
+        }
+
+        .mx-2 {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+        .px-4 {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        .px-2 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .p-2 {
+            padding: 1rem;
+        }
+        .p-4 {
+            padding: 2rem;
+        }
+
+        .text-primary {
+            color: #3d85c6;
+        }
+
+        .white-text {
+            color: #ffffff;
+        }
+        .grey-text {
+            color: #757575
+        }
+        .grey-text.text-lighten-1 {
+            color: #bdbdbd;
+        }
+        .blue-text.text-lighten-4 {
+    color: #BBDEFB
+        }
+        .white {
+            background-color: #ffffff;
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        }
+
+        .text-center {
+            text-align: center
+        }
+        .text-uppercase {
+            text-transform: uppercase
+        }
+        .text-capitalize {
+            text-transform: capitalize
+        }
+        .fw-700 {
+            font-weight: 700;
+        }
+
+        @media (min-width: 500px) {
+
+            #target-element-left {
+                float: right;
+                margin-right: 1rem;
+            }
+
+            #target-element-left ul li a i,
+            #target-element-left ul li:first-child {
+                display: none
+            }
+
+            #target-element-left ul li.mt-2 {
+                margin: 0;
+            }
+
+            #target-element-left ul li {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+
+            #target-element-left ul li a {
+                text-decoration: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ## Toolbar (experimental) -->
+    <!--
+
+    `toolbar` enables elements within the `amp-sidebar` to be displayed on other parts of the `<body>`. This is useful for responsive design, including navigation bars, social footers, etc.
+
+    `toolbar` elements have their own requirements:
+
+    - The sidebar may implement toolbars by adding `nav` elements with the `toolbar` attribute and `toolbar-target` attribute.
+    - The `nav` element must be a child of `<amp-sidebar>` and follow this format: `<nav toolbar="(media-query)" toolbar-target="elementID">`.
+    - The `nav` containing the toolbar attribute must only contain a single `<ul>` element, that contains `<li class="ampstart-nav-item">` elements.
+    - The `<li class="ampstart-nav-item">` elements may contain any valid HTML elements (supported by AMP), or any of the AMP elements that `<amp-sidebar>` supports.
+    - Toolbar behavior is only applied while the `toolbar` attribute media-query is valid. Also, an element with the `toolbar-target` attribute id must exist on the page for the toolbar to be applied.
+  -->
+    <amp-sidebar id="sidebar-left" layout="nodisplay" side="left">
+        <nav toolbar="(min-width: 500px)" toolbar-target="target-element-left">
+
+            <ul>
+                <li class="ampstart-nav-item mb-2">
+                    <div class="side-banner">
+                        <ul>
+                            <li class="white-text w-full">
+                                <a href="signin" class="white-text"><i class="material-icons" style="color:#ffffff">lock</i>
+                                    Sign
+                                    In</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="ampstart-nav-item"><a href="#"><i class="material-icons">&nbsp;home</i>Home</a></li>
+                <li class="ampstart-nav-item ampstart-nav-dropdown relative">
+
+                    <!-- Start Dropdown-inline -->
+                    <amp-accordion layout="container" disable-session-states="" class="ampstart-dropdown">
+                        <section>
+                            <header class="override"><i class="material-icons">&nbsp;group</i>About</a></header>
+                            <ul class="ampstart-dropdown-items list-reset m0 p0">
+                                <li class="ampstart-dropdown-item"><a href="#" class="text-decoration-none">Overview</a></li>
+                                <li class="ampstart-dropdown-item"><a href="#" class="text-decoration-none">Team</a></li>
+                                <li class="ampstart-dropdown-item"><a href="#" class="text-decoration-none">Mission and
+                                        Vision</a></li>
+                            </ul>
+                        </section>
+                    </amp-accordion>
+
+                    <!-- End Dropdown-inline -->
+                </li>
+                <li class="ampstart-nav-item ampstart-nav-dropdown relative">
+
+                    <!-- Start Dropdown-inline -->
+                    <amp-accordion layout="container" disable-session-states="" class="ampstart-dropdown">
+                        <section>
+                            <header class="override"><i class="material-icons">&nbsp;devices</i>Services</header>
+                            <ul class="ampstart-dropdown-items list-reset m0 p0">
+                                <amp-list src="//localwamp.com/data/services.json" layout="responsive" width="50vh"
+                                    height="100vh" items="services">
+                                    <template type="amp-mustache">
+                                        <li class="ampstart-dropdown-item"><a href="services/{{url}}" class="text-decoration-none">{{title}}</a></li>
+                                    </template>
+                                </amp-list>
+                            </ul>
+                        </section>
+                    </amp-accordion>
+
+                    <!-- End Dropdown-inline -->
+                </li>
+                <li class="ampstart-nav-item"><a href="#"><i class="material-icons">&nbsp;whatshot</i>Our Work</a></li>
+                <li class="divider"></li>
+                <li><a class="subheader">Communicate</a></li>
+                <li class="ampstart-nav-item"><a href="#"><i class="material-icons">&nbsp;forum</i>Blog</a></li>
+                <li class="ampstart-nav-item"><a href="#"><i class="material-icons">&nbsp;contact_mail</i>Contact Us</a></li>
+            </ul>
+        </nav>
+    </amp-sidebar>
+    <nav style="height: 56px;line-height: 56px;-webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2); background-color: #ffffff;"
+        class="toolbar">
+        <a on="tap:sidebar-left.toggle" class="text-primary mx-2"><i class="material-icons" style="height: 56px;
+            line-height: 56px;">menu</i></a>
+        <h1 style="display:inline"><a href="/" class="brand-logo fw-700" style="display: inline-block;
+        font-size: 28px;
+        padding: 0;
+        height: 56px;
+        line-height: 45px;
+        vertical-align: middle;
+        font-family: 'Bell Mt Bold';
+        text-decoration: none;
+        color: #444444;">WAMP&nbsp;InfoTech</a></h1>
+        <div id="target-element-left">
+        </div>
+    </nav>
+
+
+
+
+    <amp-img src="../images/banner1_x600.webp" layout="responsive" width="640px" height="240px"></amp-img>
+    <br class="clear" />
+    <br />
+    <section class="px-4" id="about">
+        <div class="flex">
+            <div class="full">
+                <div class="home-video white z-depth-2 border-2 grey-border border-radius-8">
+                    <div class="start-button border-2 primary-border border-round"></div>
+                    <amp-youtube data-videoid="WL44vPIqkds" class="yt-video" layout="responsive" width="480" height="270"></amp-youtube>
+                </div>
+            </div>
+
+            <h2 class="mt-0">We are <span class="fw-700">WAMP</span>.</h2>
+            <br>
+            <strong>We like making your online presence simpler for you.</strong>
+            <br>
+            <p>WAMP InfoTech is a digital agency helping businesses, small or big to get better results of
+                their online presence. We are working on a set of goals or we can actually say ‘your goals’.
+                Our expertise extends over a wide range of services which includes website development, social
+                media management, media planning and search engine optimization.</p>
+
+            <a href="#" class="btn bg-primary">Learn
+                more</a>
+            <br />
+            <br />
+        </div>
+    </section>
+    <br class="clear" />
+    <section class="section px-4" id="services">
+        <h3 class="mb-2">What we <span class="fw-700">do</span>.</h3>
+        <br />
+        <?php 
+            require_once "../includes/fetcher.php";
+            $services = array_filter(getJson("../data/services.json", "services"), function($value) {
+                return $value['in_home'];
+            });
+            usort($services, function($a,$b) {
+                return $a['order'] <=> $b['order'];
+            });
+            foreach ($services as $service) { ?>
+        <a href="services/<?=$service['url']?>" class="mb-2">
+            <div class="row expanded">
+                <div class="col s4">
+                    <div class="image-block">
+                        <span class="svg-container icon">
+                            <?=$service['src']?>
+                        </span>
+                    </div>
+                </div>
+                <div class="col s8">
+                    <h5 class="mt-0 fw-600">
+                        <?=$service['title']?>
+                    </h5>
+                    <span class="grey-text text-darken-1">
+                        <?=$service['desc']?>
+                    </span>
+                </div>
+            </div>
+        </a>
+        <br />
+        <br />
+        <?php } ?>
+    </section>
+    <br class="clear" />
+    <section>
+        <div id="our-works">
+            <div class="bg-primary p-4">
+                <h4 class="white-text m-0"><span class="fw-700">Projects</span> close to our heart!<a href="work" class="btn waves-effect right white text-primary mt-2">View
+                        more</a></h4>
+                <br />
+                <br />
+                <h5 class="white-text">Are you looking for a class-apart website for your business?</h5>
+                <h5><a href="contact" class="white-text" style="text-decoration: underline">Get in touch with us for
+                        free
+                        estimation.</a></h5>
+            </div>
+
+            <?php 
+
+            $works = array_filter(getJson("../data/our-works.json", "our_works"), function($value) {
+                return $value['in_home'];
+            });
+            usort($works, function($a,$b) {
+                return $a['order'] <=> $b['order'];
+            });
+
+            foreach ($works as $work) { ?>
+
+            <div class="ih-item square effect6 from_top_and_bottom" style="position: relative;background-color: #ffffff">
+
+                <amp-img src="../<?=$work['src']?>" width="640" height="480px" layout="responsive" alt="<?=$work['title']?>"></amp-img>
+                <div class="info valign-wrapper" style="position: absolute;top:0;left:0;right:0;">
+                    <div class="w-full text-center">
+                        <br />
+                        <h4 class="white-text text-z-depth-2">
+                            <?=$work['title']?>
+                        </h4>
+                        <a class="btn bg-primary" href="<?=$work['url']?>">Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+    </section>
+    <section class="p-4 my-m-2">
+        <h4 class="fw-600">Let us give you reasons, why you need to hire us?</h4>
+        <p>WAMP InfoTech is a 360 degree digital marketing agency based in New Delhi. We have a team of experienced
+            professionals in designing, creating, and maintaining. Due to this reason we’ve got a great number of
+            happy clients.</p>
+        <br />
+        <div class="row expanded">
+            <div class="col s3"><i class="medium material-icons">stars</i></div>
+            <div class="col s9 mb-2">
+                <h5 class="fw-600">Our services are performance-based</h5>
+                <p class="grey-text">We make sure that our work is result-driven. We try climbing the ladder from the
+                    basics of
+                    particular digital strategies.</p>
+            </div>
+            <div class="col s3"><i class="medium material-icons">alarm_on</i></div>
+            <div class="col s9 mb-2">
+                <h5 class="fw-600">We deliver our projects on time</h5>
+                <p class="grey-text">When it comes to delivering the projects we make sure that we set realistic
+                    customer
+                    expectation.</p>
+            </div>
+            <div class="col s3"><i class="medium material-icons">thumb_up</i></div>
+            <div class="col s9 mb-2">
+                <h5 class="fw-600">Strong commitment</h5>
+                <p class="grey-text">We believe in having a strong relationship with our clients that lasts for years.
+                    As we
+                    ensure
+                    our work commitments are fulfilled as per their expectations.</p>
+            </div>
+            <div class="col s3"><i class="medium material-icons">mood</i></div>
+            <div class="col s9 mb-2">
+                <h5 class="fw-600">We keep our approach customer focused</h5>
+                <p class="grey-text">It is said that the real assets of a company are its customers therefore we make
+                    sure to
+                    grab as much information from our customers as possible. </p>
+            </div>
+        </div>
+    </section>
+    <br class="clear" />
+
+    <section class="p-2" style="background-image: url('../images/banner_back.webp');background-size: cover">
+        <div style="border: 2px solid #9e9e9e;border-radius: 8px">
+            <h3 class="text-capitalize white-text text-center px-2 fw-600">What People say</h3>
+            <hr class="short-border" />
+
+            <amp-carousel width="400" height="640" layout="responsive" type="slides" autoplay delay="2000">
+                <?php 
+                    $testimonials = getJson("../data/testimonials.json", "testimonials");
+                    foreach ($testimonials as $testimonial) { 
+                        ?>
+                <div class="white-text p-2">
+                    <p class="white-text">
+                        <?=$testimonial['quote']?>
+                    </p>
+                    <h5 class="text-capitalize text-center">
+                        <?=$testimonial['author']?>
+                    </h5>
+                </div>
+                <?php } ?>
+
+            </amp-carousel>
+        </div>
+    </section>
+    <br />
+    <section class="px-4 text-center">
+        <h3 class="text-uppercase fw-600">We hope to hear from you soon</h3>
+        <br />
+        <a href="contact" class="btn btn-large bg-primary text-capitalize">Get
+            in touch</a>
+        <br />
+    </section>
+    <br />
+    <br />
+    <section class="white-text mb-0 pos-rel lazy-background" id="footer" style="background-image: url('../images/footer.webp');background-size: cover;background-position: top;
+    background-color: #181820;background-blend-mode: soft-light;">
+        <div class="progress-holder hide border-radius-0" id="progress">
+            <div class="progress border-radius-0">
+                <div class="indeterminate bg-primary"></div>
+            </div>
+        </div>
+        <div class="prevent-overlay hide full"></div>
+        <div class="row expanded p-4 mb-0">
+            <div class="col s12 m4">
+
+                <h6 class="mb-2"><strong>WAMP Infotech</strong></h6>
+                <div>Email: <a href="mailto:%73%75%70%70%6F%72%74%40%77%61%6D%70%69%6E%66%6F%74%65%63%68%2E%63%6F%6D"
+                        class="grey-text text-lighten-1 fw-500">&#x73;&#x75;&#x70;&#x70;&#x6F;&#x72;&#x74;@&#x77;&#x61;&#x6D;&#x70;&#x69;&#x6E;&#x66;&#x6F;&#x74;&#x65;&#x63;&#x68;.&#x63;&#x6F;&#x6D;</a></div>
+                <div class="mb-4">Call Us: <a href="tel:+918376075908" class="grey-text text-lighten-1 fw-500 mr-4">+91-8376075908</a></div>
+                <p class="grey-text text-lighten-1">Top 6 26 E White House, <br />Khizarabad Bhagol, Khizrabad, <br />New
+                    Delhi, Delhi 110025</p>
+                Follow Us: <a href="https://www.facebook.com/wampinfotech" class="btn btn-flat waves-effect waves-light waves-circle facebook">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="#ffffff" d="M17,2V2H17V6H15C14.31,6 14,6.81 14,7.5V10H14L17,10V14H14V22H10V14H7V10H10V6A4,4 0 0,1 14,2H17Z" />
+                    </svg>
+                </a>
+                <a href="https://twitter.com/WampInfotech" class="btn btn-flat waves-effect waves-light waves-circle twitter">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="#ffffff" d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z" />
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/company/wampinfotech-pvt-ltd/" class="btn btn-flat waves-effect waves-light waves-circle linkedin">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="#fff" d="M21,21H17V14.25C17,13.19 15.81,12.31 14.75,12.31C13.69,12.31 13,13.19 13,14.25V21H9V9H13V11C13.66,9.93 15.36,9.24 16.5,9.24C19,9.24 21,11.28 21,13.75V21M7,21H3V9H7V21M5,3A2,2 0 0,1 7,5A2,2 0 0,1 5,7A2,2 0 0,1 3,5A2,2 0 0,1 5,3Z" /></svg>
+                </a>
+                <a href="https://www.instagram.com/wampinfotech" class="btn btn-flat waves-effect waves-light waves-circle instagram">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="#ffffff" d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="col s12 m4 pr-4">
+                <h6 class="mb-4"><strong>Hear from us on your mails, Subscribe!</strong></h6>
+                <p class="grey-text text-lighten-1">We keep our clients and would-be clients updated with various
+                    changes.
+                    Be the first one to avail the best discounts by just subscribing to our newsletter.</p>
+                <form class="d-flex" id="subscription-form" action-xhr="//php/subscription.php" method="POST">
+                    <div class="input-field flex-full-xl">
+                        <label for="subscribe">Email</label>
+                        <input type="email" class="validate" id="subscribe" name="email">
+                    </div>
+                    <button type="submit" class="btn btn-flat waves-effect waves-light bg-primary btn-small mt-4 border-radius-0">Subscribe</button>
+                </form>
+
+            </div>
+            <div class="col s12 m4 pl-4">
+                <h6 class="mb-4"><strong>Learn what makes WAMP InfoTech special</strong></h6>
+                <p class="grey-text text-lighten-1">We offer web design and online marketing services to companies
+                    globally. We promise to work efficiently on your dream projects with high quality digital services
+                    with
+                    lower prices.</p>
+            </div>
+        </div>
+        <br class="clear" />
+        <br />
+    </section>
+    <footer class="bg-primary m-0 px-4">
+        <div class="left shift-left">
+            <p class="my-1">&copy; Copyright 2017-
+                <?=date("y")?> <span class="mx-1">|</span> <a href="/" class="white-text"><strong>WAMP Infotech Pvt.
+                        Ltd.</strong></a></p>
+            <p class="my-1 blue-text text-lighten-4">Digital Marketing Company | Web Design &amp; Development Company</p>
+        </div>
+        <div class="right my-2 mr-4">
+            <a href="sitemap" class="blue-text text-lighten-4 mr-1">Sitemap</a> &bullet; <a href="privacy-policy" class="blue-text text-lighten-4 mx-1">Privacy
+                Policy</a> &bullet; <a href="terms-and-conditions" class="blue-text text-lighten-4 ml-1 mr-4">Terms and
+                Conditions</a></div>
+        <br class="clear" />
+        <br />
+    </footer>
+    <div class="fixed-action-btn direction-top">
+        <a class="waves-effect waves-light btn-floating btn-large bg-primary scale-transition" id="quick_query">
+            <i class="large material-icons">mail</i>
+        </a>
+    </div>
+</body>
+
+</html>

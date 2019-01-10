@@ -1,216 +1,292 @@
 <?php require_once "includes/fetcher.php"; ?>
 
 <ul class="sidenav" id="mobile-sidenav">
-    <li class="waves-effect w-full show-on-medium pos-rel lh-0 top-banner">
-        <?php 
+  <li class="waves-effect w-full show-on-medium pos-rel lh-0 top-banner">
+    <?php 
         if(!isset($_SESSION)) {session_start();}
         if(isset($_SESSION['login']) and $_SESSION['login'] == 'true') { ?>
-        <div class="pos-abs p-2 w-full user dropdown-trigger" style="bottom: 0" data-target="user_dropdown">
-            <div class="mr-2" style="height: 50px"><img src="<?=$_SESSION['image']?>" class="avatar-s z-depth-2" /></div>
-            <div class="white-text mt-2">
-                <h5 class="m-0">
-                    <?=$_SESSION['name']?>
-                    <i class="material-icons right">arrow_drop_down</i>
-                </h5>
-                <p class="grey-text text-lighten-2">
-                    <?=$_SESSION['email']?>
-                </p>
-            </div>
-            <br />
-        </div>
-        <?php } else { ?>
-        <div class="pos-abs w-full user" style="bottom: 0">
-            <ul>
-                <li class="white-text w-full">
-                    <a href="signin" class="white-text"><i class="material-icons white-text ">lock</i> Sign In</a>
-                </li>
-            </ul>
-        </div>
-        <?php } ?>
-    </li>
-    <li class="user-mobile-drop"></li>
-    <li class="waves-effect w-full mt-2">
-        <a href="/"><i class="material-icons">home</i> Home</a>
-    </li>
-    <li class="waves-effect w-full">
-        <a class="dropdown-trigger" href="javascript:;" data-target="about_dropdown"><i class="material-icons">group</i>
-            About
-            <!-- <i class="material-icons right">expand_more</i>
+    <div
+      class="pos-abs p-2 w-full user dropdown-trigger bottom-0"
+      data-target="user_dropdown"
+    >
+      <div class="mr-2">
+        <img
+          src="<?=$_SESSION['image']?>"
+          class="avatar-s z-depth-2"
+          alt="User Avatar"
+        />
+      </div>
+      <div class="white-text mt-2">
+        <h5 class="m-0">
+          <?=$_SESSION['name']?>
+          <i class="material-icons right">arrow_drop_down</i>
+        </h5>
+        <p class="grey-text text-lighten-2"><?=$_SESSION['email']?></p>
+      </div>
+      <br />
+    </div>
+    <?php } else { ?>
+    <div class="pos-abs w-full user bottom-0">
+      <ul>
+        <li class="white-text w-full">
+          <a href="signin" class="white-text"
+            ><i class="material-icons white-text ">lock</i> Sign In</a
+          >
+        </li>
+      </ul>
+    </div>
+    <?php } ?>
+  </li>
+  <li class="user-mobile-drop"></li>
+  <li class="waves-effect w-full mt-2">
+    <a href="/"><i class="material-icons">home</i> Home</a>
+  </li>
+  <li class="waves-effect w-full">
+    <a class="dropdown-trigger" href="javascript:;" data-target="about_dropdown"
+      ><i class="material-icons">group</i> About
+      <!-- <i class="material-icons right">expand_more</i>
     --></a>
-    </li>
-    <li class="about-mobile-drop"></li>
-    <li class="waves-effect w-full">
-        <a class="dropdown-trigger" href="javascript:;" data-target="service_dropdown"><i class="material-icons">devices</i>
-            Services
-            <!-- <i class="material-icons right">expand_more</i>
+  </li>
+  <li class="about-mobile-drop"></li>
+  <li class="waves-effect w-full">
+    <a
+      class="dropdown-trigger"
+      href="javascript:;"
+      data-target="service_dropdown"
+      ><i class="material-icons">devices</i> Services
+      <!-- <i class="material-icons right">expand_more</i>
     --></a>
-    </li>
-    <li class="service-mobile-drop"></li>
-    <li class="waves-effect w-full">
-        <a href="work"><i class="material-icons">whatshot</i> Our Work</a>
-    </li>
-    <li class="divider"></li>
-    <li><a class="subheader">Communicate</a></li>
-    <li class="waves-effect w-full">
-        <a href="http://blog.wampinfotech.com"><i class="material-icons">forum</i> Blog</a>
-    </li>
-    <li class="waves-effect w-full">
-        <a href="contact"><i class="material-icons">contact_mail</i> Contact Us</a>
-    </li>
+  </li>
+  <li class="service-mobile-drop"></li>
+  <li class="waves-effect w-full">
+    <a href="work"><i class="material-icons">whatshot</i> Our Work</a>
+  </li>
+  <li class="divider"></li>
+  <li><a class="subheader">Communicate</a></li>
+  <li class="waves-effect w-full">
+    <a href="http://blog.wampinfotech.com"
+      ><i class="material-icons">forum</i> Blog</a
+    >
+  </li>
+  <li class="waves-effect w-full">
+    <a href="contact"><i class="material-icons">contact_mail</i> Contact Us</a>
+  </li>
 </ul>
 <div class="navbar-fixed">
-    <nav>
-        <div class="nav-wrapper">
-            <a href="/" class="brand-logo fw-700 text-primary"><img src="images/wamp-round-logo.png" class="brand-img" />WAMP&nbsp;InfoTech</a>
-            <a href="javascript:;" data-target="mobile-sidenav" class="sidenav-trigger text-primary"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li>
-                    <a href="/" class="hover-text-primary fw-500">Home</a>
-                </li>
-                <li>
-                    <a class="about dropdown-trigger hover-text-primary fw-500" href="javascript:;" data-target="about_dropdown">About
-                        <!-- <i class="material-icons right">expand_more</i>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo fw-700 text-primary"
+        ><img
+          src="images/wamp-round-logo.png"
+          class="brand-img"
+          alt="WAMP Logo Round"
+        />
+        <h1 class="fw-700">WAMP&nbsp;InfoTech</h1>
+      </a>
+      <a
+        href="javascript:;"
+        data-target="mobile-sidenav"
+        class="sidenav-trigger text-primary"
+        ><i class="material-icons">menu</i></a
+      >
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/" class="hover-text-primary fw-500">Home</a></li>
+        <li>
+          <a
+            class="about dropdown-trigger hover-text-primary fw-500"
+            href="javascript:;"
+            data-target="about_dropdown"
+            >About
+            <!-- <i class="material-icons right">expand_more</i>
           --></a>
-                </li>
-                <li>
-                    <a class="service dropdown-trigger hover-text-primary fw-500" href="javascript:;" data-target="service_dropdown">Services
-                        <!-- <i class="material-icons right">expand_more</i>
+        </li>
+        <li>
+          <a
+            class="service dropdown-trigger hover-text-primary fw-500"
+            href="javascript:;"
+            data-target="service_dropdown"
+            >Services
+            <!-- <i class="material-icons right">expand_more</i>
           --></a>
-                </li>
-                <li>
-                    <a href="work" class="hover-text-primary fw-500">Our Work</a>
-                </li>
-                <li>
-                    <a href="http://blog.wampinfotech.com" class="hover-text-primary fw-500">Blog</a>
-                </li>
-                <li>
-                    <a href="contact" class="hover-text-primary fw-500">Contact Us</a>
-                </li>
-                <?php 
+        </li>
+        <li><a href="work" class="hover-text-primary fw-500">Our Work</a></li>
+        <li>
+          <a
+            href="http://blog.wampinfotech.com"
+            class="hover-text-primary fw-500"
+            >Blog</a
+          >
+        </li>
+        <li>
+          <a href="contact" class="hover-text-primary fw-500">Contact Us</a>
+        </li>
+        <?php 
                 if(!isset($_SESSION)) {session_start();}
                 if(isset($_SESSION['login']) and $_SESSION['login'] == 'true') { ?>
-                <li>
-                    <a class="user dropdown-trigger hover-text-primary fw-500" href="javascript:;" data-target="user_dropdown"><img
-                            src="<?=$_SESSION['image']?>" class="avatar-s" />
-                    </a>
-                </li>
+        <li>
+          <a
+            class="user dropdown-trigger hover-text-primary fw-500"
+            href="javascript:;"
+            data-target="user_dropdown"
+            ><img
+              src="<?=$_SESSION['image']?>"
+              class="avatar-s"
+              alt="User Avatar small"
+            />
+          </a>
+        </li>
 
-                <?php } else { ?>
-                <li>
-                    <a href="signin" class="hover-text-primary fw-500">Sign in</a>
-                </li>
-                <?php } ?>
-            </ul>
-        </div>
-    </nav>
-    <div class="aboutDropDownContainer"></div>
-    <div class="serviceDropDownContainer"></div>
-    <div class="serviceDropDownContainer"></div>
+        <?php } else { ?>
+        <li><a href="signin" class="hover-text-primary fw-500">Sign in</a></li>
+        <?php } ?>
+      </ul>
+    </div>
+  </nav>
+  <div class="aboutDropDownContainer"></div>
+  <div class="serviceDropDownContainer"></div>
+  <div class="serviceDropDownContainer"></div>
 </div>
 <!-- About Dropdown Structure -->
 <ul id="about_dropdown" class="dropdown-content">
-    <li><a href="overview" class="hover-text-primary">Overview</a></li>
-    <li><a href="team" class="hover-text-primary">Our Team</a></li>
-    <li>
-        <a href="mission" class="hover-text-primary">Mission and Vision</a>
-    </li>
+  <li><a href="overview" class="hover-text-primary">Overview</a></li>
+  <li><a href="team" class="hover-text-primary">Our Team</a></li>
+  <li><a href="mission" class="hover-text-primary">Mission and Vision</a></li>
 </ul>
 
 <!-- About Dropdown Structure -->
 <ul id="user_dropdown" class="dropdown-content">
-    <li><a href="dashboard" class="hover-text-primary"><i class="material-icons left">dashboard</i>Dashboard</a></li>
-    <li><a href="profile" class="hover-text-primary"><i class="material-icons left">account_circle</i>Profile</a></li>
-    <li><a href="settings" class="hover-text-primary"><i class="material-icons left">build</i>Settings</a></li>
-    <li><a href="feedback" class="hover-text-primary"><i class="material-icons left">feedback</i>Feedback</a></li>
-    <li><a href="javascript:signout();" class="hover-text-primary"><i class="material-icons left">exit_to_app</i>Sign
-            out</a></li>
+  <li>
+    <a href="dashboard" class="hover-text-primary"
+      ><i class="material-icons left">dashboard</i>Dashboard</a
+    >
+  </li>
+  <li>
+    <a href="profile" class="hover-text-primary"
+      ><i class="material-icons left">account_circle</i>Profile</a
+    >
+  </li>
+  <li>
+    <a href="settings" class="hover-text-primary"
+      ><i class="material-icons left">build</i>Settings</a
+    >
+  </li>
+  <li>
+    <a href="feedback" class="hover-text-primary"
+      ><i class="material-icons left">feedback</i>Feedback</a
+    >
+  </li>
+  <li>
+    <a href="javascript:signout();" class="hover-text-primary"
+      ><i class="material-icons left">exit_to_app</i>Sign out</a
+    >
+  </li>
 </ul>
 
 <!-- Services Dropdown Structure -->
 <ul id="service_dropdown" class="dropdown-content row py-2">
-    <?php $services = getJson("./data/services.json", "services"); foreach
+  <?php $services = getJson("./data/services.json", "services"); foreach
   ($services as $service) { ?>
-    <li class="col s12 l4 <?=(($service['disabled'])?'disabled':'')?>">
-        <a href="services/<?=$service['url']?>" class="hover-text-primary">
-            <?=$service['title']?></a>
-    </li>
-    <?php } ?>
+  <li class="col s12 l4 <?=(($service['disabled'])?'disabled':'')?>">
+    <a href="services/<?=$service['url']?>" class="hover-text-primary">
+      <?=$service['title']?></a
+    >
+  </li>
+  <?php } ?>
 </ul>
 
 <div class="fixed-action-btn">
-    <a class="waves-effect waves-light btn-floating btn-large bg-primary modal-trigger scale-transition" data-target="quick_query_modal"
-        id="quick_query">
-        <i class="large material-icons">email</i>
-    </a>
+  <a
+    class="waves-effect waves-light btn-floating btn-large bg-primary modal-trigger scale-transition"
+    data-target="quick_query_modal"
+    id="quick_query"
+  >
+    <i class="large material-icons">email</i>
+  </a>
 </div>
 
 <!-- Modal Structure -->
 <div id="quick_query_modal" class="modal border-radius-8">
-    <div class="progress-holder hide" id="progress">
-        <div class="progress">
-            <div class="indeterminate bg-primary"></div>
+  <div class="progress-holder hide" id="progress">
+    <div class="progress"><div class="indeterminate bg-primary"></div></div>
+  </div>
+  <div class="prevent-overlay hide full border-radius-8"></div>
+  <div class="modal-content pb-0">
+    <h4 class="text-primary"><b>Quick Query</b></h4>
+    <p>
+      Please fill this short form below so that we can reach out to you as soon
+      as possible!
+    </p>
+    <form id="qq" name="qq" class="validate">
+      <div class="row mb-0">
+        <div class="input-field col m6 w-full">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="qq_name" type="text" name="name" required />
+          <label for="qq_name">Name</label>
+          <span class="helper-text" data-error="Please fill your name"></span>
         </div>
-    </div>
-    <div class="prevent-overlay hide full border-radius-8"></div>
-    <div class="modal-content pb-0">
-        <h4 class="text-primary"><b>Quick Query</b></h4>
-        <p>
-            Please fill this short form below so that we can reach out to you as soon
-            as possible!
-        </p>
-        <form id="qq" name="qq" class="validate">
-            <div class="row mb-0">
-                <div class="input-field col m6 w-full">
-                    <i class="material-icons prefix">account_circle</i>
-                    <input id="qq_name" type="text" name="name" required />
-                    <label for="qq_name">Name</label>
-                    <span class="helper-text" data-error="Please fill your name"></span>
-                </div>
-                <div class="input-field col m6 w-full">
-                    <i class="material-icons prefix">email</i>
-                    <input id="qq_email" type="email" name="email" required />
-                    <label for="qq_email">Email</label>
-                </div>
-            </div>
-            <div class="row mb-0">
-                <div class="input-field col m6 w-full">
-                    <i class="material-icons prefix">phone</i>
-                    <input id="qq_number" type="tel" name="number" required minlength="10" maxlength="12" />
-                    <label for="qq_number">Number</label>
-                </div>
-                <div class="input-field col m6 w-full">
-                    <i class="material-icons prefix">group</i>
-                    <input id="qq_company" type="text" name="company" />
-                    <label for="qq_company">Company (Optional)</label>
-                </div>
-            </div>
-            <div class="row mb-0">
-                <div class="input-field col s12 w-full">
-                    <i class="material-icons prefix">message</i>
-                    <textarea id="qq_message" class="materialize-textarea" name="message" data-length="30" required></textarea>
-                    <label for="qq_message">Message</label>
-                </div>
-            </div>
-        </form>
-    </div>
-    <div class="modal-footer px-4">
-        <button class="modal-close waves-effect waves-dark btn btn-flat ">
-            Cancel
-        </button>
-        <button type="submit" class="waves-effect waves-light btn bg-primary ml-1" form="qq" name="submit_btn">
-            Send
-        </button>
-    </div>
+        <div class="input-field col m6 w-full">
+          <i class="material-icons prefix">email</i>
+          <input id="qq_email" type="email" name="email" required />
+          <label for="qq_email">Email</label>
+        </div>
+      </div>
+      <div class="row mb-0">
+        <div class="input-field col m6 w-full">
+          <i class="material-icons prefix">phone</i>
+          <input
+            id="qq_number"
+            type="tel"
+            name="number"
+            required
+            minlength="10"
+            maxlength="12"
+          />
+          <label for="qq_number">Number</label>
+        </div>
+        <div class="input-field col m6 w-full">
+          <i class="material-icons prefix">group</i>
+          <input id="qq_company" type="text" name="company" />
+          <label for="qq_company">Company (Optional)</label>
+        </div>
+      </div>
+      <div class="row mb-0">
+        <div class="input-field col s12 w-full">
+          <i class="material-icons prefix">message</i>
+          <textarea
+            id="qq_message"
+            class="materialize-textarea"
+            name="message"
+            data-length="30"
+            required
+          ></textarea>
+          <label for="qq_message">Message</label>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer px-4">
+    <button class="modal-close waves-effect waves-dark btn btn-flat ">
+      Cancel
+    </button>
+    <button
+      type="submit"
+      class="waves-effect waves-light btn bg-primary ml-1"
+      form="qq"
+      name="submit_btn"
+    >
+      Send
+    </button>
+  </div>
 </div>
 
-<div class="full pos-abs white" id="page_loader" style="width: 100vw; height: 100vh;left:0; top:0;z-index: 1000000">
-    <div style="max-width:300px;max-height: 300px;left:0;right:0;top:0; bottom:0;margin:auto" class="center-align pos-abs">
-        <img src="images/loader.gif" class="w-full mx-auto" style="max-width: 100px" />
-        <h5>Loading, please wait ...</h5>
-    </div>
+<div class="full pos-abs white" id="page_loader">
+  <div class="center-align pos-abs">
+    <img src="images/loader.gif" class="w-full mx-auto" alt="WAMP Loader" />
+    <h5>Loading, please wait ...</h5>
+  </div>
 </div>
 <script>
-    setTimeout(() => {
-        document.getElementById("page_loader").style.display = "none";
-    }, 10000);
+  setTimeout(() => {
+    document.getElementById("page_loader").style.display = "none";
+  }, 10000);
 </script>
