@@ -11,3 +11,16 @@ li.collection-item i {
   position: absolute !important;
   left: 10px !important;
 }
+
+
+.container p {
+  text-align: justify;
+}
+
+@media (min-width: 600px) {
+
+  .flow-text li,
+  .flow-text p {
+    font-size: 1.125rem;
+  }
+}

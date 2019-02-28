@@ -1,11 +1,16 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113374384-1"></script>
+<script src="../ui-scripts/fingerprint.js"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
 
     function gtag() {
         dataLayer.push(arguments);
     }
+    var fingerprint = new Fingerprint().get();
+    gtag('set', { 'user_id': fingerprint });
+
+    console.log("Your Unique ID: " + fingerprint);
     gtag('js', new Date());
 
     gtag('config', 'UA-113374384-1');
