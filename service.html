@@ -63,6 +63,8 @@ if (isset($_GET['url'])) {
             <hr class="short-border" />
             <br />
             <?=$content?>
+            <?php include "layouts/service-work.php"; ?>
+            <?=getWork($url)?>
         </section>
 
         <?php include "layouts/footer.inc.html"; ?>

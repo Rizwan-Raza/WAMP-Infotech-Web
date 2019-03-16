@@ -6,6 +6,7 @@
       "srclow": "images/works/lowres/redolance-india.webp",
       "url": "http://redolenceindia.in",
       "desc": "- Wedding planning now goes digital, as we come up with a mesmerizing website for Redolence India. A website designed to make your wedding hassle-free, with a lot of images to make it a captivating journey as you go through the website. A modern alternative for wedding designs, a website with a beautiful logo and a charming customer journey.",
+      "tag": "web",
       "title": "Redolence India"
     },
     {
@@ -15,6 +16,7 @@
       "srclow": "images/works/lowres/gloria-stylx.webp",
       "url": "http://gloriastylx.com",
       "desc": "An e-commerce website, built with a mission to increase the accessibility of brands for all. Gloria Stylx includes everything you need to set up your online store. From a proper inventory to add your products to the payment gateway; everything has been set right for a smooth customer journey.",
+      "tag": "web",
       "title": "Gloria Stylx"
     },
     {
@@ -24,6 +26,7 @@
       "srclow": "images/works/lowres/archue.webp",
       "url": "http://archue.com",
       "desc": "A website designed especially for architectures, with a variety of information. The client believed that knowledge should not be limited to a certain group of people. Therefore, the website provides architecture news, projects, portfolios, reports, case studies, and products.",
+      "tag": "web",
       "title": "Archue"
     },
     {
@@ -33,6 +36,7 @@
       "srclow": "images/works/lowres/microrent.webp",
       "url": "http://microrentindia.com",
       "desc": "Microrent India is computer and software rent company. A well-established firm takes the online platform to seek more potential leads for the services provided. The website gives an idea about the stuff that one can take on rent like computers, laptops, multimedia devices etc. ",
+      "tag": "web",
       "title": "Microrent India"
     },
     {
@@ -42,6 +46,7 @@
       "srclow": "images/works/lowres/kaliram-chaats.webp",
       "url": "http://kaliramevents.com",
       "desc": "With almost 11 years of experience in the field of planning the weddings and social events, the clients wanted to turn digital. Therefore, the website is designed in a simple manner to give an overview to the customers about the services provided. ",
+      "tag": "web",
       "title": "Kaliram Chaats"
     },
     {
@@ -51,7 +56,38 @@
       "srclow": "images/works/lowres/wamp-institute.webp",
       "url": "https://wampinstitute.in",
       "desc": "WAMP Institute is a venture of WAMP InfoTech; it is a digital marketing institute. With the establishment of WAMP InfoTech, our co-founders knew that digital marketing is like a never-ending marketing strategy. Therefore, the youth needs to be more aware of the digital services.",
+      "tag": "web",
       "title": "WAMP Institute"
+    },
+    {
+      "in_home": true,
+      "order": 7,
+      "src": "images/works/promo/Sultan_Masood.jpg",
+      "srclow": "images/works/banner_back.jpg",
+      "url": "https://www.instagram.com/sultanmasoodviolinist/",
+      "desc": "Sultan Masood <br /> Music Composer | Violinist | Youtuber <br /> SULTANAT Jampad & Studios <br />  SULTANAT(The Violin Rock Band) <br /> SUBSCRIBE to YOUTUBE CHANNEL <br /><a href=https://youtu.be/J2W6L1RKi-k>youtu.be/J2W6L1RKi-k</a>",
+      "tag": "promo",
+      "title": "Sultan Masood"
+    },
+    {
+      "in_home": true,
+      "order": 8,
+      "src": "images/works/promo/Shaurya_Pratap_Singh.jpg",
+      "srclow": "images/works/banner_back.jpg",
+      "url": "https://www.instagram.com/shaurya7/",
+      "desc": "Shaurya Pratap Singh <br /> Model | Architect | Fashion Influencer | Content Creator | Martial Artist <br /> Certified Fitness Athelete <br /> <a href=https://www.shauryapratapsingh.in>https://www.shauryapratapsingh.in</a>",
+      "tag": "promo",
+      "title": "Shaurya Pratap Singh"
+    },
+    {
+      "in_home": true,
+      "order": 9,
+      "src": "images/works/promo/Aleena_Rehan_Khan.jpg",
+      "srclow": "images/works/banner_back.jpg",
+      "url": "https://www.instagram.com/officialaleenarehan/",
+      "desc": "Aleena Rehan Khan <br /> • 🇰🇼 to 🇮🇳 <br /> • Proud Muslim <br /> • Dreamer | Believer | Achiever <br /> • Architect by chance, vocalist by choice <br /> ~ L I V E T O S E R V E ~ <br /> Kyun Rabba 👇 <br /> <a href=https://youtu.be/OteF8rMqmVs>youtu.be/OteF8rMqmVs</a>",
+      "tag": "promo",
+      "title": "Aleena Rehan Khan"
     }
   ]
 }
