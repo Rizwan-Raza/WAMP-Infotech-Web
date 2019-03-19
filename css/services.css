@@ -19,6 +19,7 @@ li.collection-item i {
 
 .carousel .carousel-item {
   opacity: 1 !important;
+  width: 400px;
 }
 
 @media (min-width: 600px) {

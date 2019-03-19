@@ -1,5 +1,5 @@
 $(() => {
-
+    M.AutoInit();
 });
 
 function deleteQuery(_qid, elem) {
@@ -34,4 +34,11 @@ function deleteQuery(_qid, elem) {
             // $("#progress, .prevent-overlay").addClass("hide");
         }
     });
+}
+
+
+function openQuery(name, msg) {
+    $("#queryModal h4").text(name);
+    $("#queryModal p").text(msg);
+    $(".modal").modal('open');
 }

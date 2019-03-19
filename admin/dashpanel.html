@@ -23,11 +23,6 @@ if (isset($_SESSION['admin']) and $_SESSION['admin'] == true) {
         $result = $conn->query($sql);
         $num_q = $result->fetch_assoc()['COUNT(`_qid`)'];
         
-        $sql = "SELECT COUNT(`_vid`) FROM `visitors`"; 
-        $conn = DB::getConnection(); 
-        $result = $conn->query($sql);
-        $num_v = $result->fetch_assoc()['COUNT(`_vid`)'];
-
         $sql = "SELECT COUNT(`_uid`) FROM `users`"; 
         $conn = DB::getConnection(); 
         $result = $conn->query($sql);
@@ -45,7 +40,7 @@ if (isset($_SESSION['admin']) and $_SESSION['admin'] == true) {
         
         ?>
 
-        <div class="col s12 m9 grey lighten-3 m-0 p-0" style="height:100vh;overflow:auto">
+        <div class="col s12 m9 white lighten-3 m-0 p-0" style="height:100vh;overflow:auto">
             <a class="p-2 left" href="javascript:toggleNav()"><i class="material-icons">menu</i></a>
             <div class="px-4">
                 <h4 class="my-1">
@@ -101,18 +96,6 @@ if (isset($_SESSION['admin']) and $_SESSION['admin'] == true) {
                             </div>
                             <div class="card-action">
                                 <a href="admin/feedbacks">Feedbacks</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s12 m6 l4 xl3">
-                        <div class="card bg-primary">
-                            <div class="card-content white-text">
-                                <h4 class="fw-500 center-align">
-                                    <?=$num_v?>
-                                </h4>
-                            </div>
-                            <div class="card-action">
-                                <a href="admin/visitors">Visitors</a>
                             </div>
                         </div>
                     </div>

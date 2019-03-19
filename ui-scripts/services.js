@@ -1,8 +1,8 @@
 $(document).ready(function () {
     $('.carousel').carousel({
-        dist: 0,
-        padding: 80,
-        numVisible: 4
+        dist: -200,
+        padding: 200,
+        numVisible: 5
     });
     autoplay();
 

@@ -14,7 +14,7 @@ $_SESSION['admin'] == true) { ?>
     <!-- Page Layout here -->
     <section class="row m-0 p-0">
         <?php include "includes/sidenav.inc.html";
-        include "../includes/functions.inc.php"; ?>
+        include "includes/functions.inc.php"; ?>
 
         <div class="col s12 m9 white m-0 p-0" style="height:100vh;overflow:auto">
             <a class="p-2 left" href="javascript:toggleNav()"><i class="material-icons">menu</i></a>
@@ -48,7 +48,8 @@ $_SESSION['admin'] == true) { ?>
                             <td>
                                 <?=$user['email']?>
                             </td>
-                            <td>
+                            <td class="tooltipped" data-tooltip="<?=$user['time']?>">
+                                <!-- <?=$user['time']?> -->
                                 <?=daysUntilToday(date_create($user['time']))?>
                                 <!-- <?=date_format(date_create(), "M jS, Y \a\\t g:i:s A")?> -->
                             </td>

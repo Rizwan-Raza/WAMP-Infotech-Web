@@ -28,7 +28,7 @@ function getWork($url) {
             
                     $string .= '<div class="carousel-item"><img src="'.$src.'" alt="'.$title.'" class="materialboxed w-full" /></div>';
             }
-            $string .= '</div>';
+            $string .= '</div><br />';
             return $string;
         }
     }

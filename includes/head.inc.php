@@ -58,23 +58,4 @@ error_reporting(0);
 if (isset($_COOKIE["user_id"])) {
     require "../php/rem-me.php";
 }
-
-if (!isset($_SESSION)) {
-    session_start();
-}
-
-if (!isset($_SESSION['visited']) or !$_SESSION['visited']) {
-    $sql = "INSERT INTO `visitors`(`ip_addr`, `user_agent`,`time`) VALUES('$_SERVER[REMOTE_ADDR]', '$_SERVER[HTTP_USER_AGENT]', CONVERT_TZ(CURRENT_TIMESTAMP, '+00:00', '+05:30'))";
-    
-    require_once "php/db.php";
-    $conn = DB::getConnection();
-    $result = $conn->query($sql);
-    if ($result) {
-        $_SESSION['visited'] = true;
-    // echo "<RexT />";
-    } else {
-        // echo"<Rex>".$conn->error."</Rex>";
-    }
-}
-
 ?>

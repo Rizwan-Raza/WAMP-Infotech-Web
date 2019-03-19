@@ -10,7 +10,6 @@ $_SESSION['admin'] == true) {
     <title>Digital Marketing Company | Web Design Company</title>
     <base href="../" />
     <?php include "includes/head.inc.php"; ?>
-    <link rel="stylesheet" href="admin/css/visitors.css" />
 </head>
 
 <body>
@@ -62,7 +61,9 @@ $_SESSION['admin'] == true) {
                                 <?=$user['number']?>
                             </td>
                             <td>
-                                <?=$user['message']?>
+                                <?php $count = strlen($user['message']); ?>
+                                <?=substr($user['message'], 0, 50)?>
+                                <?php echo $count > 50 ? '... <a href="javascript:openQuery(\''.$user['name'].'\', \''.addslashes($user['message']).'\')">Read more</a>' : ''; ?>
                             </td>
                             <td>
                                 <button class="transparent btn-flat circle btn-floating btn-medium tooltipped waves-effect waves-circle waves-dark"
@@ -84,6 +85,17 @@ $_SESSION['admin'] == true) {
             </div>
         </div>
     </section>
+
+    <!-- Modal Structure -->
+    <div id="queryModal" class="modal">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-close waves-effect waves-red btn-flat">Close</button>
+        </div>
+    </div>
 
     <?php include "includes/scripts.inc.php"; ?>
     <script src="admin/js/queries.js"></script>
