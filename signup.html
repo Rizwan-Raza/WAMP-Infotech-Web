@@ -7,19 +7,23 @@ if (!isset($_SESSION['login']) or $_SESSION['login'] != true) {
 
 <head>
     <title>Sign up | Web Design Company</title>
-    <meta name="description" content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level." />
+    <meta name="description"
+        content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level." />
 
-	<meta name="keywords" content="wamp signup, signup wamp, signup wamp infotech, wamp infotech signup, wamp create account, digital marketing agency, web development company" />
+    <meta name="keywords"
+        content="wamp signup, signup wamp, signup wamp infotech, wamp infotech signup, wamp create account, digital marketing agency, web development company" />
 
     <meta itemprop="url" content="https://www.wampinfotech.com/signup" />
     <meta property="og:url" content="https://www.wampinfotech.com/signup" />
     <meta itemprop="headline" content="Sign up | Web Design Company" />
     <meta property="og:title" content="Sign up | Web Design Company" />
-    <meta property="og:description" content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level." />
+    <meta property="og:description"
+        content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level." />
     <meta name="twitter:site" content="https://www.wampinfotech.com/signup">
     <meta name="twitter:card" content="https://www.wampinfotech.com/images/banner1.jpg">
     <meta name="twitter:title" content="Sign up | Web Design Company">
-    <meta name="twitter:description" content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level.">
+    <meta name="twitter:description"
+        content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level.">
 
 
     <?php include "includes/head.inc.php"; ?>
@@ -51,26 +55,29 @@ if (!isset($_SESSION['login']) or $_SESSION['login'] != true) {
                                 Email
                             </label>
                         </div>
-                        <div class="input-field"><input type="tel" class="validate" name="number" id="s_number"
-                                required minlength="10" maxlength="12">
+                        <div class="input-field"><input type="tel" class="validate" name="number" id="s_number" required
+                                minlength="10" maxlength="12">
                             <label for="s_number">
                                 Number
                             </label>
                         </div>
                         <div class="input-field"><input type="password" class="validate" name="password" id="s_password"
-                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                                 required>
                             <label for="s_password">
                                 Password
                             </label>
-                            <button type="button" onclick="passVisibility(this, '#s_password')" class="transparent btn-flat circle btn-floating tooltipped right waves-effect waves-circle waves-dark"
+                            <button type="button" onclick="passVisibility(this, '#s_password')"
+                                class="transparent btn-flat circle btn-floating tooltipped right waves-effect waves-circle waves-dark"
                                 data-tooltip="Show Password">
-                                <i class="material-icons grey-text text-darken-3" style="vertical-align: middle">visibility_off</i></button>
+                                <i class="material-icons grey-text text-darken-3"
+                                    style="vertical-align: middle">visibility_off</i></button>
                             <div class="helper-text">Must contain at least one number, one uppercase and lowercase
                                 letter, and at least 8</div>
                         </div>
-                        <div class="input-field"><input type="password" class="validate" name="r_password" id="s_rpassword"
-                                minlength="6" required>
+                        <div class="input-field"><input type="password" class="validate" name="r_password"
+                                id="s_rpassword" minlength="6" required>
                             <label for="s_rpassword">
                                 Re-Type Password
                             </label>
@@ -78,7 +85,8 @@ if (!isset($_SESSION['login']) or $_SESSION['login'] != true) {
                         <br />
                         <button type="submit" class="btn bg-primary white-text right">Sign up</button>
                     </form>
-                    <button onclick="window.location.href='signin'" class="btn text-primary white waves-effect waves-primary btn-flat ml--1">Sign
+                    <button onclick="window.location.href='signin'+window.location.search"
+                        class="btn text-primary white waves-effect waves-primary btn-flat ml--1">Sign
                         in instead</button>
                     <br clear="both" />
                 </div>

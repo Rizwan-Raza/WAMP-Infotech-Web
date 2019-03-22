@@ -4,7 +4,7 @@ $data = array("message"=> "Unknown method", "status"=>"server_error");
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     // error_reporting(0);
 
-    $sql = "UPDATE `feeds` SET `feed`='$_POST[message]' WHERE `_fid`=$_POST[_fid]";
+    $sql = "UPDATE `feeds` SET `feed`='$_POST[message]', `company`='$_POST[company]' WHERE `_fid`=$_POST[_fid]";
 
     require 'db.php';
     $conn = DB::getConnection();

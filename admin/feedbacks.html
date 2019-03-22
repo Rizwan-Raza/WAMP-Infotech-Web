@@ -61,38 +61,45 @@ $_SESSION['admin'] == true) {
                                 <?=$user['email']?>
                             </td>
                             <td>
-                                <?=$user['feed']?>
+                                <?php $count = strlen($user['feed']); ?>
+                                <?=substr($user['feed'], 0, 50)?>
+                                <?php echo $count > 50 ? '... <a href="javascript:openFeed(\''.$user['name'].'\', \''.addslashes($user['feed']).'\')">Read more</a>' : ''; ?>
                             </td>
                             <td>
-                                <span class="tooltipped" data-tooltip="<?=daysUntilToday(date_create($user['time']))?>"><?=date_format(date_create($user['time']), "M jS, Y \a\\t g:i:s A")?></span>
+                                <span class="tooltipped"
+                                    data-tooltip="<?=daysUntilToday(date_create($user['time']))?>"><?=date_format(date_create($user['time']), "M jS, Y \a\\t g:i:s A")?></span>
                             </td>
                             <td>
                                 <div class="pos-rel" style="top: -10px;" id="actions">
                                     <?php if (!$user['disabled']) {
-                ?> 
-                                        <div class="pos-abs" style="height:25px;">
+                ?>
+                                    <div class="pos-abs" style="height:25px;">
                                         <i class="material-icons" style="width: 30px;text-align:center;height:25px;">
                                             <?=($user['approved']) ? 'check' : 'close' ?></i>
-                                        </div>
-                                        <?php
+                                    </div>
+                                    <?php
             } ?>
-                                        
-                                        <div class="pos-abs">
-                                            <?php if (!$user['disabled']) {
-                ?> 
-                                                <button class="transparent btn-flat circle btn-floating tooltipped waves-effect waves-circle waves-dark"
-                                                style="margin:-5px -3px;" onclick="approve(<?=$user['_fid']?>, this, <?=($user['approved'] ? '0' : '1')?>)"
-                                                data-tooltip="<?=($user['approved'] ? 'Disapprove' : 'Approve')?>"><i class="material-icons <?=($user['approved'] ? 'red-text' : 'green-text')?> lh-5">
-                                                        <?=($user['approved']) ? 'close' : 'check' ?></i></button>
-                                            <?php
+
+                                    <div class="pos-abs">
+                                        <?php if (!$user['disabled']) {
+                ?>
+                                        <button
+                                            class="transparent btn-flat circle btn-floating tooltipped waves-effect waves-circle waves-dark"
+                                            style="margin:-5px -3px;"
+                                            onclick="approve(<?=$user['_fid']?>, this, <?=($user['approved'] ? '0' : '1')?>)"
+                                            data-tooltip="<?=($user['approved'] ? 'Disapprove' : 'Approve')?>"><i
+                                                class="material-icons <?=($user['approved'] ? 'red-text' : 'green-text')?> lh-5">
+                                                <?=($user['approved']) ? 'close' : 'check' ?></i></button>
+                                        <?php
             } else {
                 ?>
-                                                <button class="transparent btn-flat circle btn-floating tooltipped waves-effect waves-circle waves-dark"
-                                                style="margin:-5px -3px;" onclick="deleteFeed(<?=$user['_fid']?>, this)"
-                                                data-tooltip="Delete Forever"><i class="material-icons red-text lh-5">
-                                                        delete_forever</i></button>
+                                        <button
+                                            class="transparent btn-flat circle btn-floating tooltipped waves-effect waves-circle waves-dark"
+                                            style="margin:-5px -3px;" onclick="deleteFeed(<?=$user['_fid']?>, this)"
+                                            data-tooltip="Delete Forever"><i class="material-icons red-text lh-5">
+                                                delete_forever</i></button>
 
-                                            <?php
+                                        <?php
             } ?>
                                     </div>
                                 </div>
@@ -113,6 +120,17 @@ $_SESSION['admin'] == true) {
             </div>
         </div>
     </section>
+
+    <!-- Modal Structure -->
+    <div id="feedModal" class="modal">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-close waves-effect waves-red btn-flat">Close</button>
+        </div>
+    </div>
 
     <?php include "includes/scripts.inc.php"; ?>
     <script src="admin/js/feedbacks.js"></script>

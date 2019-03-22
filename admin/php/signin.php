@@ -1,7 +1,7 @@
 <?php
     $data = array("message"=> "Unknown method", "status"=>"server_error");
     if ($_SERVER['REQUEST_METHOD'] === "POST" and isset($_POST['username']) and isset($_POST['password'])) {
-        // error_reporting(0);
+        error_reporting(0);
         extract($_POST, EXTR_SKIP);
 
         $sql = "SELECT `_aid`, `name`, `username` FROM `admins` WHERE `username`='$username' AND `password`=MD5('*WAMP*$password*WAMP*')";

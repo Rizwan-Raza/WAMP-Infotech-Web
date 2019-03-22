@@ -33,13 +33,15 @@ $(document).ready(function () {
                return;
             } else if (object.status == "success") {
                e.target.reset();
-               window.location.href = "dashboard";
+               let params = (new URL(document.location)).searchParams;
+               let name = params.get("redirect_to");
+               window.location.href = name ? name : "dashboard";
             }
          },
          error: (data, status) => {
             M.toast({
                html: data
-           });
+            });
             console.log(data, status);
          },
          complete: () => {

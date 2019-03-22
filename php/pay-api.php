@@ -23,7 +23,7 @@
         ));
         $id = $conn->real_escape_string($response['id']);
         # print_r($response);
-        $sql = "INSERT INTO payments(`name`,`email`,`phone`,`amount`,`insta_payment_id`) VALUES('$name','$email','$phone','$amount','$id')";
+        $sql = "INSERT INTO payments(`name`,`email`,`purpose`,`phone`,`amount`, `time`,`insta_payment_id`) VALUES('$name','$email', '$purpose', '$phone','$amount',CONVERT_TZ(CURRENT_TIMESTAMP, '+00:00', '+05:30'), '$id')";
         $conn->query($sql);
         header("Location:$response[longurl]");
     } catch (Exception $e) {

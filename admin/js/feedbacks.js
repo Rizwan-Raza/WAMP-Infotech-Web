@@ -76,3 +76,9 @@ function deleteFeed(_fid, elem) {
         }
     });
 }
+
+function openFeed(name, msg) {
+    $("#feedModal h4").text(name);
+    $("#feedModal p").text(msg);
+    $(".modal").modal('open');
+}

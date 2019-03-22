@@ -10,10 +10,10 @@ table tr {
     left: 0;
 }
 
-.pos-abs.w-full {
+.pos-abs.full.circle .pos-abs.w-full {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    display: none;
+    display: none
 }
 
 .pos-abs.full.circle:hover .pos-abs.w-full {
@@ -31,4 +31,4 @@ div.circle.green:hover {
 
 .avatar-l #progress .preloader-wrapper {
     z-index: 1;
-} 
+}

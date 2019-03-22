@@ -1,6 +1,11 @@
 .card .card-action button {
     visibility: hidden;
 }
+
 .card:hover .card-action button {
     visibility: visible;
+}
+
+.modal.bottom-sheet {
+    max-height: 60%;
 }
