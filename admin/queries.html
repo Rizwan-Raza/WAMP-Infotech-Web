@@ -10,6 +10,7 @@ $_SESSION['admin'] == true) {
     <title>Digital Marketing Company | Web Design Company</title>
     <base href="../" />
     <?php include "includes/head.inc.php"; ?>
+    <link rel="stylesheet" href="admin/css/queries.css" />
 </head>
 
 <body>
@@ -49,7 +50,7 @@ $_SESSION['admin'] == true) {
             $user = $result->fetch_assoc(); ?>
                         <tr>
                             <td class="pl-4">
-                                <?=$user['_qid']?>
+                                <?=$i+1?>
                             </td>
                             <td>
                                 <?=$user['name']?>

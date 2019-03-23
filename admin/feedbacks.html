@@ -26,7 +26,7 @@ $_SESSION['admin'] == true) {
             </div>
             <div class="border-top-1 grey-border border-lighten-2 mt-2"></div>
             <div class="grey lighten-3">
-                <?php $sql = "SELECT `_fid`, `feed`, `name`, `email`, `feeds`.`time`, `approved`, `feeds`.`disabled` FROM `feeds`, `users` WHERE `users`.`_uid`=`feeds`.`_uid`";
+                <?php $sql = "SELECT `_fid`, `feed`, `name`, `company`, `feeds`.`time`, `approved`, `feeds`.`disabled` FROM `feeds`, `users` WHERE `users`.`_uid`=`feeds`.`_uid`";
     require "../php/db.php";
     $conn = DB::getConnection();
     date_default_timezone_set("Asia/Kolkata");
@@ -40,7 +40,7 @@ $_SESSION['admin'] == true) {
                         <tr>
                             <th class="pl-4">#</th>
                             <th>Name</th>
-                            <th>Email</th>
+                            <th>Company</th>
                             <th>Message</th>
                             <th>Time</th>
                             <th>Approved</th>
@@ -52,13 +52,13 @@ $_SESSION['admin'] == true) {
             $user = $result->fetch_assoc(); ?>
                         <tr <?=($user['disabled'] ? 'style="opacity: 0.5;background-color: antiquewhite"' : '')?>>
                             <td class="pl-4">
-                                <?=$user['_fid']?>
+                                <?=$i+1?>
                             </td>
                             <td>
                                 <?=$user['name']?>
                             </td>
                             <td>
-                                <?=$user['email']?>
+                                <?=$user['company']?>
                             </td>
                             <td>
                                 <?php $count = strlen($user['feed']); ?>

@@ -10,7 +10,8 @@ $(document).ready(function () {
         e.preventDefault();
         let msg = e.target.message.value;
         let company = e.target.company.value;
-        e.target.reset();
+        console.log(msg);
+        console.log(company);
 
         $.ajax({
             url: "php/feed.php",
@@ -21,6 +22,7 @@ $(document).ready(function () {
             },
             success: (data, status) => {
                 // console.log(data, status);
+                e.target.reset();
                 var object = JSON.parse(data);
                 M.toast({
                     html: object.message

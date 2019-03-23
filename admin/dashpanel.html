@@ -32,7 +32,7 @@ if (isset($_SESSION['admin']) and $_SESSION['admin'] == true) {
         $conn = DB::getConnection(); 
         $result = $conn->query($sql);
         $num_s = $result->fetch_assoc()['COUNT(`_sid`)'];
-
+        
         $sql = "SELECT COUNT(`_fid`) FROM `feeds`"; 
         $conn = DB::getConnection(); 
         $result = $conn->query($sql);
@@ -52,52 +52,60 @@ if (isset($_SESSION['admin']) and $_SESSION['admin'] == true) {
                 <p>Here, we got some numbers: </p>
                 <div class="row">
                     <div class="col s12 m6 l4 xl3">
-                        <div class="card bg-primary">
-                            <div class="card-content white-text">
-                                <h4 class="fw-500 center-align">
-                                    <?=$num_u?>
-                                </h4>
+                        <a href="admin/users">
+                            <div class="card bg-primary">
+                                <div class="card-content white-text">
+                                    <h4 class="fw-500 center-align">
+                                        <?=$num_u?>
+                                    </h4>
+                                </div>
+                                <div class="card-action center-align">
+                                    Users
+                                </div>
                             </div>
-                            <div class="card-action">
-                                <a href="admin/users">Users</a>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col s12 m6 l4 xl3">
-                        <div class="card bg-primary">
-                            <div class="card-content white-text">
-                                <h4 class="fw-500 center-align">
-                                    <?=$num_s?>
-                                </h4>
+                        <a href="admin/feedbacks">
+                            <div class="card bg-primary">
+                                <div class="card-content white-text">
+                                    <h4 class="fw-500 center-align">
+                                        <?=$num_f?>
+                                    </h4>
+                                </div>
+                                <div class="card-action center-align">
+                                    Feedbacks
+                                </div>
                             </div>
-                            <div class="card-action">
-                                <a href="admin/subscribers">Subscribers</a>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col s12 m6 l4 xl3">
-                        <div class="card bg-primary">
-                            <div class="card-content white-text">
-                                <h4 class="fw-500 center-align">
-                                    <?=$num_q?>
-                                </h4>
+                        <a href="admin/queries">
+                            <div class="card bg-primary">
+                                <div class="card-content white-text">
+                                    <h4 class="fw-500 center-align">
+                                        <?=$num_q?>
+                                    </h4>
+                                </div>
+                                <div class="card-action center-align">
+                                    Queries
+                                </div>
                             </div>
-                            <div class="card-action">
-                                <a href="admin/queries">Queries</a>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col s12 m6 l4 xl3">
-                        <div class="card bg-primary">
-                            <div class="card-content white-text">
-                                <h4 class="fw-500 center-align">
-                                    <?=$num_f?>
-                                </h4>
+                        <a href="admin/subscribers">
+                            <div class="card bg-primary">
+                                <div class="card-content white-text">
+                                    <h4 class="fw-500 center-align">
+                                        <?=$num_s?>
+                                    </h4>
+                                </div>
+                                <div class="card-action center-align">
+                                    Subscribers
+                                </div>
                             </div>
-                            <div class="card-action">
-                                <a href="admin/feedbacks">Feedbacks</a>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -38,7 +38,8 @@ $_SESSION['admin'] == true) {
                             <td colspan="3">
                                 <div class="w-full" style="display: flex;height: 100px;justify-content: center;">
                                     <div class="preloader-wrapper active" style="align-self:center">
-                                        <div class="spinner-layer spinner-blue-only" style="left: 50%;margin-left: -25px;">
+                                        <div class="spinner-layer spinner-blue-only"
+                                            style="left: 50%;margin-left: -25px;">
                                             <div class="circle-clipper left">
                                                 <div class="circle"></div>
                                             </div>
@@ -64,16 +65,16 @@ $_SESSION['admin'] == true) {
         </div>
 
         <div id="addModal" class="modal border-radius-8">
-            <form onsubmit="userAddAction(event)">
-                <div class="progress-holder hide" id="progress">
-                    <div class="progress">
-                        <div class="indeterminate bg-primary"></div>
-                    </div>
+            <div class="progress-holder hide" id="progress">
+                <div class="progress">
+                    <div class="indeterminate bg-primary"></div>
                 </div>
-                <div class="prevent-overlay hide full border-radius-8"></div>
-                <div class="modal-content">
+            </div>
+            <div class="prevent-overlay hide full border-radius-8"></div>
+            <div class="modal-content">
                 <h4>Add new member</h4>
-                    <br />
+                <br />
+                <form onsubmit="userAddAction(event)">
                     <div class="input-field w-full">
                         <input id="username" name="username" type="text" class="validate">
                         <label for="username">Username</label>
@@ -90,11 +91,9 @@ $_SESSION['admin'] == true) {
                         <input id="cpassword" name="cpassword" type="password" class="validate">
                         <label for="cpassword">Confirm Password</label>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn waves-effect waves-light bg-primary mr-4">Add</button>
-                </div>
-            </form>
+                    <button class="btn waves-effect waves-light bg-primary my-4 right align-right">Add</button>
+                </form>
+            </div>
         </div>
 
     </section>
@@ -128,7 +127,7 @@ $_SESSION['admin'] == true) {
         function userAppend(data) {
             let user = data.val();
             let elem =
-                    `<tr>
+                `<tr>
                         <td class="pl-4">
                             ${$('table tbody tr').length + 1}
                         </td>
@@ -144,7 +143,7 @@ $_SESSION['admin'] == true) {
 
         function addUser(username, email, password) {
             firebase.auth().createUserWithEmailAndPassword(email, password).then(user => {
-                database.ref("users/"+user.user.uid).set({
+                database.ref("users/" + user.user.uid).set({
                     id: user.user.uid,
                     username: username,
                     imageURL: "default",
@@ -153,10 +152,12 @@ $_SESSION['admin'] == true) {
                 }, data => {
                     loaderShowHide();
                     $("#addModal form").get(0).reset();
-                $('.modal').modal('close');
+                    $('.modal').modal('close');
                 });
             }, error => {
-                M.toast({html: error.message});
+                M.toast({
+                    html: error.message
+                });
             });
         }
 

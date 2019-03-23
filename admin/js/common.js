@@ -45,6 +45,7 @@ $(document).ready(function () {
         }
     });
 
+    $(".sidenav a[href='" + window.location.href.replace("https://www.wampinfotech.com/", "") + "']").parent().addClass("active");
 });
 
 
@@ -96,13 +97,13 @@ function passVisibility(elem, id) {
     var pass = $(id);
     var icon = elem.find("i");
     if (icon.text().endsWith("_off")) {
-      elem.attr("data-tooltip", "Hide Password");
-      icon.text(icon.text().replace("_off", ""));
-  
-      pass.attr("type", "text");
+        elem.attr("data-tooltip", "Hide Password");
+        icon.text(icon.text().replace("_off", ""));
+
+        pass.attr("type", "text");
     } else {
-      elem.attr("data-tooltip", "Show Password");
-      icon.text(icon.text() + "_off");
-      pass.attr("type", "password");
+        elem.attr("data-tooltip", "Show Password");
+        icon.text(icon.text() + "_off");
+        pass.attr("type", "password");
     }
-  }
+}

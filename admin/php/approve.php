@@ -8,7 +8,7 @@ if (isset($_POST['fid']) and isset($_POST['act'])) {
     $conn = DB::getConnection();
     $result = $conn->query($sql);
     if ($result == true) {
-        $data = array("message"=> "Feed ".(!$act ? "denied": "approved")." successfully!", "status"=>"success");
+        $data = array("message"=> "Feed ".(!$act ? "dis": "")."approved successfully!", "status"=>"success");
     } else {
         $data = array("message"=> "Something went wrong.", "status"=>"server_error");
     }

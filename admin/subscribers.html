@@ -25,6 +25,7 @@ $_SESSION['admin'] == true) { ?>
             <div class="grey lighten-3">
                 <?php $sql = "SELECT * FROM `subscribers`"; require "../php/db.php";
                  $conn = DB::getConnection();
+                 date_default_timezone_set("Asia/Kolkata");
                  $result = $conn->query($sql);?>
 
 
@@ -36,6 +37,7 @@ $_SESSION['admin'] == true) { ?>
                             <th>Email</th>
                             <th>Around</th>
                             <th>Exactly</th>
+                            <th>Valid</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,7 +45,7 @@ $_SESSION['admin'] == true) { ?>
               $num; $i++) { $user = $result->fetch_assoc();?>
                         <tr>
                             <td class="pl-4">
-                                <?=$user['_sid']?>
+                                <?=$i+1?>
                             </td>
                             <td>
                                 <?=$user['email']?>
@@ -56,6 +58,7 @@ $_SESSION['admin'] == true) { ?>
                             <td>
                                 <?=date_format(date_create($user['time']), "M jS, Y \a\\t g:i:s A")?>
                             </td>
+                            <td><i class="material-icons"><?=$user['valid'] ? 'check' : 'close'?></i></td>
                         </tr>
                     </tbody>
                     <?php } ?>

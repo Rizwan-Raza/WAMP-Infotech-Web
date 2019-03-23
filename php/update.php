@@ -9,8 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     // print_r($_POST);
 
     session_start();
-    $sql = "UPDATE `users` SET `name` = '$name', `username` = '$username', `number` = '$number'".((isset($password) and !empty($password)) ? ", `password` = MD5('$password'), " : "")." WHERE `_uid`=$_SESSION[_uid]";
-
+    $sql = "UPDATE `users` SET `name` = '$name', `username` = '$username', `number` = '$number'".((isset($password) and !empty($password)) ? ", `password` = MD5('$password')" : "")." WHERE `_uid`=$_SESSION[_uid]";
 
     require 'db.php';
     $conn = DB::getConnection();

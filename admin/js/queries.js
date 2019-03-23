@@ -39,6 +39,6 @@ function deleteQuery(_qid, elem) {
 
 function openQuery(name, msg) {
     $("#queryModal h4").text(name);
-    $("#queryModal p").text(msg);
+    $("#queryModal p").html(msg);
     $(".modal").modal('open');
 }

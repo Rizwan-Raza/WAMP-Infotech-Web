@@ -29,8 +29,8 @@ function approve(_fid, child, act) {
                     icon.addClass("green-text");
                 }
                 $(child).closest(".pos-rel").find(".pos-abs>i").text(act ? "check" : "close");
-                $(child).attr("onclick", "activate(" + _fid + ", this, " + (act ? 0 : 1) + ")");
-                $(child).attr("data-tooltip", act ? "Deactivate" : "Activate");
+                $(child).attr("onclick", "approve(" + _fid + ", this, " + (act ? 0 : 1) + ")");
+                $(child).attr("data-tooltip", act ? "Disapprove" : "Approve");
                 // console.log(child);
             }
         },
@@ -79,6 +79,6 @@ function deleteFeed(_fid, elem) {
 
 function openFeed(name, msg) {
     $("#feedModal h4").text(name);
-    $("#feedModal p").text(msg);
+    $("#feedModal p").html(msg);
     $(".modal").modal('open');
 }

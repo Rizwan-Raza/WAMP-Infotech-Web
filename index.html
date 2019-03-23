@@ -4,9 +4,11 @@
 <head>
     <title>Digital Marketing Agency, Web Development Company | WAMP InfoTech</title>
 
-    <meta name="description" content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level." />
+    <meta name="description"
+        content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level." />
 
-    <meta name="keywords" content="digital marketing agency, web development company, digital marketing company, web design company, digital marketing services, social media agency, digital marketing agency in delhi" />
+    <meta name="keywords"
+        content="digital marketing agency, web development company, digital marketing company, web design company, digital marketing services, social media agency, digital marketing agency in delhi" />
 
     <meta itemprop="url" content="https://www.wampinfotech.com" />
     <meta property="og:url" content="https://www.wampinfotech.com" />
@@ -17,11 +19,13 @@
     <meta property="og:image:alt" content="Hand joining in radial form" />
     <meta itemprop="headline" content="Digital Marketing Agency , Web Development Company | WAMP InfoTech" />
     <meta property="og:title" content="Digital Marketing Agency , Web Development Company | WAMP InfoTech" />
-    <meta property="og:description" content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level." />
+    <meta property="og:description"
+        content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level." />
     <meta name="twitter:site" content="https://www.wampinfotech.com">
     <meta name="twitter:card" content="https://www.wampinfotech.com/images/banner1.jpg">
     <meta name="twitter:title" content="Digital Marketing Agency , Web Development Company | WAMP InfoTech">
-    <meta name="twitter:description" content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level.">
+    <meta name="twitter:description"
+        content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level.">
     <?php include "includes/head.inc.php"; ?>
     <?php include "includes/home.css.php"; ?>
     <!-- <link rel="stylesheet" href="css/ihover.css" />
@@ -41,8 +45,8 @@
 
     <div class="scrollable grey lighten-3">
         <header>
-            <img src="images/banner1_x600.webp" class="home-banner lazy" data-src="images/banner1.webp" data-srcset="images/banner1.webp 2x, images/banner1.webp 1x"
-                alt="WAMP Home Banner" />
+            <img src="images/banner1_x600.webp" class="home-banner lazy" data-src="images/banner1.webp"
+                data-srcset="images/banner1.webp 2x, images/banner1.webp 1x" alt="WAMP Home Banner" />
         </header>
         <br />
         <br class="hide-on-small-only" />
@@ -52,8 +56,10 @@
                 <div class="col s12 m12 l6">
                     <div class="full">
                         <div class="home-video white z-depth-2 border-2 grey-border border-radius-8">
-                            <div class="start-button border-2 primary-border border-round" onclick="window.location.href='admin'"></div>
-                            <iframe src="https://www.youtube.com/embed/WL44vPIqkds" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            <div class="start-button border-2 primary-border border-round"
+                                onclick="window.location.href='admin'"></div>
+                            <iframe src="https://www.youtube.com/embed/WL44vPIqkds" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen class="yt-video"></iframe>
                         </div>
                     </div>
@@ -114,7 +120,8 @@
         <section>
             <div class="row mb-0" id="our-works">
                 <div class="col s12 m12 l12 xl6 bg-primary p-4">
-                    <h4 class="white-text"><span class="fw-700">Projects</span> close to our heart!<a href="work" class="btn waves-effect right white text-primary mt-2">View
+                    <h4 class="white-text"><span class="fw-700">Projects</span> close to our heart!<a href="work"
+                            class="btn waves-effect right white text-primary mt-2">View
                             more</a></h4>
                     <br />
                     <h5 class="white-text">Are you looking for a class-apart website for your business?</h5>
@@ -134,14 +141,16 @@
 
                 <div class="col s12 m6 l4 xl3 black">
                     <div class="ih-item square effect6 from_top_and_bottom"><a href="work">
-                            <div class="img full"><img class="lazy" src="<?=$work['srclow']?>" data-src="<?=$work['src']?>"
-                                    data-srcset="<?=$work['src']?> 2x,<?=$work['src']?> 1x" alt="<?=$work['title']?>" /></div>
+                            <div class="img full"><img class="lazy" src="<?=$work['srclow']?>"
+                                    data-src="<?=$work['src']?>" data-srcset="<?=$work['src']?> 2x,<?=$work['src']?> 1x"
+                                    alt="<?=$work['title']?>" /></div>
                             <div class="info valign-wrapper">
                                 <div class="w-full">
                                     <h4 class="white-text text-z-depth-2">
                                         <?=$work['title']?>
                                     </h4>
-                                    <button class="btn bg-primary waves-effect" onclick=window.location.href="<?=$work['url']?>">Details
+                                    <button class="btn bg-primary waves-effect"
+                                        onclick=window.location.href="<?=$work['url']?>">Details
                                     </button>
                                 </div>
                             </div>
@@ -200,15 +209,17 @@
 
                 <div class="carousel carousel-slider center">
                     <?php 
-                    $testimonials = getJson("./data/testimonials.json", "testimonials");
-                    foreach ($testimonials as $testimonial) { 
+                    require_once "php/db.php";
+                    $sql = "SELECT * FROM `feeds`,`users` WHERE `approved`=1 AND `users`.`_uid`=`feeds`.`_uid`";
+                    $result = DB::getConnection()->query($sql);
+                    while ($testimonial = $result->fetch_assoc()) { 
                         ?>
                     <div class="carousel-item white-text" href="#one!">
                         <p class="white-text px-4">
-                            <?=$testimonial['quote']?>
+                            <?=$testimonial['feed']?>
                         </p>
                         <h2 class="text-capitalize">
-                            <?=$testimonial['author']?>
+                            <?=$testimonial['name']?> | <?=$testimonial['company']?>
                         </h2>
                     </div>
                     <?php } ?>
