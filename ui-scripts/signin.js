@@ -32,7 +32,7 @@ $(document).ready(function () {
             method: "POST",
             data: $(e.target).serialize(),
             beforeSend: () => {
-                $("#signin #progress, #signin .prevent-overlay").removeClass("hide");
+                $("#panel-holder #progress, #panel-holder .prevent-overlay").removeClass("hide");
             },
             success: (data, status) => {
                 // console.log(data, status);
@@ -60,9 +60,44 @@ $(document).ready(function () {
                 console.log(data, status);
             },
             complete: () => {
-                $("#signin #progress, #signin .prevent-overlay").addClass("hide");
+                $("#panel-holder #progress, #panel-holder .prevent-overlay").addClass("hide");
             }
         });
     });
 
+    $("#forgot-p form").submit(e => {
+        e.preventDefault();
+        $.ajax({
+            url: "php/forgot-password.php",
+            method: "POST",
+            data: $(e.target).serialize(),
+            beforeSend: () => {
+                $("#panel-holder #progress, #panel-holder .prevent-overlay").removeClass("hide");
+            },
+            success: (data, status) => {
+                // console.log(data, status);
+                var object = JSON.parse(data);
+                M.toast({
+                    html: object.message
+                });
+                if (object.status == "email_error" || object.status == "not_exist") {
+                    e.target.email.focus();
+                    return;
+                }
+            },
+            error: (data, status) => {
+                M.toast({
+                    html: data
+                });
+                console.log(data, status);
+            },
+            complete: () => {
+                $("#panel-holder #progress, #panel-holder .prevent-overlay").addClass("hide");
+            }
+        });
+    });
 });
+
+function togglePanels() {
+    $(".panel .card-panel").toggleClass("hide");
+}

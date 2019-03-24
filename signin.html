@@ -33,14 +33,14 @@ if (!isset($_SESSION['login']) or $_SESSION['login'] != true) {
     <?php include "layouts/nav.inc.html"; ?>
     <div class="scrollable grey lighten-3">
         <section class="back">
-            <section class="panel" id="signin">
+            <section class="panel" id="panel-holder">
                 <div class="progress-holder hide" id="progress">
                     <div class="progress">
                         <div class="indeterminate bg-primary"></div>
                     </div>
                 </div>
                 <div class="prevent-overlay hide full border-radius-8"></div>
-                <div class="card-panel">
+                <div class="card-panel" id="signin">
                     <h4 class="center-align fw-600">Sign in</h4>
                     <hr class="short-border" />
                     <br />
@@ -65,6 +65,8 @@ if (!isset($_SESSION['login']) or $_SESSION['login'] != true) {
                             <input type="checkbox" name="remember_me" />
                             <span>Remember me</span>
                         </label>
+                        <a href="javascript:togglePanels()" class="align-right right text-primary fw-500">Forgot
+                            Password?</a>
                         <br /><br /><br />
                         <button type="submit" class="btn bg-primary waves-effect waves-light white-text right">Sign
                             in</button>
@@ -72,6 +74,26 @@ if (!isset($_SESSION['login']) or $_SESSION['login'] != true) {
                     <button onclick="window.location.href='signup'+window.location.search"
                         class="btn text-primary btn-flat white waves-effect waves-primary fw-500 ml--1">Create
                         account</button>
+                    <br clear="both" />
+                </div>
+                <div class="card-panel hide" id="forgot-p">
+                    <h4 class="center-align fw-600">Account recovery</h4>
+                    <hr class="short-border" />
+                    <br />
+                    <form>
+                        <div class="input-field"><input type="email" class="validate" id="fp_email" name="email"
+                                required>
+                            <label for="fp_email">
+                                Email
+                            </label>
+                        </div>
+                        <button type="submit"
+                            class="btn bg-primary waves-effect waves-light white-text right">Send</button>
+
+                    </form>
+                    <button onclick="togglePanels()"
+                        class="btn text-primary btn-flat white waves-effect waves-primary fw-500 ml--1">Sign in
+                        instead</button>
                     <br clear="both" />
                 </div>
             </section>

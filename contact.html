@@ -45,18 +45,20 @@
 
                     <form class="validate px-4 py-2">
 
-                        <div class="input-field"><input type="text" name="name" id="c_name" required>
+                        <div class="input-field"><input type="text" name="name" id="c_name" required
+                                value="<?=@$_SESSION[name]?>">
                             <label for="c_name">
                                 Name
                             </label>
                         </div>
-                        <div class="input-field"><input type="email" name="email" id="c_email" required>
+                        <div class="input-field"><input type="email" name="email" id="c_email" required
+                                value="<?=@$_SESSION[email]?>">
                             <label for="c_email">
                                 Email
                             </label>
                         </div>
                         <div class="input-field"><input type="tel" name="number" id="c_number" required minlength="10"
-                                maxlength="12">
+                                maxlength="12" value="<?=@$_SESSION[number]?>">
                             <label for="c_number">
                                 Number
                             </label>

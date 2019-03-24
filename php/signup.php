@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         require "signup-mail.php";
         $uid = $conn->insert_id;
         $hash = md5("*WAMP*".$uid."*WAMP*");
-        $url = "https://wampinfotech.com/php/activate.php?hash=$hash&uid=$uid";
+        $url = "https://www.wampinfotech.com/php/activate.php?hash=$hash&uid=$uid";
         if (signupMail($email, $url)) {
             $data = array("message"=>"Signed up Successfully!", "status"=>"success");
             session_start();

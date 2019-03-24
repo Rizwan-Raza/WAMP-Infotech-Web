@@ -24,13 +24,69 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == true) {
                     <p class="mt-1">
                         <?=$_SESSION['email']?>
                     </p>
+                    <?php if ($_SESSION['image'] == "images/users/pikachu_dummy.png" or $_SESSION['username'] ==  str_replace("@", "_", substr($_SESSION['email'], 0, strrpos($_SESSION['email'], ".")))) { ?>
                     <a href="settings"><i class="material-icons left">edit</i> Complete your profile</a>
+                    <?php } ?>
                 </div>
                 <br clear="all">
             </div>
             <div class="border-top-1 grey-border border-lighten-2 my-4"></div>
             <div class="container">
-                <p>There&apos;s nothing to do right now. Come back later.</p>
+                <?php 
+                $sql = "SELECT COUNT(`_fid`) FROM `feeds` WHERE `_uid`=$_SESSION[_uid]"; 
+                require_once "php/db.php"; 
+                $result = DB::getConnection()->query($sql);
+                $num_t = $result->fetch_assoc()['COUNT(`_fid`)'];
+
+                $sql = "SELECT COUNT(`_fid`) FROM `feeds` WHERE `_uid`=$_SESSION[_uid] AND `approved`=1"; 
+                require_once "php/db.php"; 
+                $result = DB::getConnection()->query($sql);
+                $num_a = $result->fetch_assoc()['COUNT(`_fid`)'];
+                ?>
+                <div class="row">
+                    <div class="col s12 m6 l4 xl3">
+                        <a href="feedback">
+                            <div class="card bg-primary">
+                                <div class="card-content white-text">
+                                    <h4 class="fw-500 center-align">
+                                        <?=$num_t?>
+                                    </h4>
+                                </div>
+                                <div class="card-action center-align">
+                                    Total Feeds
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s12 m6 l4 xl3">
+                        <a href="feedback">
+                            <div class="card bg-primary">
+                                <div class="card-content white-text">
+                                    <h4 class="fw-500 center-align">
+                                        <?=$num_a?>
+                                    </h4>
+                                </div>
+                                <div class="card-action center-align">
+                                    Approved Feeds
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s12 m6 l4 xl3">
+                        <a href="feedback">
+                            <div class="card bg-primary">
+                                <div class="card-content white-text">
+                                    <h4 class="fw-500 center-align">
+                                        <?=$num_t - $num_a?>
+                                    </h4>
+                                </div>
+                                <div class="card-action center-align">
+                                    Unapproved Feeds
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
         <?php include "layouts/footer.inc.html"; ?>

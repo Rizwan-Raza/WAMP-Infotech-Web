@@ -32,6 +32,11 @@ if (isset($_SESSION['admin']) and $_SESSION['admin'] == true) {
         $conn = DB::getConnection(); 
         $result = $conn->query($sql);
         $num_s = $result->fetch_assoc()['COUNT(`_sid`)'];
+
+        $sql = "SELECT COUNT(`pay_id`) FROM `payments`"; 
+        $conn = DB::getConnection(); 
+        $result = $conn->query($sql);
+        $num_p = $result->fetch_assoc()['COUNT(`pay_id`)'];
         
         $sql = "SELECT COUNT(`_fid`) FROM `feeds`"; 
         $conn = DB::getConnection(); 
@@ -89,6 +94,20 @@ if (isset($_SESSION['admin']) and $_SESSION['admin'] == true) {
                                 </div>
                                 <div class="card-action center-align">
                                     Queries
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s12 m6 l4 xl3">
+                        <a href="admin/payments">
+                            <div class="card bg-primary">
+                                <div class="card-content white-text">
+                                    <h4 class="fw-500 center-align">
+                                        <?=$num_p?>
+                                    </h4>
+                                </div>
+                                <div class="card-action center-align">
+                                    Payments
                                 </div>
                             </div>
                         </a>

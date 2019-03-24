@@ -31,6 +31,7 @@ $_SESSION['admin'] == true) {
                             <th class="pl-4">#</th>
                             <th><i class="material-icons">account_circle</i></th>
                             <th>Username</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -136,6 +137,9 @@ $_SESSION['admin'] == true) {
                         </td>
                         <td>
                         ${user.username}
+                        </td>
+                        <td>
+                        <i class="material-icons ${user.status == "online" ? "green-text": "grey-text" }">lens</i>
                         </td>
                     </tr>`;
             $("table tbody").append(elem);
