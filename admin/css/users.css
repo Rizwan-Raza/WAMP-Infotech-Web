@@ -1,16 +1,16 @@
-tr:hover #actions>.pos-abs:first-child {
+tr:hover .actions>.pos-abs:first-child {
     display: none;
 }
 
-tr:hover #actions>.pos-abs:last-child {
+tr:hover .actions>.pos-abs:last-child {
     display: block;
 }
 
-#actions>.pos-abs:last-child {
+.actions>.pos-abs:last-child {
     display: none;
 }
 
-#actions>.pos-abs {
+.actions>.pos-abs {
     width: 30px;
 }
 
@@ -20,4 +20,12 @@ tr:hover #actions>.pos-abs:last-child {
     border-radius: 50%;
     object-fit: cover;
     object-position: center
+}
+
+tr .actions button {
+    visibility: hidden;
+}
+
+tr:hover .actions button {
+    visibility: visible
 }
