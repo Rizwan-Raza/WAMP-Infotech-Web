@@ -70,7 +70,7 @@ $_SESSION['admin'] == true) {
                                     data-tooltip="<?=daysUntilToday(date_create($user['time']))?>"><?=date_format(date_create($user['time']), "M jS, Y \a\\t g:i:s A")?></span>
                             </td>
                             <td>
-                                <div class="pos-rel" style="top: -10px;" id="actions">
+                                <div class="pos-rel actions" style="top: -10px;">
                                     <?php if (!$user['disabled']) {
                 ?>
                                     <div class="pos-abs" style="height:25px;">
