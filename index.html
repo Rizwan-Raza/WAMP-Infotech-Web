@@ -18,14 +18,8 @@
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:alt" content="Hand joining in radial form" />
     <meta itemprop="headline" content="Digital Marketing Agency , Web Development Company | WAMP InfoTech" />
-    <meta property="og:title" content="Digital Marketing Agency , Web Development Company | WAMP InfoTech" />
-    <meta property="og:description"
-        content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level." />
     <meta name="twitter:site" content="https://www.wampinfotech.com">
     <meta name="twitter:card" content="https://www.wampinfotech.com/images/banner1.jpg">
-    <meta name="twitter:title" content="Digital Marketing Agency , Web Development Company | WAMP InfoTech">
-    <meta name="twitter:description"
-        content="New Delhi based digital marketing agency pushing boundaries in the creative field of web development and help in growing brands to the next level.">
     <?php include "includes/head.inc.php"; ?>
     <?php include "includes/home.css.php"; ?>
     <!-- <link rel="stylesheet" href="css/ihover.css" />
@@ -44,11 +38,10 @@
     </div>
 
     <div class="scrollable grey lighten-3">
-        <header>
-            <img src="images/banner1_x600.jpg" class="home-banner lazy" data-src="images/banner1.jpg"
+        <header class="mb-4">
+            <img src="images/banner1_x600.jxr" class="home-banner lazy" data-src="images/banner1.jpg"
                 data-srcset="images/banner1.jpg 2x, images/banner1.jpg 1x" alt="WAMP Home Banner" />
         </header>
-        <br />
         <br class="hide-on-small-only" />
         <br class="hide-on-small-only" />
         <section class="px-4" id="about">
@@ -76,8 +69,6 @@
 
                     <a href="overview" class="waves-effect waves-light btn bg-primary">Learn
                         more</a>
-                    <br />
-                    <br />
                 </div>
             </div>
         </section>
@@ -98,9 +89,7 @@
                         <div class="row mb-0 valign-wrapper">
                             <div class="col s4">
                                 <div class="image-block">
-                                    <span class="svg-container icon">
-                                        <?=$service['src']?>
-                                    </span>
+                                    <img src="<?=$service['src']?>" alt="<?=$service['title']?> Icon" class="icon" />
                                 </div>
                             </div>
                             <div class="col s8">
@@ -120,10 +109,9 @@
         <section>
             <div class="row mb-0" id="our-works">
                 <div class="col s12 m12 l12 xl6 bg-primary p-4">
-                    <h4 class="white-text"><span class="fw-700">Projects</span> close to our heart!<a href="work"
+                    <h4 class="white-text mb-4"><span class="fw-700">Projects</span> close to our heart!<a href="work"
                             class="btn waves-effect right white text-primary mt-2">View
                             more</a></h4>
-                    <br />
                     <h5 class="white-text">Are you looking for a class-apart website for your business?</h5>
                     <h5><a href="contact" class="white-text">Get in touch with us for free estimation.</a></h5>
                 </div>
@@ -228,8 +216,7 @@
         </section>
 
         <section class="px-4 py-2 my-4 center-align">
-            <h3 class="text-uppercase fw-600">We hope to hear from you soon</h3>
-            <br />
+            <h3 class="text-uppercase fw-600 my-4">We hope to hear from you soon</h3>
             <a href="contact" class="btn btn-large waves-effect waves-light bg-primary text-capitalize">Get
                 in touch</a>
             <br clear="both" />

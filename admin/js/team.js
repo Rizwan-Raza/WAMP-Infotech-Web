@@ -41,11 +41,11 @@ users.on('child_added', userAppend);
 function openRequests() {
     let el, i = 0;
     requestList.forEach((e) => {
-        el += `<tr ${!e.read ? 'class="fw-700"' :''}>
+        el += `<tr ${!e.read ? 'class="fw-700"' : ''}>
         <td class="pl-4">${++i}</td>
         <td>${e.email}</td>
         <td>${getDifference(new Date(e.time))}</td>
-        <td class="actions"><button class="btn-flat btn-floating transparent waves-effect waves-dark tooltipped" data-tooltip="${e.read ? 'Mark Unread': 'Mark Read'}" onclick="markRead('${e.key}', ${!e.read}, this)"><i class="material-icons black-text">${e.read ? 'mail': 'drafts'}</i></button><button class="btn-flat btn-floating transparent waves-effect waves-dark" onclick="addMember('${e.key}', this)"><i class="material-icons black-text tooltipped" data-tooltip="Add Member">person_add</i></button><button class="btn-flat btn-floating red waves-effect waves-light tooltipped" data-tooltip="Remove Request" onclick="removeRequest('${e.key}', ${e.read}, this)"><i class="material-icons">delete</i></button></td>
+        <td class="actions"><button class="btn-flat btn-floating transparent waves-effect waves-dark tooltipped" data-tooltip="${e.read ? 'Mark Unread' : 'Mark Read'}" onclick="markRead('${e.key}', ${!e.read}, this)"><i class="material-icons black-text">${e.read ? 'mail' : 'drafts'}</i></button><button class="btn-flat btn-floating transparent waves-effect waves-dark" onclick="addMember('${e.key}', this)"><i class="material-icons black-text tooltipped" data-tooltip="Add Member">person_add</i></button><button class="btn-flat btn-floating red waves-effect waves-light tooltipped" data-tooltip="Remove Request" onclick="removeRequest('${e.key}', ${e.read}, this)"><i class="material-icons">delete</i></button></td>
         </tr>`;
     });
     if (i > 0) {
@@ -83,11 +83,11 @@ function removeRequest(key, read, elem) {
 
 function addMember(key, el) {
     markRead(key, true, el);
-    var elem = requestList.find(e => {
-        e.key == key
+    var elem = requestList.filter(e => {
+        return e.key == key;
     });
-    $("#addModal #email").val(elem.email);
-    $("#addModal #username").val(elem.email.substring(0, elem.email.lastIndexOf(".")).replace("@", "_"));
+    $("#addModal #email").val(elem[0].email);
+    $("#addModal #username").val(elem[0].email.substring(0, elem[0].email.lastIndexOf("@")));
     M.updateTextFields();
     $("#requestModal").modal("close");
     $("#addModal").modal("open");
@@ -135,7 +135,7 @@ function userAppend(data) {
                 ${user.username}
                 </td>
                 <td>
-                <i class="material-icons ${user.status == "online" ? "green-text": "grey-text" }">lens</i>
+                <i class="material-icons ${user.status == "online" ? "green-text" : "grey-text"}">lens</i>
                 </td>
             </tr>`;
     $(".grey table tbody").append(elem);

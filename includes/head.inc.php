@@ -35,10 +35,7 @@
 <meta property="og:image:height" content="512" />
 <meta property="og:image:alt" content="Hand joining in a radial form" />
 <meta property="og:type" content="website">
-<meta property="og:video" content="https://youtu.be/WL44vPIqkds" />
-<meta property="og:video:secure_url" content="https://youtu.be/WL44vPIqkds" />
-<meta property="og:video:width" content="480" />
-<meta property="og:video:height" content="320" />
+
 
 <meta name="twitter:image" content="https://www.wampinfotech.com/images/wamp-logo.png">
 

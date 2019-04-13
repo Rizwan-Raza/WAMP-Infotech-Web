@@ -1,0 +1,120 @@
+<?php if (!isset($_SESSION)) {
+    session_start();
+} if (isset($_SESSION['admin']) and
+$_SESSION['admin'] == true) {
+    ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Digital Marketing Company | Web Design Company</title>
+    <base href="../" />
+    <?php include "includes/head.inc.php"; ?>
+    <link rel="stylesheet" href="admin/css/users.css" />
+    <link href='admin/packages/core/main.css' rel='stylesheet' />
+    <link href='admin/packages/daygrid/main.css' rel='stylesheet' />
+    <style>
+        #calendar {
+            max-width: 900px;
+            margin: 40px auto;
+        }
+        .loader {
+            height: 300px
+        }
+        .loader,.loader .preloader-wrapper {
+            display: flex;
+        }
+        .loader .preloader-wrapper {
+            margin: auto
+        }
+        .h-scroll {
+            overflow-x: auto;
+        }
+        #listView table td.absent {
+            background-color: #FAE3E3;
+        }
+        #listView table td.present {
+            background-color: #c8e6c9;
+        }
+        #listView table td.attending {
+            background-color: #FDF1BA;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Page Layout here -->
+    <section class="row m-0 p-0">
+        <?php include "includes/sidenav.inc.html" ?>
+
+        <div class="col s12 m9 white m-0 p-0" style="height:100vh;overflow:auto">
+            <a class="p-2 left" href="javascript:toggleNav()"><i class="material-icons">menu</i></a>
+            <div class="px-4">
+                <h4 class="my-1">Attendance <button
+                    class="btn-flat btn-floating white waves-effect waves-dark right align-right"
+                    onclick="switchView(this)"><i class="material-icons black-text">date_range</i></button></h4>
+            </div>
+            <div class="border-top-1 grey-border border-lighten-2 mt-2"></div>
+            <div class="loader">
+                <div class="preloader-wrapper big active">
+                    <div class="spinner-layer spinner-blue-only">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div id="gridView" class="p-2">
+                <div id='calendar'></div>
+                <div id="legends"></div>
+            </div>
+            <div id="listView" class="grey lighten-3">
+                <div class="h-scroll">
+                <table>
+                    <tbody></tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large bg-primary waves-effect waves-light modal-trigger" href="#statsModal">
+                <i class="large material-icons">poll</i>
+            </a>
+        </div>
+
+        <div id="statsModal" class="modal border-radius-8">
+            <div class="progress-holder hide" id="progress">
+                <div class="progress">
+                    <div class="indeterminate bg-primary"></div>
+                </div>
+            </div>
+            <div class="prevent-overlay hide full border-radius-8"></div>
+            <div class="modal-content">
+                <h4>Monthly Attendance</h4>
+                <table>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+
+
+    <?php include "includes/scripts.inc.php"; ?>
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+    <script src='admin/packages/core/main.js'></script>
+    <script src='admin/packages/interaction/main.js'></script>
+    <script src='admin/packages/daygrid/main.js'></script>
+    <script src="admin/js/attendance.js"></script>
+</body>
+
+</html>
+
+<?php
+} else {
+        header("Location: /admin/?redirect_to=".$_SERVER['REDIRECT_URL']);
+    } ?>
