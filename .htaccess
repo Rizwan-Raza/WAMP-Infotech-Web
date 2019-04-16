@@ -1,10 +1,10 @@
 RewriteEngine On
 
 RewriteRule ^/?profile/(.*?)/?$ /profile.html?username=$1 [L]
-RewriteRule ^/?service/(.*?)/?$ /service.html?url=$1 [L]
+RewriteRule ^/?services/(.*?)/?$ /service.html?url=$1 [L]
 
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /service\.html\?username=([^\&\ ]+)
-RewriteRule ^/?service\.html$ /service/%1? [L,R=301]
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /service\.html\?url=([^\&\ ]+)
+RewriteRule ^/?service\.html$ /services/%1? [L,R=301]
 
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /profile\.html\?username=([^\&\ ]+)
 RewriteRule ^/?profile\.html$ /profile/%1? [L,R=301]
