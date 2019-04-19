@@ -34,7 +34,7 @@ requests.once('value').then(async snapshots => {
             `<span class="red white-text border-round pos-abs" style="right:30px;top:10px;z-index:10;height:15px;width:15px;line-height:15px;text-align:center;font-size:10px">${i}</span>`
         );
     }
-
+    $('.materialboxed').materialbox();
 });
 users.on('child_added', userAppend);
 
@@ -132,7 +132,7 @@ function userAppend(data) {
                     <img src="${user.imageURL != 'default' ? user.imageURL : '../images/users/pikachu_dummy.png'}" alt="${user.username}" class="materialboxed avatar-icon" />
                 </td>
                 <td>
-                ${user.username}
+                ${user.username[0].toUpperCase() + user.username.substring(1)}
                 </td>
                 <td>
                 <i class="material-icons ${user.status == "online" ? "green-text" : "grey-text"}">lens</i>

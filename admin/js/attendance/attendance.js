@@ -18,14 +18,14 @@ var entriesArr = [];
 var usersArr = {};
 var fetching = false;
 var calendar;
-var colors = ["#3788D8", "#ff0000", "#ffa500", "#008000", "#5d4037", "#c2185b", "#e64a19", "#7b1fa2"];
+var colors = ["#3788D8", "#ff0000", "#ff4081", "#008000", "#5d4037", "#ffa500", "#e64a19", "#7b1fa2", "#1a237e"];
 
 document.addEventListener('DOMContentLoaded', function () {
     users.once("value", async snapshot => {
         var colco = 0;
         snapshot.forEach(element => {
             elem = element.val();
-            usersArr[elem.id] = { name: elem.username[0].toUpperCase() + elem.username.substring(1), color: colors[colco++] };
+            usersArr[elem.id] = { name: elem.username, color: colors[colco++] };
         });
         entries.once("value", async snapshot => {
             await snapshot.forEach(element => {
@@ -69,11 +69,13 @@ document.addEventListener('DOMContentLoaded', function () {
             let elems = "<h4>Legends </h4>";
             Object.keys(usersArr).forEach(key => {
                 let user = usersArr[key];
-                elems += `<div style="height: 24px;" class="my-1 left mr-2"><div class="border-round left mr-1" style="width: 24px; height: 24px; background-color: ${user.color}"></div>${user.name}</div>`;
+                elems += `<div style="height: 24px;" class="my-1 left mr-2"><div class="border-round left mr-1" style="width: 24px; height: 24px; background-color: ${user.color}"></div>${user.name.split(" ")[0]}</div>`;
             });
             $("#legends").html(elems);
+
             let today = new Date().getDate();
-            let col = `<tr><th class="pl-2" colspan="2">Users\\Date</th>`;
+
+            let col = `<tr><th colspan="2" class="pl-2">Users\\Date</th>`;
             for (let ci = 1; ci <= today; ci++) {
                 col += `<th ${(new Date(new Date().setDate(ci)).getDay() == 1) ? `class="red white-text center pos-rel" rowspan="${(Object.keys(usersArr).length * 2) + 1}"><div class="left pos-abs w-full" style="top: 15px;left: 0;">${ci}</div><span style="writing-mode: vertical-rl;text-orientation: upright;text-transform: uppercase">Monday</span>` : `class="center">${ci}`}</th>`;
             }
@@ -87,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     return entry.extraParams.user == key;
                 });
                 let brief = Math.ceil(userEntries.length / 2) + "/" + today;
-                rows += `<tr><th rowspan="2" class="pl-2 tooltipped" data-position="right" data-tooltip="${brief}">${user.name}</th><td class="center">Entry</td>`;
+                rows += `<tr><td rowspan="2" class="pl-2 tooltipped fw-700" data-position="right" data-tooltip="${brief}">${user.name.split(" ")[0]}</td><td class="center">Entry</td>`;
                 for (let ci = 1; ci <= today; ci++) {
                     if (new Date(new Date().setDate(ci)).getDay() == 1) {
                         continue;
@@ -112,9 +114,56 @@ document.addEventListener('DOMContentLoaded', function () {
                 rows += `</tr>`;
                 rows += `<tr><td class="center">Exit</td>${exitRow}</tr>`;
             });
-            $("#listView table tbody").html(col);
-            $("#listView table tbody").append(rows);
+            $("#listView table#forView tbody").html(col);
+            $("#listView table#forView tbody").append(rows);
+
+            col = `<tr><th class="pl-2">Users</th><th>Date</th>`;
+            for (let ci = 1; ci <= today; ci++) {
+                col += `<th ${(new Date(new Date().setDate(ci)).getDay() == 1) ? `rowspan="${(Object.keys(usersArr).length * 2) + 1}">${ci}` : `>${ci}`}</th>`;
+            }
+            col += "</tr>";
+            rows = "";
+            Object.keys(usersArr).forEach(key => {
+                let user = usersArr[key];
+                let entryRow = "";
+                let exitRow = "";
+                let userEntries = entriesArr.filter(entry => {
+                    return entry.extraParams.user == key;
+                });
+                let brief = Math.ceil(userEntries.length / 2) + "/" + today;
+                rows += `<tr><td>${user.name}</td><td>Entry</td>`;
+                for (let ci = 1; ci <= today; ci++) {
+                    if (new Date(new Date().setDate(ci)).getDay() == 1) {
+                        continue;
+                    }
+                    let tEntry = userEntries.filter(entry => {
+                        return new Date(entry.start).getDate() == ci;
+                    });
+                    if (tEntry.length > 0) {
+                        entryRow += `<td>${new Date(tEntry[0].start).getHours()}:${new Date(tEntry[0].start).getMinutes() < 10 ? "0" : ""}${new Date(tEntry[0].start).getMinutes()}</td>`;
+                        if (tEntry.length > 1) {
+
+                            exitRow += `<td>${new Date(tEntry[1].start).getHours()}:${new Date(tEntry[1].start).getMinutes() < 10 ? "0" : ""}${new Date(tEntry[1].start).getMinutes()}</td>`;
+                        } else {
+                            exitRow += `<td>-</td>`;
+                        }
+                    } else {
+                        entryRow += `<td>AB</td>`;
+                        exitRow += `<td>-</td>`;
+                    }
+
+                }
+                rows += entryRow;
+                rows += `</tr>`;
+                rows += `<tr><td>-</td><td>Exit</td>${exitRow}</tr>`;
+            });
+            $("#listView table#monthly-attendance tbody").html(col);
+            $("#listView table#monthly-attendance tbody").append(rows);
+
             M.Tooltip.init(document.querySelectorAll('.tooltipped'), {});
+            $("#monthly-attendance").tableExport({
+                formats: ['xlsx', 'xls', 'csv', 'txt']
+            });
         });
     });
 });
@@ -123,4 +172,8 @@ function switchView(elem) {
     icon.text() == "date_range" ? icon.text("view_column") : icon.text("date_range");
     $("#gridView").toggle();
     $("#listView").toggle();
+}
+
+function exportFile(ext) {
+    $("#monthly-attendance caption button" + ext).trigger("click");
 }

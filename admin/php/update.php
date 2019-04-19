@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     // print_r($_POST);
 
     session_start();
-    $sql = "UPDATE `admins` SET `name` = '$name', `username` = '$username'".((isset($password) and !empty($password)) ? ", `password` = MD5('$password')" : "")." WHERE `_aid`=$_SESSION[_aid]";
+    $sql = "UPDATE `admins` SET `name` = '$name', `username` = '$username'".((isset($password) and !empty($password)) ? ", `password` = MD5('*WAMP*$password*WAMP*')" : "")." WHERE `_aid`=$_SESSION[_aid]";
 
     // echo $sql;
 
