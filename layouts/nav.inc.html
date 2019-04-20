@@ -21,12 +21,12 @@
       <div class="mr-2">
         <img src="<?=$_SESSION['image']?>" class="avatar-s z-depth-2" alt="User Avatar" />
       </div>
-      <div class="white-text my-4 mt-2">
+      <div class="white-text mt-2">
         <h5 class="m-0">
           <?=$_SESSION['name']?>
           <i class="material-icons right">arrow_drop_down</i>
         </h5>
-        <p class="grey-text text-lighten-2">
+        <p class="grey-text text-lighten-2 lh-0">
           <?=$_SESSION['email']?>
         </p>
       </div>
@@ -78,77 +78,82 @@
 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper">
-      <a href="/" class="brand-logo fw-700 text-primary"><img src="images/wamp-round-logo.png" class="brand-img"
+      <a href="/" class="brand-logo fw-700"><img src="images/wamp-round-logo.png" class="brand-img"
           alt="WAMP Logo Round" />
-        <h1 class="fw-700">WAMP&nbsp;InfoTech</h1>
+        <h1 class="fw-700 grey-text text-darken-3">WAMP&nbsp;InfoTech</h1>
       </a>
       <a href="javascript:;" data-target="mobile-sidenav" class="sidenav-trigger text-primary"><i
           class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/" class="hover-text-primary fw-500">Home</a></li>
+        <li><a href="/" class="grey-text text-darken-3 hover-text-primary fw-500">Home</a></li>
         <li>
-          <a class="about dropdown-trigger hover-text-primary fw-500" href="javascript:;"
+          <a class="about dropdown-trigger grey-text text-darken-3 hover-text-primary fw-500" href="javascript:;"
             data-target="about_dropdown">About
             <!-- <i class="material-icons right">expand_more</i>
           --></a>
         </li>
         <li>
-          <a class="service dropdown-trigger hover-text-primary fw-500" href="javascript:;"
+          <a class="service dropdown-trigger grey-text text-darken-3 hover-text-primary fw-500" href="javascript:;"
             data-target="service_dropdown">Services
             <!-- <i class="material-icons right">expand_more</i>
           --></a>
         </li>
-        <li><a href="work" class="hover-text-primary fw-500">Our Work</a></li>
+        <li><a href="work" class="grey-text text-darken-3 hover-text-primary fw-500">Our Work</a></li>
         <li>
-          <a href="https://blog.wampinfotech.com" class="hover-text-primary fw-500">Blog</a>
+          <a href="https://blog.wampinfotech.com" class="grey-text text-darken-3 hover-text-primary fw-500">Blog</a>
         </li>
         <li>
-          <a href="contact" class="hover-text-primary fw-500">Contact Us</a>
+          <a href="contact" class="grey-text text-darken-3 hover-text-primary fw-500">Contact Us</a>
         </li>
-        <li><a href="pay" class="hover-text-primary fw-500">Pay Now</a></li>
+        <li><a href="pay" class="grey-text text-darken-3 hover-text-primary fw-500">Pay Now</a></li>
         <?php 
                 if(!isset($_SESSION)) {session_start();}
                 if(isset($_SESSION['login']) and $_SESSION['login'] == 'true') { ?>
         <li>
-          <a class="user dropdown-trigger hover-text-primary fw-500" href="javascript:;"
+          <a class="user dropdown-trigger grey-text text-darken-3 hover-text-primary fw-500" href="javascript:;"
             data-target="user_dropdown"><img src="<?=$_SESSION['image']?>" class="avatar-s" alt="User Avatar small" />
           </a>
         </li>
 
         <?php } else { ?>
-        <li><a href="signin" class="hover-text-primary fw-500">Sign in</a></li>
+        <li><a href="signin" class="grey-text text-darken-3 hover-text-primary fw-500">Sign in</a></li>
         <?php } ?>
       </ul>
     </div>
   </nav>
   <div class="aboutDropDownContainer"></div>
-  <div class="serviceDropDownContainer"></div>
+  <div class="serviceDropDownContainer w-full"></div>
   <!-- New Line Added here -->
   <div class="userDropDownContainer"></div>
 </div>
 <!-- About Dropdown Structure -->
 <ul id="about_dropdown" class="dropdown-content">
-  <li><a href="overview" class="hover-text-primary">Overview</a></li>
-  <li><a href="team" class="hover-text-primary">Our Team</a></li>
-  <li><a href="mission" class="hover-text-primary">Mission and Vision</a></li>
+  <li><a href="overview" class="grey-text text-darken-3 hover-text-primary">Overview</a></li>
+  <li><a href="team" class="grey-text text-darken-3 hover-text-primary">Our Team</a></li>
+  <li><a href="mission" class="grey-text text-darken-3 hover-text-primary">Mission and Vision</a></li>
 </ul>
 
 <!-- User Dropdown Structure -->
 <ul id="user_dropdown" class="dropdown-content">
   <li>
-    <a href="dashboard" class="hover-text-primary"><i class="material-icons left">dashboard</i>Dashboard</a>
+    <a href="dashboard" class="grey-text text-darken-3 hover-text-primary"><i
+        class="material-icons left">dashboard</i>Dashboard</a>
   </li>
   <li>
-    <a href="profile" class="hover-text-primary"><i class="material-icons left">account_circle</i>Profile</a>
+    <a href="profile" class="grey-text text-darken-3 hover-text-primary"><i
+        class="material-icons left">account_circle</i>Profile</a>
   </li>
   <li>
-    <a href="settings" class="hover-text-primary"><i class="material-icons left">build</i>Settings</a>
+    <a href="settings" class="grey-text text-darken-3 hover-text-primary"><i
+        class="material-icons left">build</i>Settings</a>
   </li>
   <li>
-    <a href="feedback" class="hover-text-primary"><i class="material-icons left">feedback</i>Feedback</a>
+    <a href="feedback" class="grey-text text-darken-3 hover-text-primary"><i
+        class="material-icons left">feedback</i>Feedback</a>
   </li>
   <li>
-    <a href="javascript:signout();" class="hover-text-primary"><i class="material-icons left">exit_to_app</i>Sign
+    <a href="javascript:signout();" class="grey-text text-darken-3 hover-text-primary"><i
+        class="material-icons left">exit_to_app</i>Sign
       out</a>
   </li>
 </ul>
@@ -158,7 +163,7 @@
   <?php $services = getJson("./data/services.json", "services"); foreach
   ($services as $service) { ?>
   <li class="col s12 l4 <?=(($service['disabled'])?'disabled':'')?>">
-    <a href="services/<?=$service['url']?>" class="hover-text-primary">
+    <a href="services/<?=$service['url']?>" class="grey-text text-darken-3 hover-text-primary">
       <?=$service['title']?></a>
   </li>
   <?php } ?>
