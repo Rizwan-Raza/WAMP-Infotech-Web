@@ -18,7 +18,7 @@ $(document).ready(function () {
             method: "POST",
             data: $(e.target).serialize(),
             beforeSend: () => {
-                $("#add_feed_modal #progress, #add_feed_modal .prevent-overlay").removeClass("hide");
+                $("#add_feed_modal .progress-holder, #add_feed_modal .prevent-overlay").removeClass("hide");
             },
             success: (data, status) => {
                 // console.log(data, status);
@@ -63,7 +63,7 @@ $(document).ready(function () {
                 console.log(data, status);
             },
             complete: () => {
-                $("#add_feed_modal #progress, #add_feed_modal .prevent-overlay").addClass("hide");
+                $("#add_feed_modal .progress-holder, #add_feed_modal .prevent-overlay").addClass("hide");
             }
         });
     });

@@ -39,7 +39,7 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == true) {
 <body>
     <?php include "layouts/nav.inc.html"; ?>
     <div class="scrollable grey lighten-3">
-        <section class="card-panel container mx-auto">
+        <div class="card-panel container mx-auto my-4">
             <div class="center-align mb-4">
                 <img src="<?=$image?>" class="avatar-l" />
             </div>
@@ -74,7 +74,7 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == true) {
                     </td>
                 </tr>
             </table>
-        </section>
+        </div>
         <?php include "layouts/footer.inc.html"; ?>
     </div>
 

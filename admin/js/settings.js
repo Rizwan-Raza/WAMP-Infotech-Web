@@ -6,7 +6,7 @@ $(() => {
             method: "POST",
             data: $(e.target).serialize(),
             beforeSend: () => {
-                $("#confirm_modal #progress, #confirm_modal .prevent-overlay").removeClass("hide");
+                $("#confirm_modal .progress-holder, #confirm_modal .prevent-overlay").removeClass("hide");
             },
             success: (data, status) => {
                 // console.log(data, status);
@@ -28,7 +28,7 @@ $(() => {
                 console.log(data, status);
             },
             complete: () => {
-                $("#confirm_modal #progress, #confirm_modal .prevent-overlay").addClass("hide");
+                $("#confirm_modal .progress-holder, #confirm_modal .prevent-overlay").addClass("hide");
             }
         });
     });
@@ -40,7 +40,7 @@ $(() => {
             method: "POST",
             data: $(e.target).serialize(),
             beforeSend: () => {
-                $("#userInfo #progress, #userInfo .prevent-overlay").removeClass("hide");
+                $("#userInfo .progress-holder, #userInfo .prevent-overlay").removeClass("hide");
             },
             success: (data, status) => {
                 // console.log(data, status);
@@ -58,7 +58,7 @@ $(() => {
                 console.log(data, status);
             },
             complete: () => {
-                $("#userInfo #progress, #userInfo .prevent-overlay").addClass("hide");
+                $("#userInfo .progress-holder, #userInfo .prevent-overlay").addClass("hide");
             }
         });
     });

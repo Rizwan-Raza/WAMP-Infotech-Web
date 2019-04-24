@@ -33,9 +33,9 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == true) {
             <div class="border-top-1 grey-border border-lighten-2 mt-4 h-0">
                 <div class="container">
                     <a href="#add_feed_modal"
-                        class="fw-500 waves-effect waves-light btn-large px-2 pr-3 btn-floating bg-primary modal-trigger"
-                        style="top: -30px; width: auto; border-radius: 32px;"><i class="material-icons left">add</i>
-                        Add new</a>
+                        class="fw-500 waves-effect waves-light btn-large px-2 pr-3 btn bg-primary modal-trigger"
+                        style="top: -30px; border-radius: 32px;"><i class="material-icons left">add</i>
+                        ADD NEW</a>
                     <button class="fw-500 waves-effect waves-dark btn-large btn-floating white modal-trigger right"
                         onclick="toggleView(this)" style="top: -30px;"><i
                             class="material-icons left black-text">view_stream</i></button>
@@ -57,7 +57,7 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == true) {
             for ($i = 0; $i < $num; $i++) {
                 $feed = $result->fetch_assoc(); ?>
                         <div class="col s12 m6 pos-rel" id="feed-<?=$feed['_fid']?>">
-                            <div class="progress-holder hide" id="progress">
+                            <div class="progress-holder hide">
                                 <div class="progress">
                                     <div class="indeterminate bg-primary"></div>
                                 </div>
@@ -74,7 +74,7 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == true) {
                                     </p>
                                     <p class="align-right right">
                                         - From <b><?=$feed['company']?></b>
-            </p>
+                                    </p>
                                 </div>
                                 <div class="card-action grey-text text-darken-1 border-radius-8">
                                     <span class="tooltipped"
@@ -117,7 +117,7 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == true) {
 
     <!-- Modal Structure -->
     <div id="add_feed_modal" class="modal bottom-sheet">
-        <div class="progress-holder hide border-radius-0" id="progress">
+        <div class="progress-holder hide border-radius-0">
             <div class="progress">
                 <div class="indeterminate bg-primary"></div>
             </div>
@@ -130,7 +130,7 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == true) {
             <form id="add-feed" name="add-feed">
                 <div class="input-field">
                     <input id="company" type="text" class="validate" name="company" required>
-          <label for="company">Company Name</label>
+                    <label for="company">Company Name</label>
                 </div>
                 <div class="input-field">
                     <textarea id="feed_message" class="materialize-textarea" name="message" required></textarea>

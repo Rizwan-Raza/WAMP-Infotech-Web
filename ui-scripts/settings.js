@@ -8,7 +8,7 @@ $(document).ready(function () {
             method: "POST",
             data: $(e.target).serialize(),
             beforeSend: () => {
-                $("#confirm_modal #progress, #confirm_modal .prevent-overlay").removeClass("hide");
+                $("#confirm_modal .progress-holder, #confirm_modal .prevent-overlay").removeClass("hide");
             },
             success: (data, status) => {
                 // console.log(data, status);
@@ -34,7 +34,7 @@ $(document).ready(function () {
                 console.log(data, status);
             },
             complete: () => {
-                $("#confirm_modal #progress, #confirm_modal .prevent-overlay").addClass("hide");
+                $("#confirm_modal .progress-holder, #confirm_modal .prevent-overlay").addClass("hide");
             }
         });
     });
@@ -46,7 +46,7 @@ $(document).ready(function () {
             method: "POST",
             data: $(e.target).serialize(),
             beforeSend: () => {
-                $("#userInfo #progress, #userInfo .prevent-overlay").removeClass("hide");
+                $("#userInfo .progress-holder, #userInfo .prevent-overlay").removeClass("hide");
             },
             success: (data, status) => {
                 // console.log(data, status);
@@ -64,7 +64,7 @@ $(document).ready(function () {
                 console.log(data, status);
             },
             complete: () => {
-                $("#userInfo #progress, #userInfo .prevent-overlay").addClass("hide");
+                $("#userInfo .progress-holder, #userInfo .prevent-overlay").addClass("hide");
             }
         });
     });
@@ -81,7 +81,7 @@ $(document).ready(function () {
             data: new FormData(e.target),
             beforeSend: () => {
                 $("#apply-upload").addClass("hide");
-                $(".avatar-l #progress, .avatar-l .prevent-overlay").removeClass("hide");
+                $(".avatar-l .progress-holder, .avatar-l .prevent-overlay").removeClass("hide");
             },
             success: (data, status) => {
                 // console.log(data, status);
@@ -94,7 +94,7 @@ $(document).ready(function () {
                 console.log(data, status);
             },
             complete: () => {
-                $(".avatar-l #progress, .avatar-l .prevent-overlay").addClass("hide");
+                $(".avatar-l .progress-holder, .avatar-l .prevent-overlay").addClass("hide");
             }
         });
     });
@@ -106,7 +106,7 @@ function disableUser() {
         url: "php/disable.php",
         method: "POST",
         beforeSend: () => {
-            $("#delete #progress, #delete .prevent-overlay").removeClass("hide");
+            $("#delete .progress-holder, #delete .prevent-overlay").removeClass("hide");
         },
         success: (data, status) => {
             // console.log(data, status);
@@ -128,7 +128,7 @@ function disableUser() {
             console.log(data, status);
         },
         complete: () => {
-            $("#delete #progress, #delete .prevent-overlay").addClass("hide");
+            $("#delete .progress-holder, #delete .prevent-overlay").addClass("hide");
         }
     });
 }

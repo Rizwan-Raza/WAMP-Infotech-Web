@@ -9,3 +9,7 @@
 .modal.bottom-sheet {
     max-height: 60%;
 }
+
+.border-radius-8.card .card-action:last-child {
+    border-radius: 8px;
+}
