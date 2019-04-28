@@ -135,6 +135,9 @@ function userAppend(data) {
                 ${user.username[0].toUpperCase() + user.username.substring(1)}
                 </td>
                 <td>
+                ${user.leaves}
+                </td>
+                <td>
                 <i class="material-icons ${user.status == "online" ? "green-text" : "grey-text"}">lens</i>
                 </td>
             </tr>`;
