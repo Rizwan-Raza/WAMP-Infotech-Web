@@ -19,13 +19,16 @@ var usersArr = {};
 var fetching = false;
 var calendar;
 var colors = ["#3788D8", "#ff0000", "#ff4081", "#008000", "#5d4037", "#ffa500", "#e64a19", "#7b1fa2", "#1a237e"];
-
+var navDate = new Date();
+var month = [
+    "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+]
 document.addEventListener('DOMContentLoaded', function () {
     users.once("value", async snapshot => {
         var colco = 0;
         snapshot.forEach(element => {
             elem = element.val();
-            usersArr[elem.id] = { name: elem.username, color: colors[colco++] };
+            usersArr[elem.id] = { name: elem.username, leaves: elem.leaves, color: colors[colco++] };
         });
         entries.once("value", async snapshot => {
             await snapshot.forEach(element => {
@@ -73,97 +76,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
             $("#legends").html(elems);
 
-            let today = new Date().getDate();
-
-            let col = `<tr><th colspan="2" class="pl-2">Users\\Date</th>`;
-            for (let ci = 1; ci <= today; ci++) {
-                col += `<th ${(new Date(new Date().setDate(ci)).getDay() == 1) ? `class="red white-text center pos-rel" rowspan="${(Object.keys(usersArr).length * 2) + 1}"><div class="left pos-abs w-full" style="top: 15px;left: 0;">${ci}</div><span style="writing-mode: vertical-rl;text-orientation: upright;text-transform: uppercase">Monday</span>` : `class="center">${ci}`}</th>`;
-            }
-            col += "</tr>";
-            let rows = "";
-            Object.keys(usersArr).forEach(key => {
-                let user = usersArr[key];
-                let entryRow = "";
-                let exitRow = "";
-                let userEntries = entriesArr.filter(entry => {
-                    return entry.extraParams.user == key;
-                });
-                let brief = Math.ceil(userEntries.length / 2) + "/" + today;
-                rows += `<tr><td rowspan="2" class="pl-2 tooltipped fw-700" data-position="right" data-tooltip="${brief}">${user.name.split(" ")[0]}</td><td class="center">Entry</td>`;
-                for (let ci = 1; ci <= today; ci++) {
-                    if (new Date(new Date().setDate(ci)).getDay() == 1) {
-                        continue;
-                    }
-                    let tEntry = userEntries.filter(entry => {
-                        return new Date(entry.start).getDate() == ci;
-                    });
-                    if (tEntry.length > 0) {
-                        entryRow += `<td class="center present">${new Date(tEntry[0].start).getHours()}:${new Date(tEntry[0].start).getMinutes() < 10 ? "0" : ""}${new Date(tEntry[0].start).getMinutes()}</td>`;
-                        if (tEntry.length > 1) {
-
-                            exitRow += `<td class="center present">${new Date(tEntry[1].start).getHours()}:${new Date(tEntry[1].start).getMinutes() < 10 ? "0" : ""}${new Date(tEntry[1].start).getMinutes()}</td>`;
-                        } else {
-                            exitRow += `<td class="center attending">-</td>`;
-                        }
-                    } else {
-                        entryRow += `<td class="center absent" rowspan="2">AB</td>`;
-                    }
-
-                }
-                rows += entryRow;
-                rows += `</tr>`;
-                rows += `<tr><td class="center">Exit</td>${exitRow}</tr>`;
-            });
-            $("#listView table#forView tbody").html(col);
-            $("#listView table#forView tbody").append(rows);
-
-            col = `<tr><th class="pl-2">Users</th><th>Date</th>`;
-            for (let ci = 1; ci <= today; ci++) {
-                col += `<th ${(new Date(new Date().setDate(ci)).getDay() == 1) ? `rowspan="${(Object.keys(usersArr).length * 2) + 1}">${ci}` : `>${ci}`}</th>`;
-            }
-            col += "</tr>";
-            rows = "";
-            Object.keys(usersArr).forEach(key => {
-                let user = usersArr[key];
-                let entryRow = "";
-                let exitRow = "";
-                let userEntries = entriesArr.filter(entry => {
-                    return entry.extraParams.user == key;
-                });
-                let brief = Math.ceil(userEntries.length / 2) + "/" + today;
-                rows += `<tr><td>${user.name}</td><td>Entry</td>`;
-                for (let ci = 1; ci <= today; ci++) {
-                    if (new Date(new Date().setDate(ci)).getDay() == 1) {
-                        continue;
-                    }
-                    let tEntry = userEntries.filter(entry => {
-                        return new Date(entry.start).getDate() == ci;
-                    });
-                    if (tEntry.length > 0) {
-                        entryRow += `<td>${new Date(tEntry[0].start).getHours()}:${new Date(tEntry[0].start).getMinutes() < 10 ? "0" : ""}${new Date(tEntry[0].start).getMinutes()}</td>`;
-                        if (tEntry.length > 1) {
-
-                            exitRow += `<td>${new Date(tEntry[1].start).getHours()}:${new Date(tEntry[1].start).getMinutes() < 10 ? "0" : ""}${new Date(tEntry[1].start).getMinutes()}</td>`;
-                        } else {
-                            exitRow += `<td>-</td>`;
-                        }
-                    } else {
-                        entryRow += `<td>AB</td>`;
-                        exitRow += `<td>-</td>`;
-                    }
-
-                }
-                rows += entryRow;
-                rows += `</tr>`;
-                rows += `<tr><td>-</td><td>Exit</td>${exitRow}</tr>`;
-            });
-            $("#listView table#monthly-attendance tbody").html(col);
-            $("#listView table#monthly-attendance tbody").append(rows);
-
-            M.Tooltip.init(document.querySelectorAll('.tooltipped'), {});
-            $("#monthly-attendance").tableExport({
-                formats: ['xlsx', 'xls', 'csv', 'txt']
-            });
+            $("#monthTitle").text(month[navDate.getMonth()] + ", " + navDate.getFullYear());
+            getListView(new Date(navDate));
         });
     });
 });
@@ -176,4 +90,164 @@ function switchView(elem) {
 
 function exportFile(ext) {
     $("#monthly-attendance caption button" + ext).trigger("click");
+}
+
+function openInfo(ts, name, brief, leaves) {
+    $("#detailedInfo h4").text(name);
+    $("#detailedInfo #time").html(`<b>${Math.floor(ts / 3.6e+6)} Hours, ${Math.floor((ts % 3.6e+6) / 60000)} Minutes</b>`);
+    $("#detailedInfo #present").html(`<b>${brief}</b>`);
+    $("#detailedInfo #leaves").html(`<b>${leaves}</b>`);
+    $("#detailedInfo").modal("open");
+
+}
+
+function getListView(d) {
+    let today = d.getDate();
+
+    let col = `<tr><th colspan="2" class="pl-2">Users\\Date</th>`;
+    for (let ci = 1; ci <= today; ci++) {
+        col += `<th ${(new Date(d.setDate(ci)).getDay() == 1) ? `class="red white-text center pos-rel" rowspan="${(Object.keys(usersArr).length * 2) + 1}"><div class="left pos-abs w-full" style="top: 15px;left: 0;">${ci}</div><span style="writing-mode: vertical-rl;text-orientation: upright;text-transform: uppercase">Monday</span>` : `class="center">${ci}`}</th>`;
+    }
+    col += "</tr>";
+    let rows = "";
+    let odd = true;
+    Object.keys(usersArr).forEach(key => {
+        let user = usersArr[key];
+        let entryRow = "";
+        let exitRow = "";
+        let monthMs = 0;
+        let userEntries = entriesArr.filter(entry => {
+            return (entry.extraParams.user == key) && (new Date(entry.start).getMonth() == d.getMonth());
+        });
+        let briefUp = 0;
+        rows += `<tr style="border:0"><td class="pl-2 fw-700 ${odd ? 'white' : 'grey lighten-3'}">${user.name.split(" ")[0]}</td><td class="center ${odd ? 'white' : 'grey lighten-3'}">Entry</td>`;
+        for (let ci = 1; ci <= today; ci++) {
+            if (new Date(d.setDate(ci)).getDay() == 1) {
+                continue;
+            }
+            briefUp++;
+            let tEntry = userEntries.filter(entry => {
+                return new Date(entry.start).getDate() == ci;
+            });
+            if (tEntry.length > 0) {
+                entryRow += `<td class="center present">${new Date(tEntry[0].start).getHours()}:${new Date(tEntry[0].start).getMinutes() < 10 ? "0" : ""}${new Date(tEntry[0].start).getMinutes()}</td>`;
+                if (tEntry.length > 1) {
+                    monthMs += new Date(tEntry[1].start).getTime() - new Date(tEntry[0].start).getTime();
+                    exitRow += `<td class="center present">${new Date(tEntry[1].start).getHours()}:${new Date(tEntry[1].start).getMinutes() < 10 ? "0" : ""}${new Date(tEntry[1].start).getMinutes()}</td>`;
+                } else {
+                    let tStart = new Date(tEntry[0].start);
+                    let tDate = d;
+                    if (tStart.toLocaleDateString() == tDate.toLocaleDateString()) {
+                        monthMs += tDate.getTime() - tStart.getTime();
+                    }
+                    exitRow += `<td class="center attending">-</td>`;
+                }
+            } else {
+                entryRow += `<td class="center absent" rowspan="2">AB</td>`;
+            }
+        }
+        rows += entryRow;
+        rows += `</tr>`;
+        rows += `<tr><td class="${odd ? 'white' : 'grey lighten-3'}"><button class="btn-floating btn-small btn-flat transparent waves-effect center lh-0" style="margin:-8px auto" onclick="openInfo(${monthMs}, '${user.name}', '${Math.ceil(userEntries.length / 2) + "/" + briefUp}', ${user.leaves})"><i class="material-icons black-text lh-0">launch</i></button></td><td class="center ${odd ? 'white' : 'grey lighten-3'}">Exit</td>${exitRow}</tr>`;
+        odd = !odd;
+    });
+    $("#listView table#forView tbody").html(col);
+    $("#listView table#forView tbody").append(rows);
+
+
+    // For Export
+    col = `<tr><th class="pl-2">Users</th><th>Date</th>`;
+    for (let ci = 1; ci <= today; ci++) {
+        col += `<th ${(new Date(d.setDate(ci)).getDay() == 1) ? `rowspan="${(Object.keys(usersArr).length * 2) + 1}">${ci}` : `>${ci}`}</th>`;
+    }
+    col += "<th>Worked Hrs</th><th>Pending Leaves</th>"
+    col += "</tr>";
+    rows = "";
+    Object.keys(usersArr).forEach(key => {
+        let user = usersArr[key];
+        let entryRow = "";
+        let exitRow = "";
+        let monthMs = 0;
+        let userEntries = entriesArr.filter(entry => {
+            return entry.extraParams.user == key;
+        });
+        let brief = Math.ceil(userEntries.length / 2) + "/" + today;
+        rows += `<tr><td>${user.name}</td><td>Entry</td>`;
+        for (let ci = 1; ci <= today; ci++) {
+            if (new Date(d.setDate(ci)).getDay() == 1) {
+                continue;
+            }
+            let tEntry = userEntries.filter(entry => {
+                return new Date(entry.start).getDate() == ci;
+            });
+            if (tEntry.length > 0) {
+                entryRow += `<td>${new Date(tEntry[0].start).getHours()}:${new Date(tEntry[0].start).getMinutes() < 10 ? "0" : ""}${new Date(tEntry[0].start).getMinutes()}</td>`;
+                if (tEntry.length > 1) {
+                    monthMs += new Date(tEntry[1].start).getTime() - new Date(tEntry[0].start).getTime();
+
+                    exitRow += `<td>${new Date(tEntry[1].start).getHours()}:${new Date(tEntry[1].start).getMinutes() < 10 ? "0" : ""}${new Date(tEntry[1].start).getMinutes()}</td>`;
+                } else {
+                    let tStart = new Date(tEntry[0].start);
+                    let tDate = d;
+                    if (tStart.toLocaleDateString() == tDate.toLocaleDateString()) {
+                        monthMs += tDate.getTime() - tStart.getTime();
+                    }
+                    exitRow += `<td>-</td>`;
+                }
+            } else {
+                entryRow += `<td>AB</td>`;
+                exitRow += `<td>-</td>`;
+            }
+
+        }
+        rows += `${entryRow}<td>${Math.floor(monthMs / 3.6e+6)} Hours, ${Math.floor((monthMs % 3.6e+6) / 60000)} Minutes</td><td>${user.leaves}</td></tr><tr><td>-</td><td>Exit</td>${exitRow}<td>-</td><td>-</td></tr>`;
+    });
+    $("#listView table#monthly-attendance tbody").html(col);
+    $("#listView table#monthly-attendance tbody").append(rows);
+
+    M.Tooltip.init(document.querySelectorAll('.tooltipped'), {});
+    $("#monthly-attendance").tableExport({
+        formats: ['xlsx', 'xls', 'csv', 'txt'],
+        filename: month[navDate.getMonth()] + "-Attendence"
+    });
+}
+
+function getPrevious() {
+    $("#pageTitle").find("button").removeAttr("disabled");
+    $("#pageTitle").find("button[id] i").removeClass("grey-text");
+    $("#pageTitle").find("button[id] i").addClass("black-text");
+
+    navDate.setDate(1);
+    navDate.setHours(-1);
+    if (navDate.getFullYear() < new Date().getFullYear()) {
+        navDate = new Date(new Date().getFullYear(), 0, 31);
+        $("#prevBtn").attr("disabled", "");
+        $("#prevBtn i").removeClass("black-text");
+        $("#prevBtn i").addClass("grey-text");
+    }
+    let dObj = new Date(navDate);
+    $("#monthTitle").text(month[dObj.getMonth()] + ", " + dObj.getFullYear());
+    getListView(dObj);
+}
+
+function getNext() {
+    $("#pageTitle").find("button").removeAttr("disabled");
+    $("#pageTitle").find("button[id] i").removeClass("grey-text");
+    $("#pageTitle").find("button[id] i").addClass("black-text");
+
+    if (navDate.getTime() < Date.now()) {
+        navDate = new Date(navDate.getFullYear(), navDate.getMonth() + 2, 0);
+        if (navDate.getTime() > Date.now()) {
+            navDate = new Date();
+            $("#nextBtn").attr("disabled", "");
+            $("#nextBtn i").removeClass("black-text");
+            $("#nextBtn i").addClass("grey-text");
+        }
+        $("#monthTitle").text(month[navDate.getMonth()] + ", " + navDate.getFullYear());
+        getListView(new Date(navDate));
+    } else {
+        $("#nextBtn").attr("disabled", "");
+        $("#nextBtn i").removeClass("black-text");
+        $("#nextBtn i").addClass("grey-text");
+    }
 }

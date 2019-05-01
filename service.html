@@ -24,25 +24,25 @@ if (isset($_GET['url'])) {
 <head>
     <base href="../">
     <title>
-        <?=$meta['title']?> | WAMP InfoTech
+        <?= $meta['title'] ?> | WAMP InfoTech
     </title>
-    <meta name="description" content="<?=$meta['desc']?>" />
-    <meta name="keywords" content="<?=implode(', ', $meta['keywords'])?>" />
-    <meta itemprop="url" content="https://www.wampinfotech.com/services/<?=$url?>" />
-    <meta property="og:url" content="https://www.wampinfotech.com/services/<?=$url?>" />
-    <meta itemprop="headline" content="<?=$meta['title']?> | WAMP InfoTech" />
-    <meta property="og:title" content="<?=$meta['title']?> | WAMP InfoTech" />
-    <meta property="og:image" content="https://www.wampinfotech.com/<?=$image?>" />
+    <meta name="description" content="<?= $meta['desc'] ?>" />
+    <meta name="keywords" content="<?= implode(', ', $meta['keywords']) ?>" />
+    <meta itemprop="url" content="https://www.wampinfotech.com/services/<?= $url ?>" />
+    <meta property="og:url" content="https://www.wampinfotech.com/services/<?= $url ?>" />
+    <meta itemprop="headline" content="<?= $meta['title'] ?> | WAMP InfoTech" />
+    <meta property="og:title" content="<?= $meta['title'] ?> | WAMP InfoTech" />
+    <meta property="og:image" content="https://www.wampinfotech.com/<?= $image ?>" />
     <meta property="og:image:width" content="640" />
     <meta property="og:image:height" content="320" />
     <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:alt" content="An image, with text '<?=$title?>' written on it." />
+    <meta property="og:image:alt" content="An image, with text '<?= $title ?>' written on it." />
 
-    <meta property="og:description" content="<?=$meta['desc']?>" />
-    <meta name="twitter:site" content="https://www.wampinfotech.com/services/<?=$url?>">
-    <meta name="twitter:card" content="https://www.wampinfotech.com/<?=$image?>">
-    <meta name="twitter:title" content="<?=$meta['title']?> | WAMP InfoTech">
-    <meta name="twitter:description" content="<?=$meta['desc']?>">
+    <meta property="og:description" content="<?= $meta['desc'] ?>" />
+    <meta name="twitter:site" content="https://www.wampinfotech.com/services/<?= $url ?>">
+    <meta name="twitter:card" content="https://www.wampinfotech.com/<?= $image ?>">
+    <meta name="twitter:title" content="<?= $meta['title'] ?> | WAMP InfoTech">
+    <meta name="twitter:description" content="<?= $meta['desc'] ?>">
 
     <?php include "includes/head.inc.php"; ?>
     <link rel="stylesheet" href="css/ihover.css" />
@@ -54,17 +54,17 @@ if (isset($_GET['url'])) {
     <?php include "layouts/nav.inc.html"; ?>
     <div class="scrollable grey lighten-3">
         <header>
-            <img src="<?=$image?>" class="home-banner" alt="<?=$title?>" />
+            <img src="<?= $image ?>" class="home-banner" alt="<?= $title ?>" />
         </header>
         <section id="overview" class="card-panel flow-text">
             <h1 class="center-align fw-600 h4">
-                <?=$title?>
+                <?= $title ?>
             </h1>
             <hr class="short-border" />
             <br />
-            <?=$content?>
+            <?= $content ?>
             <?php include "layouts/service-work.php"; ?>
-            <?=getWork($url)?>
+            <?= getWork($url) ?>
         </section>
 
         <?php include "layouts/footer.inc.html"; ?>
