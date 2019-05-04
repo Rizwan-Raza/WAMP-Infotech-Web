@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 events: entriesArr
             });
             $(".loader").hide();
+            $("#listNav").show();
             $("#listView").show();
 
             calendar.render();
@@ -213,9 +214,9 @@ function getListView(d) {
 }
 
 function getPrevious() {
-    $("#pageTitle").find("button").removeAttr("disabled");
-    $("#pageTitle").find("button[id] i").removeClass("grey-text");
-    $("#pageTitle").find("button[id] i").addClass("black-text");
+    $("#listNav").find("button").removeAttr("disabled");
+    $("#listNav").find("button[id] i").removeClass("grey-text");
+    $("#listNav").find("button[id] i").addClass("black-text");
 
     navDate.setDate(1);
     navDate.setHours(-1);
@@ -231,9 +232,9 @@ function getPrevious() {
 }
 
 function getNext() {
-    $("#pageTitle").find("button").removeAttr("disabled");
-    $("#pageTitle").find("button[id] i").removeClass("grey-text");
-    $("#pageTitle").find("button[id] i").addClass("black-text");
+    $("#listNav").find("button").removeAttr("disabled");
+    $("#listNav").find("button[id] i").removeClass("grey-text");
+    $("#listNav").find("button[id] i").addClass("black-text");
 
     if (navDate.getTime() < Date.now()) {
         navDate = new Date(navDate.getFullYear(), navDate.getMonth() + 2, 0);

@@ -2,6 +2,7 @@ User-Agent: *
 #Files
 Disallow: /terms-and-conditions
 Disallow: /privacy-policy
+Disallow: /app-privacy-policy
 Disallow: /coming-soon
 Disallow: /browserconfig.xml
 
@@ -19,5 +20,8 @@ Disallow: /admin/
 Disallow: /includes/
 Disallow: /layouts/
 Disallow: /php/
+Disallow: /institute/
+Disallow: /isotect/
+Disallow: /library/
 Disallow: /blog/
 Allow: /blog/index.html
