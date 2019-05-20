@@ -107,7 +107,7 @@ function getListView(d) {
 
     let col = `<tr><th colspan="2" class="pl-2">Users\\Date</th>`;
     for (let ci = 1; ci <= today; ci++) {
-        col += `<th ${(new Date(d.setDate(ci)).getDay() == 1) ? `class="red white-text center pos-rel" rowspan="${(Object.keys(usersArr).length * 2) + 1}"><div class="left pos-abs w-full" style="top: 15px;left: 0;">${ci}</div><span style="writing-mode: vertical-rl;text-orientation: upright;text-transform: uppercase">Monday</span>` : `class="center">${ci}`}</th>`;
+        col += `<th class="center">${ci}</th>`;
     }
     col += "</tr>";
     let rows = "";
@@ -123,9 +123,6 @@ function getListView(d) {
         let briefUp = 0;
         rows += `<tr style="border:0"><td class="pl-2 fw-700 ${odd ? 'white' : 'grey lighten-3'}">${user.name.split(" ")[0]}</td><td class="center ${odd ? 'white' : 'grey lighten-3'}">Entry</td>`;
         for (let ci = 1; ci <= today; ci++) {
-            if (new Date(d.setDate(ci)).getDay() == 1) {
-                continue;
-            }
             briefUp++;
             let tEntry = userEntries.filter(entry => {
                 return new Date(entry.start).getDate() == ci;
@@ -159,7 +156,7 @@ function getListView(d) {
     // For Export
     col = `<tr><th class="pl-2">Users</th><th>Date</th>`;
     for (let ci = 1; ci <= today; ci++) {
-        col += `<th ${(new Date(d.setDate(ci)).getDay() == 1) ? `rowspan="${(Object.keys(usersArr).length * 2) + 1}">${ci}` : `>${ci}`}</th>`;
+        col += `<th>${ci}</th>`;
     }
     col += "<th>Worked Hrs</th><th>Pending Leaves</th>"
     col += "</tr>";
@@ -175,9 +172,6 @@ function getListView(d) {
         let brief = Math.ceil(userEntries.length / 2) + "/" + today;
         rows += `<tr><td>${user.name}</td><td>Entry</td>`;
         for (let ci = 1; ci <= today; ci++) {
-            if (new Date(d.setDate(ci)).getDay() == 1) {
-                continue;
-            }
             let tEntry = userEntries.filter(entry => {
                 return new Date(entry.start).getDate() == ci;
             });
