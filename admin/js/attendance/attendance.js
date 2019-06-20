@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
             let td = new Date(d.setDate(d.getDate() + 1));
             calendar = new FullCalendar.Calendar(calendarEl, {
                 plugins: ['interaction', 'dayGrid'],
-                defaultDate: '2019-04-12',
                 validRange: {
                     start: [d.getFullYear(), "01", "01"].join("-"),
                     end: [td.getFullYear(), td.getMonth() + 1, td.getDate()].join("-")

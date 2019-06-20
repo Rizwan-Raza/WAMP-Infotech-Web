@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Builder</title>
+    <base href="/" />
+    <!-- <?php chdir("../"); ?> -->
+    <?php include "includes/head.inc.html"; ?>
+    <link href="themes/css/builder.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo fw-700"><img src="images/wamp-round-logo.min.png" class="brand-img"
+                        alt="WAMP Logo Round" /></a>
+                <h1 class="fw-700 grey-text text-darken-3 left" contenteditable="true">WAMP&nbsp;InfoTech</h1>
+                <a href="javascript:;" data-target="mobile-demo" class="sidenav-trigger"><i
+                        class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="sass.html">Sass</a></li>
+                    <li><a href="badges.html">Components</a></li>
+                    <li><a href="collapsible.html">Javascript</a></li>
+                    <li><a class="waves-effect waves-light btn bg-primary">Publish</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a class="waves-effect waves-light btn bg-primary">Publish</a></li>
+    </ul>
+    <?php include "includes/scripts.inc.html"; ?>
+</body>
+
+</html>

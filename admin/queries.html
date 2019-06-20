@@ -1,110 +1,112 @@
 <?php if (!isset($_SESSION)) {
     session_start();
-} if (isset($_SESSION['admin']) and
-$_SESSION['admin'] == true) {
+}
+if (
+    isset($_SESSION['admin']) and
+    $_SESSION['admin'] == true
+) {
     ?>
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <title>Digital Marketing Company | Web Design Company</title>
-    <base href="../" />
-    <?php include "includes/head.inc.php"; ?>
-    <link rel="stylesheet" href="admin/css/queries.css" />
-</head>
+    <head>
+        <title>Digital Marketing Company | Web Design Company</title>
+        <base href="../" />
+        <?php include "includes/head.inc.php"; ?>
+        <link rel="stylesheet" href="admin/css/queries.css" />
+    </head>
 
-<body>
-    <!-- Page Layout here -->
-    <section class="row m-0 p-0">
-        <?php include "includes/sidenav.inc.html" ?>
+    <body>
+        <!-- Page Layout here -->
+        <section class="row m-0 p-0">
+            <?php include "includes/sidenav.inc.html" ?>
 
-        <div class="col s12 m9 white m-0 p-0" style="height:100vh;overflow:auto">
-            <a class="p-2 left" href="javascript:toggleNav()"><i class="material-icons">menu</i></a>
-            <div class="px-4">
-                <h4 class="my-1">Queries</h4>
+            <div class="col s12 m9 white m-0 p-0" style="height:100vh;overflow:auto">
+                <a class="p-2 left" href="javascript:toggleNav()"><i class="material-icons">menu</i></a>
+                <div class="px-4">
+                    <h4 class="my-1">Queries</h4>
+                </div>
+                <div class="border-top-1 grey-border border-lighten-2 mt-2"></div>
+                <div class="grey lighten-3">
+                    <?php $sql = "SELECT * FROM `queries` ORDER BY `_qid` DESC";
+                    require "../php/db.php";
+                    $conn =
+                        DB::getConnection();
+                    $result = $conn->query($sql); ?>
+
+                    <table>
+                        <?php if ($result and ($num = $result->num_rows) > 0) {
+                            ?>
+                            <thead>
+                                <tr>
+                                    <th class="pl-4">#</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Number</th>
+                                    <th>Message</th>
+                                    <th><i class="material-icons">more_vert</i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php for ($i = 0; $i <
+                                    $num; $i++) {
+                                    $user = $result->fetch_assoc(); ?>
+                                    <tr>
+                                        <td class="pl-4">
+                                            <?= $i + 1 ?>
+                                        </td>
+                                        <td>
+                                            <?= $user['name'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $user['email'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $user['number'] ?>
+                                        </td>
+                                        <td>
+                                            <?php $count = strlen($user['message']); ?>
+                                            <?= substr($user['message'], 0, 50) ?>
+                                            <?php echo $count > 50 ? '... <a href="javascript:openQuery(\'' . $user['name'] . '\', \'' . htmlentities($user['message']) . '\')">Read more</a>' : ''; ?>
+                                        </td>
+                                        <td>
+                                            <button class="transparent btn-flat circle btn-floating btn-medium tooltipped waves-effect waves-circle waves-dark" onclick="deleteQuery(<?= $user['_qid'] ?>, this)" data-tooltip="Delete"><i class="material-icons black-text lh-5">delete</i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            <?php
+                        } ?>
+                        <?php
+                    } else {
+                        ?>
+                            <tr>
+                                <td colspan="5" class="center-align">No queries found</td>
+                            </tr>
+                        <?php
+                    } ?>
+                    </table>
+                </div>
             </div>
-            <div class="border-top-1 grey-border border-lighten-2 mt-2"></div>
-            <div class="grey lighten-3">
-                <?php $sql = "SELECT * FROM `queries`";
-    require "../php/db.php";
-    $conn =
-          DB::getConnection();
-    $result = $conn->query($sql); ?>
+        </section>
 
-                <table>
-                    <?php if ($result and ($num = $result->num_rows) > 0) {
-        ?>
-                    <thead>
-                        <tr>
-                            <th class="pl-4">#</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Number</th>
-                            <th>Message</th>
-                            <th><i class="material-icons">more_vert</i></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php for ($i = 0; $i <
-              $num; $i++) {
-            $user = $result->fetch_assoc(); ?>
-                        <tr>
-                            <td class="pl-4">
-                                <?=$i+1?>
-                            </td>
-                            <td>
-                                <?=$user['name']?>
-                            </td>
-                            <td>
-                                <?=$user['email']?>
-                            </td>
-                            <td>
-                                <?=$user['number']?>
-                            </td>
-                            <td>
-                                <?php $count = strlen($user['message']); ?>
-                                <?=substr($user['message'], 0, 50)?>
-                                <?php echo $count > 50 ? '... <a href="javascript:openQuery(\''.$user['name'].'\', \''.addslashes($user['message']).'\')">Read more</a>' : ''; ?>
-                            </td>
-                            <td>
-                                <button class="transparent btn-flat circle btn-floating btn-medium tooltipped waves-effect waves-circle waves-dark"
-                                    onclick="deleteQuery(<?=$user['_qid']?>, this)" data-tooltip="Delete"><i class="material-icons black-text lh-5">delete</i></button>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <?php
-        } ?>
-                    <?php
-    } else {
-        ?>
-                    <tr>
-                        <td colspan="5" class="center-align">No queries found</td>
-                    </tr>
-                    <?php
-    } ?>
-                </table>
+        <!-- Modal Structure -->
+        <div id="queryModal" class="modal">
+            <div class="modal-content">
+                <h4>Modal Header</h4>
+                <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-close waves-effect waves-red btn-flat">Close</button>
             </div>
         </div>
-    </section>
 
-    <!-- Modal Structure -->
-    <div id="queryModal" class="modal">
-        <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
-        </div>
-        <div class="modal-footer">
-            <button class="modal-close waves-effect waves-red btn-flat">Close</button>
-        </div>
-    </div>
+        <?php include "includes/scripts.inc.php"; ?>
+        <script src="admin/js/queries.js"></script>
+    </body>
 
-    <?php include "includes/scripts.inc.php"; ?>
-    <script src="admin/js/queries.js"></script>
-</body>
-
-</html>
+    </html>
 
 <?php
 } else {
-        header("Location: /admin/?redirect_to=".$_SERVER['REDIRECT_URL']);
-    } ?>
+    header("Location: /admin/?redirect_to=" . $_SERVER['REDIRECT_URL']);
+} ?>

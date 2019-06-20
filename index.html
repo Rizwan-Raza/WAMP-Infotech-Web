@@ -25,6 +25,40 @@
     <?php include "includes/home.css.php"; ?>
     <!-- <link rel="stylesheet" href="css/ihover.css" />
     <link rel="stylesheet" href="css/home.css" /> -->
+    <style>
+        .play-youtube-video {
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .youtube-video-place.yt-video:hover .play-icon .ytp-large-play-button-bg {
+            fill: #f00;
+            fill-opacity: 1;
+        }
+
+        .play-icon {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 68px;
+            height: 48px;
+            margin-left: -34px;
+            margin-top: -24px;
+            -moz-transition: opacity .25s cubic-bezier(0.0, 0.0, 0.2, 1);
+            -webkit-transition: opacity .25s cubic-bezier(0.0, 0.0, 0.2, 1);
+            transition: opacity .25s cubic-bezier(0.0, 0.0, 0.2, 1);
+            z-index: 63;
+            cursor: pointer;
+        }
+
+        .play-icon .ytp-large-play-button-bg {
+            -moz-transition: fill .1s cubic-bezier(0.4, 0.0, 1, 1), fill-opacity .1s cubic-bezier(0.4, 0.0, 1, 1);
+            -webkit-transition: fill .1s cubic-bezier(0.4, 0.0, 1, 1), fill-opacity .1s cubic-bezier(0.4, 0.0, 1, 1);
+            transition: fill .1s cubic-bezier(0.4, 0.0, 1, 1), fill-opacity .1s cubic-bezier(0.4, 0.0, 1, 1);
+            fill: #212121;
+            fill-opacity: .8;
+        }
+    </style>
 </head>
 
 <body>
@@ -40,7 +74,7 @@
 
     <div class="scrollable grey lighten-3">
         <header class="mb-4">
-            <img src="images/banner1_x600.jxr" class="home-banner lazy" data-src="images/banner_1400.jpg"
+            <img src="images/banner1_x600.jpg" class="home-banner lazy" data-src="images/banner_1400.jpg"
                 data-srcset="images/banner_large.jpg 1600w, images/banner_1400.jpg 1400w, images/banner_1200.jpg 1200w, images/banner_1000.jpg 1000w, images/banner_600.jpg 600w"
                 alt="WAMP Home Banner" />
         </header>
@@ -53,9 +87,24 @@
                         <div class="home-video white z-depth-2 border-2 grey-border border-radius-8">
                             <div class="start-button border-2 primary-border border-round"
                                 onclick="window.location.href='admin'"></div>
-                            <iframe src="https://www.youtube.com/embed/WL44vPIqkds" frameborder="0"
+
+
+                            <div class="youtube-video-place yt-video"
+                                data-yt-url="https://www.youtube.com/embed/WL44vPIqkds?rel=0&showinfo=0&autoplay=1">
+                                <img src="images/thumbnail.jpg" async class="play-youtube-video full">
+                                <div class="play-icon">
+                                    <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%">
+                                        <path class="ytp-large-play-button-bg"
+                                            d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"
+                                            fill="#212121" fill-opacity="0.8"></path>
+                                        <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!--  <iframe src="https://www.youtube.com/embed/WL44vPIqkds" frameborder="0"
                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen class="yt-video"></iframe>
+                                allowfullscreen class="yt-video"></iframe> -->
                         </div>
                     </div>
                 </div>
@@ -235,6 +284,20 @@
     </div>
     <?php include "includes/scripts.inc.php"; ?>
     <?php require_once "includes/home.js.php"; ?>
+    <script>
+        var video_wrapper = $('.youtube-video-place');
+        //  Check to see if youtube wrapper exists
+        if (video_wrapper.length) {
+            // If user clicks on the video wrapper load the video.
+            $('.play-youtube-video, .play-icon').on('click', function () {
+                /* Dynamically inject the iframe on demand of the user.
+                 Pull the youtube url from the data attribute on the wrapper element. */
+                video_wrapper.html('<iframe allowfullscreen frameborder="0" class="yt-video" src="' + video_wrapper.data('yt-url') + '"></iframe>');
+                video_wrapper.removeClass("yt-video");
+            });
+        }
+    </script>
+
     <!-- <script src="ui-scripts/home.js"></script> -->
 </body>
 
