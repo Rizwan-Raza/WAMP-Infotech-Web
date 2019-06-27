@@ -22,43 +22,9 @@
     <meta name="twitter:site" content="https://www.wampinfotech.com">
     <meta name="twitter:card" content="https://www.wampinfotech.com/images/banner1.jpg">
     <?php include "includes/head.inc.php"; ?>
-    <?php include "includes/home.css.php"; ?>
-    <!-- <link rel="stylesheet" href="css/ihover.css" />
-    <link rel="stylesheet" href="css/home.css" /> -->
-    <style>
-        .play-youtube-video {
-            object-fit: cover;
-            object-position: top;
-        }
-
-        .youtube-video-place.yt-video:hover .play-icon .ytp-large-play-button-bg {
-            fill: #f00;
-            fill-opacity: 1;
-        }
-
-        .play-icon {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            width: 68px;
-            height: 48px;
-            margin-left: -34px;
-            margin-top: -24px;
-            -moz-transition: opacity .25s cubic-bezier(0.0, 0.0, 0.2, 1);
-            -webkit-transition: opacity .25s cubic-bezier(0.0, 0.0, 0.2, 1);
-            transition: opacity .25s cubic-bezier(0.0, 0.0, 0.2, 1);
-            z-index: 63;
-            cursor: pointer;
-        }
-
-        .play-icon .ytp-large-play-button-bg {
-            -moz-transition: fill .1s cubic-bezier(0.4, 0.0, 1, 1), fill-opacity .1s cubic-bezier(0.4, 0.0, 1, 1);
-            -webkit-transition: fill .1s cubic-bezier(0.4, 0.0, 1, 1), fill-opacity .1s cubic-bezier(0.4, 0.0, 1, 1);
-            transition: fill .1s cubic-bezier(0.4, 0.0, 1, 1), fill-opacity .1s cubic-bezier(0.4, 0.0, 1, 1);
-            fill: #212121;
-            fill-opacity: .8;
-        }
-    </style>
+    <!-- < ? php // include "includes/home.css.php"; ? > -->
+    <!-- <link rel="stylesheet" href="css/ihover.css" /> -->
+    <link rel="stylesheet" href="css/home.css" />
 </head>
 
 <body>
@@ -75,7 +41,7 @@
     <div class="scrollable grey lighten-3">
         <header class="mb-4">
             <img src="images/banner1_x600.jpg" class="home-banner lazy" data-src="images/banner_1400.jpg"
-                data-srcset="images/banner_large.jpg 1600w, images/banner_1400.jpg 1400w, images/banner_1200.jpg 1200w, images/banner_1000.jpg 1000w, images/banner_600.jpg 600w"
+                data-srcset="images/banner_600.jpg 600w, images/banner_1000.jpg 1000w, images/banner_1200.jpg 1200w, images/banner_large.jpg 1600w, images/banner_1400.jpg 1400w"
                 alt="WAMP Home Banner" />
         </header>
         <br class="hide-on-small-only" />
@@ -283,22 +249,9 @@
         <?php include "layouts/footer.inc.html"; ?>
     </div>
     <?php include "includes/scripts.inc.php"; ?>
-    <?php require_once "includes/home.js.php"; ?>
-    <script>
-        var video_wrapper = $('.youtube-video-place');
-        //  Check to see if youtube wrapper exists
-        if (video_wrapper.length) {
-            // If user clicks on the video wrapper load the video.
-            $('.play-youtube-video, .play-icon').on('click', function () {
-                /* Dynamically inject the iframe on demand of the user.
-                 Pull the youtube url from the data attribute on the wrapper element. */
-                video_wrapper.html('<iframe allowfullscreen frameborder="0" class="yt-video" src="' + video_wrapper.data('yt-url') + '"></iframe>');
-                video_wrapper.removeClass("yt-video");
-            });
-        }
-    </script>
+    <!-- < ? php // require_once "includes/home.js.php"; ? > -->
 
-    <!-- <script src="ui-scripts/home.js"></script> -->
+    <script src="ui-scripts/home.js"></script>
 </body>
 
 </html>
