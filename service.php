@@ -72,6 +72,22 @@ if (isset($_GET['url'])) {
 
     <?php include "includes/scripts.inc.php"; ?>
     <script src="ui-scripts/services.js"></script>
+    <?php if ($_GET['url'] == "domain-and-hosting") { ?>
+    <div id="congratsModal" class="modal border-radius-8" style="max-width: 336px">
+        <div class="modal-content center" style="padding:0;line-height: 0;font-size:0">
+            <a href="//namecheap.pxf.io/c/1878977/386451/5618" style="line-height: 0;font-size:0"><img src="//a.impactradius-go.com/display-ad/5618-386451" border="0" alt="Domain names for just 88 cents!" width="336" height="280" /></a><img height="0" width="0" src="//namecheap.pxf.io/i/1878977/386451/5618" style="position:absolute;visibility:hidden;" border="0" />
+        </div>
+    </div>
+    <script>
+        if (!sessionStorage.getItem("rewardShown")) {
+            setTimeout(() => {
+                $("#congratsModal").modal("open");
+                sessionStorage.setItem("rewardShown", true);
+            }, 10 * 1000);
+        }
+    </script>
+
+    <?php } ?>
 </body>
 
 </html>
